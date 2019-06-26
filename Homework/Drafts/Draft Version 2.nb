@@ -1,0 +1,1133 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     44462,       1125]
+NotebookOptionsPosition[     38615,       1030]
+NotebookOutlinePosition[     38959,       1045]
+CellTagsIndexPosition[     38916,       1042]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ StyleBox[
+  RowBox[{
+  "Integer", " ", "Partitions", " ", "And", " ", "Its", " ", "Applications"}],
+   "Title"], "\n", 
+ StyleBox[
+  RowBox[{
+   RowBox[{"Yun", "-", 
+    RowBox[{"chi", " ", "Tang"}]}], ",", " ", 
+   RowBox[{"June", " ", "26"}], ",", " ", "2019"}], "Subtitle"]}], "Input",
+ CellChangeTimes->{{3.770463655002036*^9, 
+  3.770463655005042*^9}},ExpressionUUID->"589c57bc-63ca-422e-bd26-\
+34556e24d6f2"],
+
+Cell["\<\
+Integer partition is a way of writing out a positive integer n as a sum of \
+positive integers. For example, there are 8 ways to partition n = 5, as shown \
+below:\
+\>", "Text",
+ CellChangeTimes->{{3.7704636867141547`*^9, 
+  3.770463744543676*^9}},ExpressionUUID->"6d4b1549-2dbe-461b-af2f-\
+867a50b8e7bd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Column", "[", 
+  RowBox[{"IntegerPartitions", "[", "5", "]"}], "]"}]], "Input",
+ CellLabel->"In[30]:=",ExpressionUUID->"ec056050-258f-4e74-b4d1-15980cd09445"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     RowBox[{"{", "5", "}"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"4", ",", "1"}], "}"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"3", ",", "2"}], "}"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1", ",", "1"}], "}"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2", ",", "1"}], "}"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"2", ",", "1", ",", "1", ",", "1"}], "}"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{3.7704639398755455`*^9},
+ CellLabel->"Out[30]=",ExpressionUUID->"002b6d40-d8ee-4ed4-bc2e-dd098994d6e4"]
+}, Open  ]],
+
+Cell["\<\
+One may also examine the number of ways to partition n into m parts for some \
+integer m <= n. Note that since each of the parts are greater or equal to 1 \
+the value m has to be no greater than n. \
+\>", "Text",
+ CellChangeTimes->{{3.7704639432247777`*^9, 3.7704639599168973`*^9}, {
+  3.770463992217411*^9, 
+  3.7704640628004274`*^9}},ExpressionUUID->"7d47cd36-304f-4ef9-8b00-\
+519c5d1e80b6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Column", "[", 
+  RowBox[{"IntegerPartitions", "[", 
+   RowBox[{"5", ",", 
+    RowBox[{"{", "3", "}"}]}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.770464213705945*^9, 3.770464227433089*^9}},
+ CellLabel->"In[31]:=",ExpressionUUID->"055bd93f-891d-4eb5-8d4e-db8c50527287"],
+
+Cell[BoxData[
+ TagBox[GridBox[{
+    {
+     RowBox[{"{", 
+      RowBox[{"3", ",", "1", ",", "1"}], "}"}]},
+    {
+     RowBox[{"{", 
+      RowBox[{"2", ",", "2", ",", "1"}], "}"}]}
+   },
+   DefaultBaseStyle->"Column",
+   GridBoxAlignment->{"Columns" -> {{Left}}},
+   GridBoxItemSize->{"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+  "Column"]], "Output",
+ CellChangeTimes->{3.770464228002469*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"c69a75ee-0cd0-49e8-8c0f-5d8f61b49643"]
+}, Open  ]],
+
+Cell["\<\
+One common question regarding integer partitions is to examine how many ways \
+can one partition a given number n, or examining how many ways can one \
+partition a given number n into m parts. For example, there is a total of 42 \
+ways to partition n = 10:\
+\>", "Text",
+ CellChangeTimes->{{3.770464250624533*^9, 3.7704642997822723`*^9}, {
+  3.770464399849928*^9, 
+  3.770464460889595*^9}},ExpressionUUID->"efd03542-fd5b-4ce8-87a9-\
+f8b014cf35ef"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"NumberPartitions", "[", "n_Integer", "]"}], " ", ":=", " ", 
+   RowBox[{"Length", "[", 
+    RowBox[{"IntegerPartitions", "[", "n", "]"}], "]"}]}],
+  FontFamily->"Consolas",
+  FontWeight->"Bold"]], "Input",
+ CellChangeTimes->{{3.7704644635373588`*^9, 3.77046448516076*^9}},
+ CellLabel->"In[11]:=",ExpressionUUID->"92ae435c-5a21-4131-845a-7b3e94419857"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"NumberPartitions", "[", "10", "]"}]], "Input",
+ CellChangeTimes->{{3.770464489560688*^9, 3.770464493902576*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"e6204e64-2b2f-4c62-bf05-ebba96ac96f5"],
+
+Cell[BoxData["42"], "Output",
+ CellChangeTimes->{3.770464494559021*^9},
+ CellLabel->"Out[33]=",ExpressionUUID->"e8172009-a991-451f-ba14-5863e24103d0"]
+}, Open  ]],
+
+Cell["\<\
+We may also break down how many ways we may break down the 42 partitions and \
+see how many ways can one partition 10 into m parts, for 1 <= m <= 10:\
+\>", "Text",
+ CellChangeTimes->{{3.770464580414524*^9, 3.7704646541573305`*^9}, {
+  3.7704646864208207`*^9, 3.770464686538907*^9}, {3.770464737089572*^9, 
+  3.7704647581025667`*^9}, {3.770464811073547*^9, 
+  3.7704648799997797`*^9}},ExpressionUUID->"8f879db6-670b-4c67-a443-\
+16e47cc45bb3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Range", "[", "10", "]"}], " ", "\[Rule]", " ", 
+  StyleBox[
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"Length", "[", 
+      RowBox[{"IntegerPartitions", "[", 
+       RowBox[{"10", ",", 
+        RowBox[{"{", 
+         StyleBox[
+          StyleBox[
+           StyleBox[
+            StyleBox[
+             StyleBox[
+              StyleBox["m",
+               FontFamily->"Consolas",
+               FontWeight->"Bold"],
+              FontFamily->"Consolas",
+              FontWeight->"Bold"],
+             FontFamily->"Consolas",
+             FontWeight->"Bold"],
+            FontFamily->"Consolas",
+            FontWeight->"Bold"],
+           FontFamily->"Consolas",
+           FontWeight->"Bold"],
+          FontFamily->"Consolas",
+          FontWeight->"Bold"], "}"}]}], "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox["m",
+           FontFamily->"Consolas",
+           FontWeight->"Bold"],
+          FontFamily->"Consolas",
+          FontWeight->"Bold"],
+         FontFamily->"Consolas",
+         FontWeight->"Bold"],
+        FontFamily->"Consolas",
+        FontWeight->"Bold"], ",", "10"}], "}"}]}], "]"}],
+   FontFamily->"Consolas",
+   FontWeight->"Bold"]}]], "Input",
+ CellChangeTimes->{{3.7704648835541472`*^9, 3.7704649220324955`*^9}, {
+  3.770464964188575*^9, 3.7704649654063845`*^9}, {3.770465779949746*^9, 
+  3.7704657942883043`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"9018eeb4-4076-4b32-9dfc-9d5273f0b210"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"{", 
+   RowBox[{
+   "1", ",", "2", ",", "3", ",", "4", ",", "5", ",", "6", ",", "7", ",", "8", 
+    ",", "9", ",", "10"}], "}"}], "\[Rule]", 
+  RowBox[{"{", 
+   RowBox[{
+   "1", ",", "5", ",", "8", ",", "9", ",", "7", ",", "5", ",", "3", ",", "2", 
+    ",", "1", ",", "1"}], "}"}]}]], "Output",
+ CellChangeTimes->{{3.770464917945055*^9, 3.7704649239177494`*^9}, 
+   3.770464966368025*^9, 3.7704657955211253`*^9, 3.7705665545661345`*^9},
+ CellLabel->"Out[12]=",ExpressionUUID->"95bf900e-b8d3-4f86-acb0-5a0e0b95aed3"]
+}, Open  ]],
+
+Cell["\<\
+One may wonder at this point how one may determine the number of partitions \
+of n without listing every single partition example, which is extremely \
+cumbersome if n is of a large value. \
+\>", "Text",
+ CellChangeTimes->{{3.770464783472473*^9, 3.7704648021929407`*^9}, {
+  3.7704652435552006`*^9, 
+  3.7704652487519593`*^9}},ExpressionUUID->"52f1bda8-67aa-495d-b8f5-\
+911c6c2fd763"],
+
+Cell["\<\
+There is a property that will allow us to examine this question. Let us \
+suppose we are partitioning 10 into m parts. Then each of the parts have to \
+be greater than or equal to 1. This means that there is only (10-m) left to \
+distribute to n parts after each of the m parts have been given 1. This means \
+that the number of ways to partition 10 into m parts must be equal to the \
+number of ways to partition (10-m) into a parts for all m less than equal to \
+a. \
+\>", "Text",
+ CellChangeTimes->{{3.7704652514337444`*^9, 3.770465346888327*^9}, {
+  3.7704656895835533`*^9, 
+  3.7704657713840475`*^9}},ExpressionUUID->"54f89a8a-aee4-4677-bdb7-\
+d4019146bce7"],
+
+Cell["\<\
+We can express this property using Ferrer\[CloseCurlyQuote]s Diagram. Ferrer\
+\[CloseCurlyQuote]s Diagram is very commonly used to express an integer \
+partition in diagram form where each part k in the partition is expressed as \
+k dots horizontally, each part in a different row. The example below shows \
+how one may express the partition {4,4,1,1} of the number 10: \
+\>", "Text",
+ CellChangeTimes->{{3.770484031927819*^9, 3.770484080302573*^9}, {
+  3.770484364007196*^9, 3.7704843690571165`*^9}, {3.770484635588329*^9, 
+  3.7704848397816563`*^9}},ExpressionUUID->"404e8cae-44bc-4471-86a6-\
+e05a3de5d38e"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Needs", "[", "\"\<Combinatorica`\>\"", "]"}]], "Input",
+ CellChangeTimes->{{3.77046612256843*^9, 3.7704661385207853`*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"fa2e15e0-d7f0-49df-b9d6-500dcd21b45a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General","compat",
+   "\"Combinatorica Graph and Permutations functionality has been superseded \
+by preloaded functionality. The package now being loaded may conflict with \
+this. Please see the Compatibility Guide for details.\"",2,13,1,
+   23867197421232049035,"Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.7705028048183675`*^9, 3.770503470726127*^9, 
+  3.7705055107458997`*^9, 3.770566557199498*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"673162f9-f10a-45b9-8750-250f6bf9d90b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FerrersDiagram", "[", 
+  RowBox[{"{", 
+   RowBox[{"4", ",", "4", ",", "1", ",", "1"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7704839551065035`*^9, 3.770483964233348*^9}, {
+  3.7704843833479013`*^9, 3.770484384787437*^9}},
+ CellLabel->"In[14]:=",ExpressionUUID->"05a5c9f4-4dfe-4fe6-b8c4-32b12c98dff3"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {PointSize[0.05], PointBox[{1, 1}], 
+   PointBox[{1, 2}], {PointBox[{1, 3}], PointBox[{2, 3}], PointBox[{3, 3}], 
+    PointBox[{4, 3}]}, {PointBox[{1, 4}], PointBox[{2, 4}], PointBox[{3, 4}], 
+    PointBox[{4, 4}]}},
+  AspectRatio->1,
+  PlotRange->All]], "Output",
+ CellChangeTimes->{
+  3.7704839649426603`*^9, 3.7704843854362993`*^9, {3.770502798044863*^9, 
+   3.7705028078704*^9}, 3.770503473271822*^9, {3.770505507955041*^9, 
+   3.7705055138429613`*^9}, 3.770566560297001*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"878c9699-9321-4dc9-9a9f-4426cfda6092"]
+}, Open  ]],
+
+Cell["\<\
+With Ferrer\[CloseCurlyQuote]s digram, we can illustrate why my claim is true \
+by splitting the dots into two categories. The category of the dots colored \
+in red is the first dot for every number, and there will be a total of m \
+dots. Then, the (10-m) dots that are left will be distributed in forms of the \
+blue dots. The blue dots may be distributed into 1, 2, 3, or 4 groups. The \
+diagram below displays how the coloring may be done for {4,4,1,1}. As we can \
+see, the blue dots will form the partition {3,3}.\
+\>", "Text",
+ CellChangeTimes->{{3.7704848444768085`*^9, 3.7704848834849634`*^9}, {
+  3.770495410574709*^9, 
+  3.7704956003230443`*^9}},ExpressionUUID->"51f943e2-1c4c-4a19-9391-\
+5b1b97b841a0"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullForm", "[", 
+  RowBox[{"FerrersDiagram", "[", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "4", ",", "1", ",", "1"}], "}"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.770483969663581*^9, 3.7704839843175554`*^9}, {
+  3.770484392140183*^9, 3.770484395961277*^9}},
+ CellLabel->"In[15]:=",ExpressionUUID->"be7d462d-c950-4d48-abb4-8ddac4feb934"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"List", "[", 
+      RowBox[{
+       RowBox[{"PointSize", "[", "0.05`", "]"}], ",", 
+       RowBox[{"List", "[", 
+        RowBox[{"Point", "[", 
+         RowBox[{"List", "[", 
+          RowBox[{"1", ",", "1"}], "]"}], "]"}], "]"}], ",", 
+       RowBox[{"List", "[", 
+        RowBox[{"Point", "[", 
+         RowBox[{"List", "[", 
+          RowBox[{"1", ",", "2"}], "]"}], "]"}], "]"}], ",", 
+       RowBox[{"List", "[", 
+        RowBox[{
+         RowBox[{"Point", "[", 
+          RowBox[{"List", "[", 
+           RowBox[{"1", ",", "3"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"List", "[", 
+           RowBox[{"2", ",", "3"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"List", "[", 
+           RowBox[{"3", ",", "3"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"List", "[", 
+           RowBox[{"4", ",", "3"}], "]"}], "]"}]}], "]"}], ",", 
+       RowBox[{"List", "[", 
+        RowBox[{
+         RowBox[{"Point", "[", 
+          RowBox[{"List", "[", 
+           RowBox[{"1", ",", "4"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"List", "[", 
+           RowBox[{"2", ",", "4"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"List", "[", 
+           RowBox[{"3", ",", "4"}], "]"}], "]"}], ",", 
+         RowBox[{"Point", "[", 
+          RowBox[{"List", "[", 
+           RowBox[{"4", ",", "4"}], "]"}], "]"}]}], "]"}]}], "]"}], ",", 
+     RowBox[{"List", "[", 
+      RowBox[{
+       RowBox[{"Rule", "[", 
+        RowBox[{"AspectRatio", ",", "1"}], "]"}], ",", 
+       RowBox[{"Rule", "[", 
+        RowBox[{"PlotRange", ",", "All"}], "]"}]}], "]"}]}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Output",
+ CellChangeTimes->{3.7704839853202076`*^9, 3.7704843965222254`*^9, 
+  3.7705028119311104`*^9, 3.770503477149405*^9, 3.770566563895398*^9},
+ CellLabel->
+  "Out[15]//FullForm=",ExpressionUUID->"de14e5fb-33d7-483e-bc54-fddfead80fc1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   RowBox[{"Graphics", "[", 
+    RowBox[{
+     RowBox[{"List", "[", 
+      RowBox[{
+       RowBox[{"PointSize", "[", "0.05`", "]"}], ",", 
+       RowBox[{"List", "[", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{"Point", "[", 
+           RowBox[{"List", "[", 
+            RowBox[{"1", ",", "1"}], "]"}], "]"}], ",", "Red"}], "]"}], "]"}],
+        ",", 
+       RowBox[{"List", "[", 
+        RowBox[{"Style", "[", 
+         RowBox[{
+          RowBox[{"Point", "[", 
+           RowBox[{"List", "[", 
+            RowBox[{"1", ",", "2"}], "]"}], "]"}], ",", "Red"}], "]"}], "]"}],
+        ",", 
+       RowBox[{"List", "[", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Point", "[", 
+            RowBox[{"List", "[", 
+             RowBox[{"1", ",", "3"}], "]"}], "]"}], ",", "Red"}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Point", "[", 
+            RowBox[{"List", "[", 
+             RowBox[{"2", ",", "3"}], "]"}], "]"}], ",", "Blue"}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Point", "[", 
+            RowBox[{"List", "[", 
+             RowBox[{"3", ",", "3"}], "]"}], "]"}], ",", "Blue"}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Point", "[", 
+            RowBox[{"List", "[", 
+             RowBox[{"4", ",", "3"}], "]"}], "]"}], ",", "Blue"}], "]"}]}], 
+        "]"}], ",", 
+       RowBox[{"List", "[", 
+        RowBox[{
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Point", "[", 
+            RowBox[{"List", "[", 
+             RowBox[{"1", ",", "4"}], "]"}], "]"}], ",", "Red"}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Point", "[", 
+            RowBox[{"List", "[", 
+             RowBox[{"2", ",", "4"}], "]"}], "]"}], ",", "Blue"}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Point", "[", 
+            RowBox[{"List", "[", 
+             RowBox[{"3", ",", "4"}], "]"}], "]"}], ",", "Blue"}], "]"}], ",", 
+         RowBox[{"Style", "[", 
+          RowBox[{
+           RowBox[{"Point", "[", 
+            RowBox[{"List", "[", 
+             RowBox[{"4", ",", "4"}], "]"}], "]"}], ",", "Blue"}], "]"}]}], 
+        "]"}]}], "]"}], ",", 
+     RowBox[{"List", "[", 
+      RowBox[{
+       RowBox[{"Rule", "[", 
+        RowBox[{"AspectRatio", ",", "1"}], "]"}], ",", 
+       RowBox[{"Rule", "[", 
+        RowBox[{"PlotRange", ",", "All"}], "]"}]}], "]"}]}], "]"}],
+   ShowSpecialCharacters->False,
+   ShowStringCharacters->True,
+   NumberMarks->True],
+  FullForm]], "Input",
+ CellChangeTimes->{{3.77048447500136*^9, 3.7704844892391376`*^9}, {
+  3.7704845243833914`*^9, 3.770484620346719*^9}},
+ CellLabel->"In[16]:=",ExpressionUUID->"9f53d9d3-e9ab-4186-be3a-bb34e93c6c67"],
+
+Cell[BoxData[
+ GraphicsBox[
+  {PointSize[0.05], 
+   {RGBColor[1, 0, 0], PointBox[{1, 1}]}, 
+   {RGBColor[1, 0, 0], PointBox[{1, 2}]}, {
+    {RGBColor[1, 0, 0], PointBox[{1, 3}]}, 
+    {RGBColor[0, 0, 1], PointBox[{2, 3}]}, 
+    {RGBColor[0, 0, 1], PointBox[{3, 3}]}, 
+    {RGBColor[0, 0, 1], PointBox[{4, 3}]}}, {
+    {RGBColor[1, 0, 0], PointBox[{1, 4}]}, 
+    {RGBColor[0, 0, 1], PointBox[{2, 4}]}, 
+    {RGBColor[0, 0, 1], PointBox[{3, 4}]}, 
+    {RGBColor[0, 0, 1], PointBox[{4, 4}]}}},
+  AspectRatio->1,
+  PlotRange->All]], "Output",
+ CellChangeTimes->{
+  3.7704844927875433`*^9, {3.770484525977626*^9, 3.7704845864811587`*^9}, 
+   3.7704846216240506`*^9, 3.7705028473633137`*^9, 3.7705034805847*^9, 
+   3.770566569470849*^9},
+ CellLabel->"Out[16]=",ExpressionUUID->"fb5b8926-e3a8-477f-9a5f-3235129db7b4"]
+}, Open  ]],
+
+Cell["\<\
+This means that there is another way to calculate the number of partitions \
+for a given number n: The number of partitions of n will be equivalent to sum \
+of the number of partitions of (10-m) into at most m parts, where m may be \
+any integer between 1 and 10 inclusive.  We can first list the number of ways \
+we may partition some integer n, in this case 10, into m parts for each \
+possible value m. Then we add them together to generate the same conclusion: \
+there are 42 ways to integer partition the number 10.\
+\>", "Text",
+ CellChangeTimes->{{3.770495610365733*^9, 3.7704956922012434`*^9}, {
+  3.770495856926959*^9, 
+  3.7704959874779234`*^9}},ExpressionUUID->"80b884b3-5f4b-4705-817d-\
+172186e4f438"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"AddSubNumberPartitions", "[", "n_Integer", "]"}], " ", ":=", " ", 
+   RowBox[{"ReplacePart", 
+    StyleBox[
+     StyleBox[
+      StyleBox[
+       StyleBox["[",
+        FontFamily->"Consolas",
+        FontWeight->"Bold"],
+       FontFamily->"Consolas",
+       FontWeight->"Bold"],
+      FontFamily->"Consolas",
+      FontWeight->"Bold"],
+     FontFamily->"Consolas",
+     FontWeight->"Bold"], 
+    RowBox[{
+     RowBox[{
+      StyleBox[
+       RowBox[{
+        StyleBox["T",
+         FontFamily->"Consolas",
+         FontWeight->"Bold"], "able"}]], 
+      StyleBox[
+       StyleBox[
+        StyleBox[
+         StyleBox[
+          StyleBox[
+           StyleBox["[",
+            FontFamily->"Consolas",
+            FontWeight->"Bold"],
+           FontFamily->"Consolas",
+           FontWeight->"Bold"],
+          FontFamily->"Consolas",
+          FontWeight->"Bold"],
+         FontFamily->"Consolas",
+         FontWeight->"Bold"],
+        FontFamily->"Consolas",
+        FontWeight->"Bold"],
+       FontFamily->"Consolas",
+       FontWeight->"Bold"], 
+      RowBox[{
+       RowBox[{"Total", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Length", "[", 
+           RowBox[{"IntegerPartitions", "[", 
+            RowBox[{
+             RowBox[{"n", "-", "m"}], ",", 
+             RowBox[{"{", "#", "}"}]}], "]"}], "]"}], "&"}], "/@", 
+         RowBox[{"Range", "[", "m", "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"m", ",", "n"}], "}"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"n", " ", "\[Rule]", " ", "1"}], "}"}]}], "]"}]}],
+  FontFamily->"Consolas",
+  FontWeight->"Bold"]], "Input",
+ CellChangeTimes->{{3.7704957286785393`*^9, 3.7704958237168455`*^9}, {
+  3.7705028525267596`*^9, 3.7705029126408024`*^9}},
+ CellLabel->"In[17]:=",ExpressionUUID->"7de50cc6-1b31-4a11-ae3f-0c24029bfd0c"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"AddSubNumberPartitions", "[", "10", "]"}],
+  FontFamily->"Consolas",
+  FontWeight->"Bold"]], "Input",
+ CellLabel->"In[10]:=",ExpressionUUID->"4d83ed87-ee7b-4f9d-840f-987a375685e2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "5", ",", "8", ",", "9", ",", "7", ",", "5", ",", "3", ",", "2", 
+   ",", "1", ",", "1"}], "}"}]], "Output",
+ CellChangeTimes->{3.770495841142453*^9, 3.7705028781948495`*^9, 
+  3.7705029180253835`*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"85b0707d-439d-4705-853c-b26331a7e96d"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"Total", "[", 
+   RowBox[{"AddSubNumberPartitions", "[", "10", "]"}], "]"}],
+  FontFamily->"Consolas",
+  FontWeight->"Bold"]], "Input",
+ CellLabel->"In[11]:=",ExpressionUUID->"546cf822-d206-4d59-ba57-b35b2d63e7f1"],
+
+Cell[BoxData["42"], "Output",
+ CellChangeTimes->{3.770495853283533*^9, 3.7705029197875624`*^9},
+ CellLabel->"Out[11]=",ExpressionUUID->"3cb7191d-4b45-4dd1-9c10-509058a4ff79"]
+}, Open  ]],
+
+Cell["\<\
+Now the question arises on whether the subject of integer partitions may be \
+used in other areas. After given some thought, I found a way to apply \
+knowledge regarding integer partitions. Let us there is a pile of n discrete \
+objects and you have exactly k of them. Your friend tells you that he has at \
+least one object but you do not know how many of them your friend has. You \
+also do not know how many people is this object distributed to. The question \
+is: Can you determine the probability that your friend has less, more, or an \
+equal number of objects compared to you? \
+\>", "Text",
+ CellChangeTimes->{{3.770495996746093*^9, 3.770496105561802*^9}, {
+  3.770496620932372*^9, 3.7704967405140333`*^9}, {3.7704973359923406`*^9, 
+  3.7704973364286313`*^9}, {3.7704980069136734`*^9, 
+  3.7704980089870563`*^9}},ExpressionUUID->"3e364332-0c3d-4b0c-9e6a-\
+e9c9e27b2685"],
+
+Cell["\<\
+This is where integer partitions could come in handy. Given that the n values \
+are determined, and also the fact that k must exist in the partition, we know \
+exactly what partitions are possible. In each of these partitions, the \
+quantity of objects that your friend may have, as well as the number of \
+possible ways to achieve that quantity, is set. \
+\>", "Text",
+ CellChangeTimes->{{3.7704968546154385`*^9, 3.770496868723842*^9}, {
+  3.7704973065734553`*^9, 3.770497339503678*^9}, {3.770497475372613*^9, 
+  3.7704975050347652`*^9}, {3.7704977060658484`*^9, 
+  3.7704977804607735`*^9}},ExpressionUUID->"6b103f94-d60e-408b-8f72-\
+9990af9bbc05"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"possiblePartitions", "[", 
+   RowBox[{"t_Integer", ",", "m_Integer"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Select", "[", 
+   RowBox[{
+    RowBox[{"IntegerPartitions", "[", "t", "]"}], ",", 
+    RowBox[{
+     RowBox[{"MemberQ", "[", 
+      RowBox[{"#", ",", "m"}], "]"}], "&"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7704975345681925`*^9, 3.7704975707382746`*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"aaf39442-1e8b-41b0-a718-473f7ca61ccb"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"possiblePartitions", "[", 
+  RowBox[{"8", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.770497573036804*^9, 3.770497577599083*^9}},
+ CellLabel->
+  "In[425]:=",ExpressionUUID->"6c333283-564b-414d-9cf9-11686330b469"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"5", ",", "3"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"4", ",", "3", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "3", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "3", ",", "1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "2", ",", "2", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "2", ",", "1", ",", "1", ",", "1"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"3", ",", "1", ",", "1", ",", "1", ",", "1", ",", "1"}], "}"}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{3.770497578436639*^9},
+ CellLabel->
+  "Out[425]=",ExpressionUUID->"7937b915-b51e-48f4-9d76-20e4ddefacec"]
+}, Open  ]],
+
+Cell["\<\
+(Proposed Change Of The Next Section)
+With these possible partitions, we can determine, discluding itself, what the \
+probability of having a part less than, equal to, and greater than the \
+quantity that you have. \
+\>", "Text",
+ CellChangeTimes->{{3.7705055662838926`*^9, 
+  3.7705056399569736`*^9}},ExpressionUUID->"519f29c7-c735-4585-873f-\
+022fd30be121"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"useablePartitions", "[", 
+   RowBox[{"t_Integer", ",", "m_Integer"}], "]"}], " ", ":=", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Delete", "[", 
+     RowBox[{"#", ",", 
+      RowBox[{"Min", "[", 
+       RowBox[{"Position", "[", 
+        RowBox[{"#", ",", "m"}], "]"}], "]"}]}], "]"}], "&"}], "/@", 
+   RowBox[{"possiblePartitions", "[", 
+    RowBox[{"t", ",", "m"}], "]"}]}]}]], "Input",
+ CellLabel->"In[19]:=",ExpressionUUID->"bf612586-97da-4c31-b67b-15919b926f79"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FindLower", "[", 
+    RowBox[{"t_Integer", ",", "m_Integer"}], "]"}], "/;", 
+   RowBox[{"t", ">", "m"}]}], " ", ":=", " ", 
+  RowBox[{"Mean", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Probability", "[", 
+      RowBox[{
+       RowBox[{"x", " ", "<", " ", "m"}], ",", 
+       RowBox[{"Distributed", "[", 
+        RowBox[{"x", ",", "#"}], "]"}]}], "]"}], "&"}], "/@", 
+    RowBox[{"useablePartitions", "[", 
+     RowBox[{"t", ",", "m"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7705057260262957`*^9, 3.7705057552567663`*^9}, {
+   3.7705059388570676`*^9, 3.7705059446649303`*^9}, 3.7705061486510787`*^9},
+ CellLabel->"In[20]:=",ExpressionUUID->"b5b82a02-1c9e-491e-93eb-d47b6d5ae369"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FindHigher", "[", 
+    RowBox[{"t_Integer", ",", "m_Integer"}], "]"}], "/;", 
+   RowBox[{"t", ">", "m"}]}], " ", ":=", " ", 
+  RowBox[{"Mean", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Probability", "[", 
+      RowBox[{
+       RowBox[{"x", ">", "m"}], ",", 
+       RowBox[{"Distributed", "[", 
+        RowBox[{"x", ",", "#"}], "]"}]}], "]"}], "&"}], "/@", 
+    RowBox[{"useablePartitions", "[", 
+     RowBox[{"t", ",", "m"}], "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7705057588171463`*^9, 3.7705057790236053`*^9}, {
+   3.770505946129915*^9, 3.7705059517216315`*^9}, 3.7705061508075075`*^9},
+ CellLabel->"In[21]:=",ExpressionUUID->"e7d90cd7-a840-4000-8d24-b5b979d0ef96"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FindEqual", "[", 
+    RowBox[{"t_Integer", ",", "m_Integer"}], "]"}], "/;", 
+   RowBox[{"t", ">", "m"}]}], " ", ":=", " ", 
+  RowBox[{"1", " ", "-", " ", 
+   RowBox[{"FindLower", "[", 
+    RowBox[{"t", ",", "m"}], "]"}], " ", "-", " ", 
+   RowBox[{"FindHigher", "[", 
+    RowBox[{"t", ",", "m"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7705057809628897`*^9, 3.770505809967209*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"23625215-ced1-45d5-8d06-09294b09303e"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"FindLoEqHi", "[", 
+    RowBox[{"t_Integer", ",", "m_Integer"}], "]"}], "/;", 
+   RowBox[{"t", ">", "m"}]}], " ", ":=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"FindLower", "[", 
+     RowBox[{"t", ",", "m"}], "]"}], ",", 
+    RowBox[{"FindEqual", "[", 
+     RowBox[{"t", ",", "m"}], "]"}], ",", 
+    RowBox[{"FindHigher", "[", 
+     RowBox[{"t", ",", "m"}], "]"}]}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.770505813490564*^9, 3.770505858716689*^9}, 
+   3.7705666533782263`*^9},
+ CellLabel->"In[31]:=",ExpressionUUID->"9d69e45f-40ea-4ec3-99b0-4bc37e8cbc9f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FindLoEqHi", "[", 
+  RowBox[{"12", ",", "3"}], "]"}]], "Input",
+ CellChangeTimes->{{3.770505860714012*^9, 3.770505865206011*^9}, {
+  3.770505929519842*^9, 3.770505934166946*^9}, {3.7705059642579865`*^9, 
+  3.77050596611722*^9}, {3.770506021455597*^9, 3.7705060228815536`*^9}, {
+  3.7705666439119215`*^9, 3.770566656860546*^9}, {3.7705667042821503`*^9, 
+  3.7705667044162383`*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"72f8ca71-2c9a-4162-ae57-139b6411e20a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["389", "630"], ",", 
+   FractionBox["214", "1575"], ",", 
+   FractionBox["37", "150"]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.77050586596551*^9, {3.7705059312119694`*^9, 3.77050596661556*^9}, 
+   3.770506023575008*^9, 3.7705061615476665`*^9, 3.770566594224337*^9, {
+   3.770566646677758*^9, 3.770566657295839*^9}, 3.7705667048695326`*^9},
+ CellLabel->"Out[36]=",ExpressionUUID->"5133d294-4e80-4bbe-a7a0-028558b35066"]
+}, Open  ]],
+
+Cell["\<\
+So we can use this to conclude that if there are a total of 8 objects, and \
+you have 3, the probability of your friend having less than, equal to, or \
+more than the number of objects that you have is 2/3, 5/42, and 3/14, \
+respectively. \
+\>", "Text",
+ CellChangeTimes->{{3.7704981240144773`*^9, 3.7704981508893394`*^9}, {
+  3.770498258466881*^9, 
+  3.7704982947797475`*^9}},ExpressionUUID->"a18e0a99-d062-4038-ab00-\
+a7ff439a5dbc"],
+
+Cell["\<\
+We can even generate a simulation where the user can input the total number \
+of objects and the number of objects they have to see the probabilities: \
+\>", "Text",
+ CellChangeTimes->{{3.7704983002844143`*^9, 3.7704983218431873`*^9}, {
+  3.7704984106698713`*^9, 3.770498447307486*^9}, {3.7704986019978724`*^9, 
+  3.7704986397277555`*^9}},ExpressionUUID->"5434d230-2ec4-4c6c-846b-\
+a38e1a1dfd65"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoEqHiPieGraphs", "[", "]"}], " ", "=", " ", 
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"PieChart", "[", 
+     RowBox[{
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"Labeled", "[", 
+         RowBox[{
+          RowBox[{"Part", "[", 
+           RowBox[{
+            RowBox[{"FindLoEqHi", "[", 
+             RowBox[{"n", ",", "m"}], "]"}], ",", "i"}], "]"}], ",", 
+          RowBox[{"N", "[", 
+           RowBox[{
+            RowBox[{"Part", "[", 
+             RowBox[{
+              RowBox[{"FindLoEqHi", "[", 
+               RowBox[{"n", ",", "m"}], "]"}], ",", "i"}], "]"}], ",", "4"}], 
+           "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{"i", ",", "3"}], "}"}]}], "]"}], ",", 
+      RowBox[{"ChartLegends", " ", "\[Rule]", " ", 
+       RowBox[{"{", 
+        RowBox[{
+        "\"\<Lower\>\"", ",", "\"\<Equal\>\"", ",", "\"\<Higher\>\""}], 
+        "}"}]}]}], "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "2", ",", "50", ",", "1"}], "}"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"m", ",", "1", ",", 
+      RowBox[{"n", "-", "1"}], ",", "1"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7704986811923676`*^9, 3.770498851697609*^9}, {
+   3.770498883708524*^9, 3.7704988908705564`*^9}, 3.7704990228969116`*^9, {
+   3.770499060586013*^9, 3.7704990608143215`*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"8cdad90d-0578-4336-8013-4628ed83619a"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`m$$ = 3, $CellContext`n$$ = 8, 
+    Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`n$$], 2, 50, 1}, {
+      Hold[$CellContext`m$$], 1, 
+      Dynamic[$CellContext`n$$ - 1], 1}}, Typeset`size$$ = {
+    434., {177., 183.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`n$5670$$ = 
+    0, $CellContext`m$5671$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, 
+      "Variables" :> {$CellContext`m$$ = 1, $CellContext`n$$ = 2}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$5670$$, 0], 
+        Hold[$CellContext`m$$, $CellContext`m$5671$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, "Body" :> PieChart[
+        Table[
+         Labeled[
+          Part[
+           $CellContext`FindLoEqHi[$CellContext`n$$, $CellContext`m$$], \
+$CellContext`i], 
+          N[
+           Part[
+            $CellContext`FindLoEqHi[$CellContext`n$$, $CellContext`m$$], \
+$CellContext`i], 4]], {$CellContext`i, 3}], 
+        ChartLegends -> {"Lower", "Equal", "Higher"}], 
+      "Specifications" :> {{$CellContext`n$$, 2, 50, 1}, {$CellContext`m$$, 1, 
+         Dynamic[$CellContext`n$$ - 1], 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{485., {262., 269.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{
+  3.7704988923184605`*^9, {3.770499024323593*^9, 3.770499066361246*^9}, {
+   3.770501119552561*^9, 3.7705011303031645`*^9}, 3.7705029473803215`*^9, 
+   3.7705035178932686`*^9, 3.7705055447435455`*^9, {3.770505874076912*^9, 
+   3.7705058950899167`*^9}, {3.7705062258392906`*^9, 
+   3.7705062296455317`*^9}, {3.7705666009722157`*^9, 
+   3.7705666122837415`*^9}, {3.7705666604329205`*^9, 3.7705666669582744`*^9}},
+ CellLabel->"Out[33]=",ExpressionUUID->"8ffb2758-0898-42e3-b1e7-26af43d7a654"]
+}, Open  ]],
+
+Cell["\<\
+We can take this even further and ask another question: Given the total \
+number of objects n, how does m change the probabilities? Well, we create a \
+line graph simulation to demonstrate that. \
+\>", "Text",
+ CellChangeTimes->{{3.7704995596520123`*^9, 
+  3.7704996581898966`*^9}},ExpressionUUID->"4cadf584-d15d-4a55-9d9b-\
+a606d1e45b13"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GraphLoEqHi", "[", "t_Integer", "]"}], " ", ":=", " ", 
+  RowBox[{"ListLinePlot", "[", 
+   RowBox[{
+    RowBox[{"Transpose", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"FindLoEqHi", "[", 
+        RowBox[{"t", ",", "#"}], "]"}], "&"}], "/@", " ", 
+      RowBox[{"Range", "[", 
+       RowBox[{"t", "-", "1"}], "]"}]}], "]"}], ",", " ", 
+    RowBox[{"PlotLegends", "\[Rule]", 
+     RowBox[{"{", 
+      RowBox[{"\"\<Lower\>\"", ",", "\"\<Equal\>\"", ",", "\"\<Higher\>\""}], 
+      "}"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7704996990601234`*^9, 3.7704997477615595`*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"cc126d90-7656-4ae1-bc00-b3a248415c7a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"LoEqHiLineCharts", "[", "]"}], " ", "=", " ", 
+  RowBox[{"Manipulate", "[", 
+   RowBox[{
+    RowBox[{"GraphLoEqHi", "[", "n", "]"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"n", ",", "2", ",", "20", ",", "1"}], "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7704997708559427`*^9, 3.7704997974726725`*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"01d17309-386d-45bc-8c51-ef996b53cf97"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`n$$ = 5, Typeset`show$$ = True, 
+    Typeset`bookmarkList$$ = {}, Typeset`bookmarkMode$$ = "Menu", 
+    Typeset`animator$$, Typeset`animvar$$ = 1, Typeset`name$$ = 
+    "\"untitled\"", Typeset`specs$$ = {{
+      Hold[$CellContext`n$$], 2, 20, 1}}, Typeset`size$$ = {
+    444., {111., 117.}}, Typeset`update$$ = 0, Typeset`initDone$$, 
+    Typeset`skipInitDone$$ = True, $CellContext`n$6894$$ = 0}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     1, StandardForm, "Variables" :> {$CellContext`n$$ = 2}, 
+      "ControllerVariables" :> {
+        Hold[$CellContext`n$$, $CellContext`n$6894$$, 0]}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> $CellContext`GraphLoEqHi[$CellContext`n$$], 
+      "Specifications" :> {{$CellContext`n$$, 2, 20, 1}}, "Options" :> {}, 
+      "DefaultOptions" :> {}],
+     ImageSizeCache->{495., {170., 177.}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.77049979805506*^9, 3.7704998028262453`*^9}, 
+   3.7705000756509953`*^9, 3.770502954543722*^9, 3.770503524732832*^9, 
+   3.77050555095569*^9, 3.7705059145228586`*^9, 3.7705666230240097`*^9, {
+   3.770566685938924*^9, 3.770566689514313*^9}},
+ CellLabel->"Out[35]=",ExpressionUUID->"a68148c7-6d08-4c6e-9473-46a6df436239"]
+}, Open  ]],
+
+Cell["\<\
+From the graph we can notice two things. One, for m value that are greater \
+than n/2 the probability of the friend having a lower value is 1. \
+Mathematically this makes sense considering that otherwise there exists a \
+case where you can your friend both have more than n/2 objects, which brings \
+the total to greater than n, which cannot be true. Second of all, we notice \
+that there realistically only exist a few m values where the probability of \
+your friend having a lower quantity of objects is higher than the other two \
+objects. This likely means that the occurrence of small parts such as 1 or 2 \
+is extremely common among integer partitions.\
+\>", "Text",
+ CellChangeTimes->{{3.770500383039074*^9, 3.7705004279884834`*^9}, {
+  3.7705005100792065`*^9, 3.7705007267646646`*^9}, {3.7705009366636896`*^9, 
+  3.770500970339128*^9}, {3.7705035357471604`*^9, 
+  3.7705035815387125`*^9}},ExpressionUUID->"0ec08c11-4deb-4874-8791-\
+d1e36d17fac3"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.770502184309498*^9, 3.770502186352862*^9}, 
+   3.770503530855908*^9},ExpressionUUID->"9fbf6b80-1c30-4ca3-8041-\
+eed32fbfc0db"]
+},
+WindowSize->{1600, 817},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 430, 12, 87, "Input",ExpressionUUID->"589c57bc-63ca-422e-bd26-34556e24d6f2"],
+Cell[994, 34, 315, 7, 34, "Text",ExpressionUUID->"6d4b1549-2dbe-461b-af2f-867a50b8e7bd"],
+Cell[CellGroupData[{
+Cell[1334, 45, 182, 3, 28, "Input",ExpressionUUID->"ec056050-258f-4e74-b4d1-15980cd09445"],
+Cell[1519, 50, 827, 28, 133, "Output",ExpressionUUID->"002b6d40-d8ee-4ed4-bc2e-dd098994d6e4"]
+}, Open  ]],
+Cell[2361, 81, 403, 8, 34, "Text",ExpressionUUID->"7d47cd36-304f-4ef9-8b00-519c5d1e80b6"],
+Cell[CellGroupData[{
+Cell[2789, 93, 297, 6, 28, "Input",ExpressionUUID->"055bd93f-891d-4eb5-8d4e-db8c50527287"],
+Cell[3089, 101, 482, 14, 48, "Output",ExpressionUUID->"c69a75ee-0cd0-49e8-8c0f-5d8f61b49643"]
+}, Open  ]],
+Cell[3586, 118, 457, 9, 56, "Text",ExpressionUUID->"efd03542-fd5b-4ce8-87a9-f8b014cf35ef"],
+Cell[4046, 129, 399, 9, 28, "Input",ExpressionUUID->"92ae435c-5a21-4131-845a-7b3e94419857"],
+Cell[CellGroupData[{
+Cell[4470, 142, 215, 3, 28, "Input",ExpressionUUID->"e6204e64-2b2f-4c62-bf05-ebba96ac96f5"],
+Cell[4688, 147, 150, 2, 32, "Output",ExpressionUUID->"e8172009-a991-451f-ba14-5863e24103d0"]
+}, Open  ]],
+Cell[4853, 152, 451, 8, 34, "Text",ExpressionUUID->"8f879db6-670b-4c67-a443-16e47cc45bb3"],
+Cell[CellGroupData[{
+Cell[5329, 164, 1545, 47, 28, "Input",ExpressionUUID->"9018eeb4-4076-4b32-9dfc-9d5273f0b210"],
+Cell[6877, 213, 550, 12, 32, "Output",ExpressionUUID->"95bf900e-b8d3-4f86-acb0-5a0e0b95aed3"]
+}, Open  ]],
+Cell[7442, 228, 394, 8, 34, "Text",ExpressionUUID->"52f1bda8-67aa-495d-b8f5-911c6c2fd763"],
+Cell[7839, 238, 673, 12, 56, "Text",ExpressionUUID->"54f89a8a-aee4-4677-bdb7-d4019146bce7"],
+Cell[8515, 252, 619, 10, 56, "Text",ExpressionUUID->"404e8cae-44bc-4471-86a6-e05a3de5d38e"],
+Cell[CellGroupData[{
+Cell[9159, 266, 225, 3, 28, "Input",ExpressionUUID->"fa2e15e0-d7f0-49df-b9d6-500dcd21b45a"],
+Cell[9387, 271, 566, 12, 22, "Message",ExpressionUUID->"673162f9-f10a-45b9-8750-250f6bf9d90b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[9990, 288, 332, 6, 28, "Input",ExpressionUUID->"05a5c9f4-4dfe-4fe6-b8c4-32b12c98dff3"],
+Cell[10325, 296, 588, 12, 378, "Output",ExpressionUUID->"878c9699-9321-4dc9-9a9f-4426cfda6092"]
+}, Open  ]],
+Cell[10928, 311, 723, 12, 56, "Text",ExpressionUUID->"51f943e2-1c4c-4a19-9391-5b1b97b841a0"],
+Cell[CellGroupData[{
+Cell[11676, 327, 367, 7, 28, "Input",ExpressionUUID->"be7d462d-c950-4d48-abb4-8ddac4feb934"],
+Cell[12046, 336, 2124, 57, 66, "Output",ExpressionUUID->"de14e5fb-33d7-483e-bc54-fddfead80fc1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[14207, 398, 2905, 80, 67, "Input",ExpressionUUID->"9f53d9d3-e9ab-4186-be3a-bb34e93c6c67"],
+Cell[17115, 480, 810, 19, 378, "Output",ExpressionUUID->"fb5b8926-e3a8-477f-9a5f-3235129db7b4"]
+}, Open  ]],
+Cell[17940, 502, 723, 12, 78, "Text",ExpressionUUID->"80b884b3-5f4b-4705-817d-172186e4f438"],
+Cell[18666, 516, 1868, 60, 28, "Input",ExpressionUUID->"7de50cc6-1b31-4a11-ae3f-0c24029bfd0c"],
+Cell[CellGroupData[{
+Cell[20559, 580, 216, 5, 28, "Input",ExpressionUUID->"4d83ed87-ee7b-4f9d-840f-987a375685e2"],
+Cell[20778, 587, 332, 7, 32, "Output",ExpressionUUID->"85b0707d-439d-4705-853c-b26331a7e96d"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21147, 599, 249, 6, 28, "Input",ExpressionUUID->"546cf822-d206-4d59-ba57-b35b2d63e7f1"],
+Cell[21399, 607, 174, 2, 32, "Output",ExpressionUUID->"3cb7191d-4b45-4dd1-9c10-509058a4ff79"]
+}, Open  ]],
+Cell[21588, 612, 888, 14, 78, "Text",ExpressionUUID->"3e364332-0c3d-4b0c-9e6a-e9c9e27b2685"],
+Cell[22479, 628, 659, 11, 56, "Text",ExpressionUUID->"6b103f94-d60e-408b-8f72-9990af9bbc05"],
+Cell[23141, 641, 481, 11, 28, "Input",ExpressionUUID->"aaf39442-1e8b-41b0-a718-473f7ca61ccb"],
+Cell[CellGroupData[{
+Cell[23647, 656, 243, 5, 28, "Input",ExpressionUUID->"6c333283-564b-414d-9cf9-11686330b469"],
+Cell[23893, 663, 724, 20, 32, "Output",ExpressionUUID->"7937b915-b51e-48f4-9d76-20e4ddefacec"]
+}, Open  ]],
+Cell[24632, 686, 369, 8, 56, "Text",ExpressionUUID->"519f29c7-c735-4585-873f-022fd30be121"],
+Cell[25004, 696, 496, 13, 28, "Input",ExpressionUUID->"bf612586-97da-4c31-b67b-15919b926f79"],
+Cell[25503, 711, 739, 18, 28, "Input",ExpressionUUID->"b5b82a02-1c9e-491e-93eb-d47b6d5ae369"],
+Cell[26245, 731, 728, 18, 28, "Input",ExpressionUUID->"e7d90cd7-a840-4000-8d24-b5b979d0ef96"],
+Cell[26976, 751, 511, 12, 28, "Input",ExpressionUUID->"23625215-ced1-45d5-8d06-09294b09303e"],
+Cell[27490, 765, 610, 16, 28, "Input",ExpressionUUID->"9d69e45f-40ea-4ec3-99b0-4bc37e8cbc9f"],
+Cell[CellGroupData[{
+Cell[28125, 785, 483, 8, 28, "Input",ExpressionUUID->"72f8ca71-2c9a-4162-ae57-139b6411e20a"],
+Cell[28611, 795, 477, 10, 48, "Output",ExpressionUUID->"5133d294-4e80-4bbe-a7a0-028558b35066"]
+}, Open  ]],
+Cell[29103, 808, 444, 9, 34, "Text",ExpressionUUID->"a18e0a99-d062-4038-ab00-a7ff439a5dbc"],
+Cell[29550, 819, 406, 7, 34, "Text",ExpressionUUID->"5434d230-2ec4-4c6c-846b-a38e1a1dfd65"],
+Cell[CellGroupData[{
+Cell[29981, 830, 1436, 37, 28, "Input",ExpressionUUID->"8cdad90d-0578-4336-8013-4628ed83619a"],
+Cell[31420, 869, 2641, 55, 550, "Output",ExpressionUUID->"8ffb2758-0898-42e3-b1e7-26af43d7a654"]
+}, Open  ]],
+Cell[34076, 927, 349, 7, 34, "Text",ExpressionUUID->"4cadf584-d15d-4a55-9d9b-a606d1e45b13"],
+Cell[34428, 936, 698, 17, 28, "Input",ExpressionUUID->"cc126d90-7656-4ae1-bc00-b3a248415c7a"],
+Cell[CellGroupData[{
+Cell[35151, 957, 419, 9, 28, "Input",ExpressionUUID->"01d17309-386d-45bc-8c51-ef996b53cf97"],
+Cell[35573, 968, 1881, 37, 366, "Output",ExpressionUUID->"a68148c7-6d08-4c6e-9473-46a6df436239"]
+}, Open  ]],
+Cell[37469, 1008, 964, 15, 78, "Text",ExpressionUUID->"0ec08c11-4deb-4874-8791-d1e36d17fac3"],
+Cell[38436, 1025, 175, 3, 28, "Input",ExpressionUUID->"9fbf6b80-1c30-4ca3-8041-eed32fbfc0db"]
+}
+]
+*)
+
