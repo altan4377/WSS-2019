@@ -1,0 +1,397 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     16274,        389]
+NotebookOptionsPosition[     14668,        357]
+NotebookOutlinePosition[     15011,        372]
+CellTagsIndexPosition[     14968,        369]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Year",
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{{3.7708991949956255`*^9, 
+  3.770899198198944*^9}},ExpressionUUID->"def035e7-9e7a-4fbc-b0f0-\
+d946a94526e3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"DateList", "[", 
+  NamespaceBox["LinguisticAssistant",
+   DynamicModuleBox[{Typeset`query$$ = "Now", Typeset`boxes$$ = "Now", 
+    Typeset`allassumptions$$ = {{
+     "type" -> "Clash", "word" -> "Now", "template" -> 
+      "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", "count" -> 
+      "2", "Values" -> {{
+        "name" -> "DateObject", "desc" -> "a date", "input" -> 
+         "*C.Now-_*DateObject-"}, {
+        "name" -> "Word", "desc" -> "a word", "input" -> "*C.Now-_*Word-"}}}},
+     Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+    Typeset`querystate$$ = {
+    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+     0.6098022`7.236733980344186, "Messages" -> {}}}, 
+    DynamicBox[ToBoxes[
+      AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+       Dynamic[Typeset`query$$], 
+       Dynamic[Typeset`boxes$$], 
+       Dynamic[Typeset`allassumptions$$], 
+       Dynamic[Typeset`assumptions$$], 
+       Dynamic[Typeset`open$$], 
+       Dynamic[Typeset`querystate$$]], StandardForm],
+     ImageSizeCache->{86., {8., 18.}},
+     TrackedSymbols:>{
+      Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+       Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+    DynamicModuleValues:>{},
+    UndoTrackedVariables:>{Typeset`open$$}],
+   BaseStyle->{"Deploy"},
+   DeleteWithContents->True,
+   Editable->False,
+   SelectWithContents->True], "]"}]], "Input",
+ CellLabel->"In[40]:=",ExpressionUUID->"465de26f-b8e0-4d2a-be54-6b8068899300"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "2019", ",", "6", ",", "30", ",", "11", ",", "35", ",", 
+   "47.7797914`9.431819110314066"}], "}"}]], "Output",
+ CellChangeTimes->{3.7708977478603725`*^9},
+ CellLabel->"Out[40]=",ExpressionUUID->"111ac036-3a83-44fd-9e43-7700e22a1547"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findYear", "[", "date_DateObject", "]"}], " ", ":=", " ", 
+  RowBox[{"Part", "[", 
+   RowBox[{
+    RowBox[{"DateList", "[", "date", "]"}], ",", "1"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7708979141462345`*^9, 3.7708979144724584`*^9}, {
+  3.7708984509620323`*^9, 3.770898451360162*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"c4e6b1da-dcff-4ba5-adc0-1e611ed090c3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ListFullYears", "[", 
+   RowBox[{"start_DateObject", ",", " ", "end_DateObject"}], "]"}], " ", ":=",
+   " ", 
+  RowBox[{"Range", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"findYear", "[", "start", "]"}], "+", "1"}], ",", 
+    RowBox[{
+     RowBox[{"findYear", "[", "end", "]"}], "-", "1"}]}], "]"}]}]], "Input",
+ CellLabel->"In[42]:=",ExpressionUUID->"adcfa133-7462-4ecd-a154-acc90d260fc7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListFullYears", "[", 
+  RowBox[{
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "2016/08/05", Typeset`boxes$$ = 
+     RowBox[{"DateObject", "[", 
+       RowBox[{"{", 
+         RowBox[{"2016", ",", " ", "8", ",", " ", "5"}], "}"}], "]"}], 
+     Typeset`allassumptions$$ = {{
+      "type" -> "MultiClash", "word" -> "", "template" -> 
+       "Assuming ${word1} is referring to ${desc1}. Use \"${word2}\" as \
+${desc2}.", "count" -> "2", 
+       "Values" -> {{
+         "name" -> "DateObject", "word" -> "2016/08/05", "desc" -> "a date", 
+          "input" -> "*MC.2016%2F08%2F05-_*DateObject-"}, {
+         "name" -> "FracNumber", "word" -> "2016/08", "desc" -> 
+          " referring to math", "input" -> 
+          "*MC.2016%2F08%2F05-_*FracNumber-"}}}, {
+      "type" -> "DateOrder", "template" -> 
+       "Assuming ${desc1}. Use ${desc2} instead", "count" -> "2", 
+       "Values" -> {{
+         "name" -> "YearMonthDay", "desc" -> "year/month/day", "input" -> 
+          "DateOrder_**Year.Month.Day--"}, {
+         "name" -> "YearDayMonth", "desc" -> "year/day/month", "input" -> 
+          "DateOrder_**Year.Day.Month--"}}}}, Typeset`assumptions$$ = {}, 
+     Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.6911881`7.291141245899646, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{237., {8., 18.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True], ",", 
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "Now", Typeset`boxes$$ = "Now", 
+     Typeset`allassumptions$$ = {{
+      "type" -> "Clash", "word" -> "Now", "template" -> 
+       "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", "count" -> 
+       "2", "Values" -> {{
+         "name" -> "DateObject", "desc" -> "a date", "input" -> 
+          "*C.Now-_*DateObject-"}, {
+         "name" -> "Word", "desc" -> "a word", "input" -> 
+          "*C.Now-_*Word-"}}}}, Typeset`assumptions$$ = {}, Typeset`open$$ = {
+     1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.6940498`7.2929356269036365, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{86., {8., 18.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True]}], "]"}]], "Input",
+ CellLabel->"In[43]:=",ExpressionUUID->"d22ffc01-481a-45d5-b760-eac3daf505f4"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2017", ",", "2018"}], "}"}]], "Output",
+ CellChangeTimes->{3.770897779610023*^9},
+ CellLabel->"Out[43]=",ExpressionUUID->"6a18335d-82d2-45b5-a92f-25dffcc9802e"]
+}, Open  ]],
+
+Cell[TextData[StyleBox["Quarter, Year",
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{{3.770899086255499*^9, 3.77089908893165*^9}, {
+  3.7708992099888306`*^9, 
+  3.770899224991212*^9}},ExpressionUUID->"d1abf468-35b3-4035-93cb-\
+acd66866f182"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findMonth", "[", "date_DateObject", "]"}], " ", ":=", " ", 
+  RowBox[{"Part", "[", 
+   RowBox[{
+    RowBox[{"DateList", "[", "date", "]"}], ",", "2"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7708978614438295`*^9, 3.7708979236403275`*^9}, {
+  3.7708979792958794`*^9, 3.7708980036216593`*^9}},
+ CellLabel->"In[56]:=",ExpressionUUID->"3d62c9c1-fc4d-4e47-b208-898f6488e483"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"listFullQuartersBefore", "[", "date_DateObject", "]"}], " ", ":=", 
+  " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"StringJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{"findYear", "[", "date", "]"}], "]"}], ",", "\"\<-\>\"", ",", 
+       " ", 
+       RowBox[{"ToString", "[", "#", "]"}]}], "}"}], "]"}], "&"}], "/@", " ", 
+   RowBox[{"Range", "[", 
+    RowBox[{"1", ",", 
+     RowBox[{"Floor", "[", 
+      RowBox[{
+       RowBox[{"findMonth", "[", "date", "]"}], "/", "3"}], "]"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.770897935722517*^9, 3.7708980117437935`*^9}, {
+  3.7708981557923975`*^9, 3.7708981739222765`*^9}, {3.7708985065503235`*^9, 
+  3.77089864647186*^9}, {3.7708990098346577`*^9, 3.770899013272352*^9}, {
+  3.770899049635415*^9, 3.770899050028947*^9}},
+ CellLabel->"In[55]:=",ExpressionUUID->"c0cbc458-6af5-47ba-bf62-c5d561584b55"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"listFullQuartersAfter", "[", "date_DateObject", "]"}], " ", ":=", 
+  " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"StringJoin", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"ToString", "[", 
+        RowBox[{"findYear", "[", "date", "]"}], "]"}], ",", "\"\<-\>\"", ",", 
+       " ", 
+       RowBox[{"ToString", "[", "#", "]"}]}], "}"}], "]"}], "&"}], "/@", " ", 
+   RowBox[{"Range", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"Ceiling", "[", 
+       RowBox[{
+        RowBox[{"findMonth", "[", "date", "]"}], "/", "3"}], "]"}], " ", "+", 
+      " ", "1"}], ",", " ", "4"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7708980399104886`*^9, 3.7708980768693247`*^9}, {
+  3.770898108051894*^9, 3.7708981210121603`*^9}, {3.7708986298773704`*^9, 
+  3.7708986728651648`*^9}, {3.77089893636213*^9, 3.7708989399137993`*^9}, {
+  3.7708989724677258`*^9, 3.7708989967344637`*^9}, {3.770899060943451*^9, 
+  3.770899061399252*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"a5db54e7-dba4-4f43-81cc-be7a5d3bb310"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"ListQuartersAndYear", "[", 
+   RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Join", "[", 
+   RowBox[{
+    RowBox[{"listFullQuartersAfter", "[", "start", "]"}], ",", 
+    RowBox[{"ListFullYears", "[", 
+     RowBox[{"start", ",", "end"}], "]"}], ",", 
+    RowBox[{"listFullQuartersBefore", "[", "end", "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.770898688040002*^9, 3.7708988229655223`*^9}, {
+  3.7708991429807563`*^9, 3.7708991497070417`*^9}},
+ CellLabel->"In[57]:=",ExpressionUUID->"f0b9d11a-73b9-4e4c-a59d-2e3f3be04206"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListQuartersAndYear", "[", 
+  RowBox[{
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "2016/08/05", Typeset`boxes$$ = 
+     RowBox[{"DateObject", "[", 
+       RowBox[{"{", 
+         RowBox[{"2016", ",", " ", "8", ",", " ", "5"}], "}"}], "]"}], 
+     Typeset`allassumptions$$ = {{
+      "type" -> "MultiClash", "word" -> "", "template" -> 
+       "Assuming ${word1} is referring to ${desc1}. Use \"${word2}\" as \
+${desc2}.", "count" -> "2", 
+       "Values" -> {{
+         "name" -> "DateObject", "word" -> "2016/08/05", "desc" -> "a date", 
+          "input" -> "*MC.2016%2F08%2F05-_*DateObject-"}, {
+         "name" -> "FracNumber", "word" -> "2016/08", "desc" -> 
+          " referring to math", "input" -> 
+          "*MC.2016%2F08%2F05-_*FracNumber-"}}}, {
+      "type" -> "DateOrder", "template" -> 
+       "Assuming ${desc1}. Use ${desc2} instead", "count" -> "2", 
+       "Values" -> {{
+         "name" -> "YearMonthDay", "desc" -> "year/month/day", "input" -> 
+          "DateOrder_**Year.Month.Day--"}, {
+         "name" -> "YearDayMonth", "desc" -> "year/day/month", "input" -> 
+          "DateOrder_**Year.Day.Month--"}}}}, Typeset`assumptions$$ = {}, 
+     Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.6911881`7.291141245899646, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{237., {8., 18.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True], ",", 
+   NamespaceBox["LinguisticAssistant",
+    DynamicModuleBox[{Typeset`query$$ = "Now", Typeset`boxes$$ = "Now", 
+     Typeset`allassumptions$$ = {{
+      "type" -> "Clash", "word" -> "Now", "template" -> 
+       "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", "count" -> 
+       "2", "Values" -> {{
+         "name" -> "DateObject", "desc" -> "a date", "input" -> 
+          "*C.Now-_*DateObject-"}, {
+         "name" -> "Word", "desc" -> "a word", "input" -> 
+          "*C.Now-_*Word-"}}}}, Typeset`assumptions$$ = {}, Typeset`open$$ = {
+     1, 2}, Typeset`querystate$$ = {
+     "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+      0.6940498`7.2929356269036365, "Messages" -> {}}}, 
+     DynamicBox[ToBoxes[
+       AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+        Dynamic[Typeset`query$$], 
+        Dynamic[Typeset`boxes$$], 
+        Dynamic[Typeset`allassumptions$$], 
+        Dynamic[Typeset`assumptions$$], 
+        Dynamic[Typeset`open$$], 
+        Dynamic[Typeset`querystate$$]], StandardForm],
+      ImageSizeCache->{86., {8., 18.}},
+      TrackedSymbols:>{
+       Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+        Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+     DynamicModuleValues:>{},
+     UndoTrackedVariables:>{Typeset`open$$}],
+    BaseStyle->{"Deploy"},
+    DeleteWithContents->True,
+    Editable->False,
+    SelectWithContents->True]}], "]"}]], "Input",
+ CellChangeTimes->{{3.770898130214898*^9, 3.7708981387387943`*^9}, {
+  3.7708988019067984`*^9, 3.7708988071561193`*^9}},
+ CellLabel->"In[59]:=",ExpressionUUID->"309c9f52-7c27-40d5-afa1-4cb8f7212ee2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"2016-4\"\>", ",", "2017", ",", "2018", ",", "\<\"2019-1\"\>", 
+   ",", "\<\"2019-2\"\>"}], "}"}]], "Output",
+ CellChangeTimes->{3.770899178401554*^9},
+ CellLabel->"Out[59]=",ExpressionUUID->"8051ba29-a42d-46ff-9713-a8629dd54be7"]
+}, Open  ]]
+},
+WindowSize->{1596, 817},
+WindowMargins->{{Automatic, -4}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 199, 4, 34, "Text",ExpressionUUID->"def035e7-9e7a-4fbc-b0f0-d946a94526e3"],
+Cell[CellGroupData[{
+Cell[785, 28, 1528, 33, 41, "Input",ExpressionUUID->"465de26f-b8e0-4d2a-be54-6b8068899300"],
+Cell[2316, 63, 276, 6, 32, "Output",ExpressionUUID->"111ac036-3a83-44fd-9e43-7700e22a1547"]
+}, Open  ]],
+Cell[2607, 72, 403, 8, 28, "Input",ExpressionUUID->"c4e6b1da-dcff-4ba5-adc0-1e611ed090c3"],
+Cell[3013, 82, 427, 11, 28, "Input",ExpressionUUID->"adcfa133-7462-4ecd-a154-acc90d260fc7"],
+Cell[CellGroupData[{
+Cell[3465, 97, 3643, 77, 41, "Input",ExpressionUUID->"d22ffc01-481a-45d5-b760-eac3daf505f4"],
+Cell[7111, 176, 200, 4, 32, "Output",ExpressionUUID->"6a18335d-82d2-45b5-a92f-25dffcc9802e"]
+}, Open  ]],
+Cell[7326, 183, 256, 5, 34, "Text",ExpressionUUID->"d1abf468-35b3-4035-93cb-acd66866f182"],
+Cell[7585, 190, 407, 8, 28, "Input",ExpressionUUID->"3d62c9c1-fc4d-4e47-b208-898f6488e483"],
+Cell[7995, 200, 937, 23, 28, "Input",ExpressionUUID->"c0cbc458-6af5-47ba-bf62-c5d561584b55"],
+Cell[8935, 225, 1039, 25, 28, "Input",ExpressionUUID->"a5db54e7-dba4-4f43-81cc-be7a5d3bb310"],
+Cell[9977, 252, 604, 12, 28, "Input",ExpressionUUID->"f0b9d11a-73b9-4e4c-a59d-2e3f3be04206"],
+Cell[CellGroupData[{
+Cell[10606, 268, 3770, 79, 41, "Input",ExpressionUUID->"309c9f52-7c27-40d5-afa1-4cb8f7212ee2"],
+Cell[14379, 349, 273, 5, 32, "Output",ExpressionUUID->"8051ba29-a42d-46ff-9713-a8629dd54be7"]
+}, Open  ]]
+}
+]
+*)
+
