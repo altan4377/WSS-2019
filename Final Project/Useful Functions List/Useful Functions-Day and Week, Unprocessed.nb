@@ -1,0 +1,399 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     14864,        391]
+NotebookOptionsPosition[     13415,        364]
+NotebookOutlinePosition[     13757,        379]
+CellTagsIndexPosition[     13714,        376]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[TextData[StyleBox["Functions - Day and Week\nVersion 1 - June 30, 2019\n\
+***Note 1: This part shows the algorithm as to how to determine the most \
+efficient combination. This does not display what the combination is. \n\
+***Note 2: This will have to be combined with the functions in the Year and \
+Quarter Section to actually produce the entire combination that can possibly \
+be deemed useful. ",
+ FontColor->RGBColor[1, 0, 0]]], "Text",
+ CellChangeTimes->{{3.7709374968915987`*^9, 
+  3.7709376052767897`*^9}},ExpressionUUID->"e4685ddf-7cc1-4441-84b7-\
+c35a2a376c9a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"listPossibleWeekdays", " ", "=", " ", 
+  RowBox[{"{", 
+   RowBox[{
+   "Monday", ",", " ", "Tuesday", ",", " ", "Wednesday", ",", " ", "Thursday",
+     ",", " ", "Friday", ",", " ", "Saturday", ",", " ", "Sunday"}], 
+   "}"}]}]], "Input",
+ CellLabel->
+  "In[127]:=",ExpressionUUID->"4b441228-938b-48bb-af5a-5dab77b00c68"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "Monday", ",", "Tuesday", ",", "Wednesday", ",", "Thursday", ",", "Friday", 
+   ",", "Saturday", ",", "Sunday"}], "}"}]], "Output",
+ CellChangeTimes->{3.7709373756238155`*^9},
+ CellLabel->
+  "Out[127]=",ExpressionUUID->"8ca9ca8b-c1be-4a90-9387-2d7eaff0bdcb"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"listWeekday", "[", "date_DateObject", "]"}], " ", ":=", " ", 
+  RowBox[{"Part", "[", 
+   RowBox[{"listPossibleWeekdays", ",", " ", 
+    RowBox[{"Part", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", 
+       RowBox[{"Position", "[", 
+        RowBox[{"listPossibleWeekdays", ",", 
+         RowBox[{"DayName", "[", "date", "]"}]}], "]"}], "]"}], ",", "1"}], 
+     "]"}]}], "]"}]}]], "Input",
+ CellLabel->
+  "In[128]:=",ExpressionUUID->"410697e5-4624-458e-9f55-e97cfc10adb1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findYear", "[", "date_DateObject", "]"}], " ", ":=", " ", 
+  RowBox[{"DateValue", "[", 
+   RowBox[{"date", ",", "\"\<Year\>\""}], "]"}]}]], "Input",
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"8220e5bc-687c-44d8-ae0f-d2678bea068c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findMonth", "[", "date_DateObject", "]"}], " ", ":=", " ", 
+  RowBox[{"DateValue", "[", 
+   RowBox[{"date", ",", "\"\<Month\>\""}], "]"}]}]], "Input",
+ CellLabel->
+  "In[130]:=",ExpressionUUID->"5585bdec-365e-4b37-955a-6714f19ae25b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findCompleteMonthsAfter", "[", "date_DateObject", "]"}], " ", ":=",
+   " ", "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"DateValue", "[", 
+      RowBox[{"date", ",", "\"\<Day\>\""}], "]"}], " ", "\[Equal]", " ", 
+     "1"}], " ", ",", " ", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ToString", "[", "#", "]"}], "&"}], "/@", " ", 
+     RowBox[{"Range", "[", 
+      RowBox[{
+       RowBox[{"findMonth", "[", "date", "]"}], ",", 
+       RowBox[{
+        RowBox[{"Ceiling", "[", 
+         RowBox[{
+          RowBox[{"findMonth", "[", "date", "]"}], " ", "/", " ", "3"}], 
+         "]"}], "*", "3"}]}], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ToString", "[", "#", "]"}], "&"}], "/@", " ", 
+     RowBox[{"Range", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"findMonth", "[", "date", "]"}], " ", "+", " ", "1"}], ",", 
+       RowBox[{
+        RowBox[{"Ceiling", "[", 
+         RowBox[{
+          RowBox[{"findMonth", "[", "date", "]"}], " ", "/", " ", "3"}], 
+         "]"}], "*", "3"}]}], "]"}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.770923860991006*^9, 3.7709238703494864`*^9}},
+ CellLabel->
+  "In[131]:=",ExpressionUUID->"8d0a44a2-acce-4d95-bd7b-c86a4f6793f0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findCompleteMonthsBefore", "[", "date_DateObject", "]"}], " ", ":=",
+   " ", "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"DateValue", "[", 
+      RowBox[{"date", ",", "\"\<Day\>\""}], "]"}], " ", "\[Equal]", " ", 
+     "1"}], " ", ",", " ", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ToString", "[", "#", "]"}], "&"}], "/@", " ", 
+     RowBox[{"Range", "[", 
+      RowBox[{
+       RowBox[{"findMonth", "[", "date", "]"}], ",", 
+       RowBox[{
+        RowBox[{"Ceiling", "[", 
+         RowBox[{
+          RowBox[{"findMonth", "[", "date", "]"}], " ", "/", " ", "3"}], 
+         "]"}], "*", "3"}]}], "]"}]}], ",", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"ToString", "[", "#", "]"}], "&"}], "/@", " ", 
+     RowBox[{"Range", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"Floor", "[", 
+          RowBox[{
+           RowBox[{"findMonth", "[", "date", "]"}], " ", "/", " ", "3"}], 
+          "]"}], "*", "3"}], " ", "+", " ", "1"}], ",", 
+       RowBox[{
+        RowBox[{"findMonth", "[", "date", "]"}], " ", "-", "1"}]}], "]"}]}]}],
+    "]"}]}]], "Input",
+ CellChangeTimes->{{3.7709290122225847`*^9, 3.770929032599718*^9}, {
+  3.770929065040083*^9, 3.770929090553543*^9}, {3.7709374307545443`*^9, 
+  3.7709374322035065`*^9}},
+ CellLabel->
+  "In[132]:=",ExpressionUUID->"9d08d762-aa05-48fe-8723-6e6ab596ff66"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findWeekMonthsCombination", "[", 
+   RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", " ",
+   "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"DateObject", "[", 
+      RowBox[{"start", ",", "\"\<Week\>\""}], "]"}], " ", "\[Equal]", " ", 
+     RowBox[{"DateObject", "[", 
+      RowBox[{"end", ",", "\"\<Week\>\""}], "]"}]}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Part", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Part", "[", 
+          RowBox[{
+           RowBox[{"Flatten", "[", 
+            RowBox[{
+             RowBox[{"QuantityMagnitude", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"end", "-", "start"}], ")"}], ",", "\"\<Days\>\""}], 
+              "]"}], "+", "1", "+", 
+             RowBox[{"(", 
+              RowBox[{"-", 
+               RowBox[{"Position", "[", 
+                RowBox[{"listPossibleWeekdays", ",", 
+                 RowBox[{"listWeekday", "[", "end", "]"}]}], "]"}]}], ")"}], 
+             "-", 
+             RowBox[{"(", 
+              RowBox[{
+               RowBox[{"-", " ", 
+                RowBox[{"Position", "[", 
+                 RowBox[{"listPossibleWeekdays", ",", 
+                  RowBox[{"listWeekday", "[", "start", "]"}]}], "]"}]}], "+", 
+               "1"}], ")"}]}], "]"}], ",", "1"}], "]"}], "/", "7"}], " ", "+",
+         " ", 
+        RowBox[{"Position", "[", 
+         RowBox[{"listPossibleWeekdays", ",", 
+          RowBox[{"listWeekday", "[", "end", "]"}]}], "]"}], " ", "-", " ", 
+        RowBox[{"Position", "[", 
+         RowBox[{"listPossibleWeekdays", ",", 
+          RowBox[{"listWeekday", "[", "start", "]"}]}], "]"}], "+", "1"}], 
+       "\[IndentingNewLine]", "]"}], ",", "1"}], "]"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Part", "[", 
+     RowBox[{
+      RowBox[{"Flatten", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Part", "[", 
+          RowBox[{
+           RowBox[{"Flatten", "[", 
+            RowBox[{
+             RowBox[{"QuantityMagnitude", "[", 
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{"end", "-", "start"}], ")"}], ",", "\"\<Days\>\""}], 
+              "]"}], "+", "1", "+", 
+             RowBox[{"(", 
+              RowBox[{"-", 
+               RowBox[{"Position", "[", 
+                RowBox[{"listPossibleWeekdays", ",", 
+                 RowBox[{"listWeekday", "[", "end", "]"}]}], "]"}]}], ")"}], 
+             "-", 
+             RowBox[{"(", 
+              RowBox[{"7", " ", "-", " ", 
+               RowBox[{"Position", "[", 
+                RowBox[{"listPossibleWeekdays", ",", 
+                 RowBox[{"listWeekday", "[", "start", "]"}]}], "]"}], "+", 
+               "1"}], ")"}]}], "]"}], ",", "1"}], "]"}], "/", "7"}], " ", "+",
+         " ", 
+        RowBox[{"Position", "[", 
+         RowBox[{"listPossibleWeekdays", ",", 
+          RowBox[{"listWeekday", "[", "end", "]"}]}], "]"}], " ", "+", " ", 
+        "7", " ", "-", " ", 
+        RowBox[{"Position", "[", 
+         RowBox[{"listPossibleWeekdays", ",", 
+          RowBox[{"listWeekday", "[", "start", "]"}]}], "]"}], "+", "1"}], 
+       "\[IndentingNewLine]", "]"}], ",", "1"}], "]"}]}], "]"}]}]], "Input",
+ CellLabel->
+  "In[133]:=",ExpressionUUID->"c3189526-07ca-43c9-bd69-d9fa1ace7da1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findNumObjectsNeededAfter", "[", 
+   RowBox[{"date_DateObject", ",", " ", "monthsCombined_List"}], "]"}], " ", ":=",
+   " ", 
+  RowBox[{
+   RowBox[{"findWeekMonthsCombination", "[", 
+    RowBox[{"date", ",", 
+     RowBox[{
+      RowBox[{"DateObject", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"findYear", "[", "date", "]"}], ",", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"Ceiling", "[", 
+            RowBox[{
+             RowBox[{"findMonth", "[", "date", "]"}], " ", "/", " ", "3"}], 
+            "]"}], "*", "3"}], "-", 
+          RowBox[{"Length", "[", "monthsCombined", "]"}], "+", "1"}], ",", 
+         "1"}], "}"}], "]"}], "-", 
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "1 day", Typeset`boxes$$ = 
+        TemplateBox[{"1", "\"day\"", "day", "\"Days\""}, "Quantity", 
+         SyntaxForm -> Mod], Typeset`allassumptions$$ = {}, 
+        Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+        Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.764776`7.335079244062248, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{80., {11., 18.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True]}]}], "]"}], "+", 
+   RowBox[{"Length", "[", "monthsCombined", "]"}]}]}]], "Input",
+ CellLabel->
+  "In[134]:=",ExpressionUUID->"e7853fa2-bfcd-4bd3-9f52-e6b41f3a0244"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findMinObjectsNeededAfter", "[", "date_DateObject", "]"}], ":=", 
+  " ", "\[IndentingNewLine]", 
+  RowBox[{"Min", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"findNumObjectsNeededAfter", "[", 
+      RowBox[{"date", ",", 
+       RowBox[{"findCompleteMonthsAfter", "[", "date", "]"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"findNumObjectsNeededAfter", "[", 
+      RowBox[{"date", ",", 
+       RowBox[{"Drop", "[", 
+        RowBox[{
+         RowBox[{"findCompleteMonthsAfter", "[", "date", "]"}], ",", "1"}], 
+        "]"}]}], "]"}]}], "}"}], "]"}]}]], "Input",
+ CellLabel->
+  "In[135]:=",ExpressionUUID->"31498cf4-b789-47de-a74a-e8e4b86d373a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findNumObjectsNeededBefore", "[", 
+   RowBox[{"date_DateObject", ",", " ", "monthsCombined_List"}], "]"}], ":=", 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"findWeekMonthsCombination", "[", 
+    RowBox[{
+     RowBox[{"DateObject", "[", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"findYear", "[", "date", "]"}], ",", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Floor", "[", 
+           RowBox[{
+            RowBox[{"findMonth", "[", "date", "]"}], " ", "/", " ", "3"}], 
+           "]"}], "*", "3"}], "+", 
+         RowBox[{"Length", "[", "monthsCombined", "]"}], "+", "1"}], ",", 
+        "1"}], "}"}], "]"}], ",", "date"}], "]"}], "+", 
+   RowBox[{"Length", "[", "monthsCombined", "]"}]}]}]], "Input",
+ CellLabel->
+  "In[136]:=",ExpressionUUID->"d9522c22-f2dc-4e4a-ab5b-5db0c583032b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findMinObjectsNeededBefore", "[", "date_DateObject", "]"}], ":=", 
+  " ", "\[IndentingNewLine]", 
+  RowBox[{"Min", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"findNumObjectsNeededBefore", "[", 
+      RowBox[{"date", ",", 
+       RowBox[{"findCompleteMonthsBefore", "[", "date", "]"}]}], "]"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{"findNumObjectsNeededBefore", "[", 
+      RowBox[{"date", ",", 
+       RowBox[{"Drop", "[", 
+        RowBox[{
+         RowBox[{"findCompleteMonthsBefore", "[", "date", "]"}], ",", "1"}], 
+        "]"}]}], "]"}]}], "}"}], "]"}]}]], "Input",
+ CellLabel->
+  "In[137]:=",ExpressionUUID->"3201197c-a6eb-456f-b0e5-66bca2aee12a"]
+},
+WindowSize->{1584, 817},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 576, 9, 100, "Text",ExpressionUUID->"e4685ddf-7cc1-4441-84b7-c35a2a376c9a"],
+Cell[CellGroupData[{
+Cell[1162, 33, 344, 8, 28, "Input",ExpressionUUID->"4b441228-938b-48bb-af5a-5dab77b00c68"],
+Cell[1509, 43, 300, 7, 32, "Output",ExpressionUUID->"8ca9ca8b-c1be-4a90-9387-2d7eaff0bdcb"]
+}, Open  ]],
+Cell[1824, 53, 509, 13, 28, "Input",ExpressionUUID->"410697e5-4624-458e-9f55-e97cfc10adb1"],
+Cell[2336, 68, 266, 6, 28, "Input",ExpressionUUID->"8220e5bc-687c-44d8-ae0f-d2678bea068c"],
+Cell[2605, 76, 268, 6, 28, "Input",ExpressionUUID->"5585bdec-365e-4b37-955a-6714f19ae25b"],
+Cell[2876, 84, 1287, 35, 67, "Input",ExpressionUUID->"8d0a44a2-acce-4d95-bd7b-c86a4f6793f0"],
+Cell[4166, 121, 1430, 39, 67, "Input",ExpressionUUID->"9d08d762-aa05-48fe-8723-6e6ab596ff66"],
+Cell[5599, 162, 3440, 85, 200, "Input",ExpressionUUID->"c3189526-07ca-43c9-bd69-d9fa1ace7da1"],
+Cell[9042, 249, 2108, 49, 64, "Input",ExpressionUUID->"e7853fa2-bfcd-4bd3-9f52-e6b41f3a0244"],
+Cell[11153, 300, 700, 18, 67, "Input",ExpressionUUID->"31498cf4-b789-47de-a74a-e8e4b86d373a"],
+Cell[11856, 320, 847, 22, 48, "Input",ExpressionUUID->"d9522c22-f2dc-4e4a-ab5b-5db0c583032b"],
+Cell[12706, 344, 705, 18, 67, "Input",ExpressionUUID->"3201197c-a6eb-456f-b0e5-66bca2aee12a"]
+}
+]
+*)
+
