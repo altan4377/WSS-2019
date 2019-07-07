@@ -1,0 +1,1024 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     42426,       1016]
+NotebookOptionsPosition[     38558,        957]
+NotebookOutlinePosition[     38902,        972]
+CellTagsIndexPosition[     38859,        969]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"TimeSeriesCombination", "[", 
+   RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", " ",
+   "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Length", "[", 
+      RowBox[{"findCompleteYearsBetween", "[", 
+       RowBox[{"start", ",", "end"}], "]"}], "]"}], "\[GreaterEqual]", " ", 
+     "1"}], ",", " ", "\[IndentingNewLine]", 
+    RowBox[{"CombinationWithYear", "[", 
+     RowBox[{"start", ",", "end"}], "]"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"Length", "[", 
+        RowBox[{"findCompleteMonthsBetween", "[", 
+         RowBox[{"start", ",", "end"}], "]"}], "]"}], " ", "\[GreaterEqual]", 
+       " ", "2"}], ",", " ", "\[IndentingNewLine]", 
+      RowBox[{"CombinationTwoMonthsPlus", "[", 
+       RowBox[{"start", ",", "end"}], "]"}], ",", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Length", "[", 
+          RowBox[{"findCompleteMonthsBetween", "[", 
+           RowBox[{"start", ",", "end"}], "]"}], "]"}], "\[Equal]", " ", 
+         "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"CombinationOneMth", "[", 
+         RowBox[{"start", ",", "end"}], "]"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"CombinationNoMths", "[", 
+         RowBox[{"start", ",", "end"}], "]"}]}], "]"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellLabel->
+  "In[210]:=",ExpressionUUID->"3ee5d4b1-cec4-4795-8bb4-ab5bfb6e90e9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"yearSet", "[", 
+    RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", 
+   " ", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"TimeSeriesCombination", "[", 
+      RowBox[{"start", ",", "end"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringLength", "[", "#", "]"}], " ", "\[Equal]", " ", "4"}], 
+      "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.771449242006555*^9, 3.771449250427161*^9}, {
+  3.771449286100895*^9, 3.7714492875258503`*^9}, {3.771451881053397*^9, 
+  3.7714519262902503`*^9}},
+ CellLabel->
+  "In[211]:=",ExpressionUUID->"5d32903d-111e-42a6-b756-8f4d7cdafc04"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"monthSet", "[", 
+    RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", 
+   " ", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"TimeSeriesCombination", "[", 
+      RowBox[{"start", ",", "end"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringLength", "[", "#", "]"}], " ", "\[Equal]", " ", "6"}], 
+      "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.771449255015207*^9, 3.77144929087508*^9}, 
+   3.7714518829086313`*^9, {3.7714520852467594`*^9, 3.7714520955556216`*^9}},
+ CellLabel->
+  "In[218]:=",ExpressionUUID->"427f382c-7954-4c44-847d-174134d5fce6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"weekSet", "[", 
+    RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"TimeSeriesCombination", "[", 
+      RowBox[{"start", ",", "end"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringLength", "[", "#", "]"}], " ", "\[Equal]", " ", "9"}], 
+      "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7714492962977796`*^9, 3.771449321829774*^9}, 
+   3.771451884479677*^9, {3.771452099308126*^9, 3.771452127837105*^9}},
+ CellLabel->
+  "In[220]:=",ExpressionUUID->"1cb85d70-def3-4255-8d4e-46ad397182b6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"dateSet", "[", 
+    RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], ":=", " ", 
+   RowBox[{"Select", "[", 
+    RowBox[{
+     RowBox[{"TimeSeriesCombination", "[", 
+      RowBox[{"start", ",", "end"}], "]"}], ",", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringLength", "[", "#", "]"}], " ", "\[Equal]", " ", "8"}], 
+      "&"}]}], "]"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.7714475743827705`*^9, 3.771447674566767*^9}, 
+   3.771447747310179*^9, {3.7714492111870527`*^9, 3.7714492147424126`*^9}, {
+   3.771449283940463*^9, 3.771449293098653*^9}, {3.771450814900199*^9, 
+   3.7714508152624435`*^9}, 3.77145188551436*^9, {3.7714521151306553`*^9, 
+   3.7714521307390447`*^9}},
+ CellLabel->
+  "In[221]:=",ExpressionUUID->"3bd54ae6-e2b4-4ecc-9bbb-9fa9378d188c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureFileYear", "[", "]"}], " ", ":=", " ", 
+  RowBox[{"ToExpression", " ", "@", " ", 
+   RowBox[{"First", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"Import", "[", "\"\<all-years.csv\>\"", "]"}], "]"}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7714504388569336`*^9, 3.771450461779182*^9}},
+ CellLabel->
+  "In[168]:=",ExpressionUUID->"63d9009f-67fd-4c6a-8b1d-59e8935b6b23"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureFileMonth", "[", "date_String", "]"}], " ", ":=", " ", 
+  RowBox[{"ToExpression", " ", "@", " ", 
+   RowBox[{"First", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"Import", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"StringTake", "[", 
+          RowBox[{"date", ",", "4"}], "]"}], ",", "\"\<-month.csv\>\""}], 
+        "}"}], "]"}], "]"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7714504354206467`*^9, 3.7714504367335143`*^9}, {
+  3.7714504705260124`*^9, 3.7714504717988567`*^9}},
+ CellLabel->
+  "In[169]:=",ExpressionUUID->"2e8bee21-356a-4139-bcc5-83ca9ab7dbbb"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureFileWeek", "[", "date_String", "]"}], " ", ":=", " ", 
+  RowBox[{"ToExpression", " ", "@", " ", 
+   RowBox[{"First", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"Import", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"StringTake", "[", 
+          RowBox[{"date", ",", "4"}], "]"}], ",", "\"\<-week.csv\>\""}], 
+        "}"}], "]"}], "]"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7714504202765675`*^9, 3.7714504313399324`*^9}, {
+  3.7714504756834435`*^9, 3.771450477024335*^9}},
+ CellLabel->
+  "In[170]:=",ExpressionUUID->"1465c306-a9a2-482f-af1d-5a3d3e430ac3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureFileDay", "[", "date_String", "]"}], " ", ":=", " ", 
+  RowBox[{"ToExpression", " ", "@", " ", 
+   RowBox[{"First", "[", 
+    RowBox[{"Flatten", "[", 
+     RowBox[{"Import", "[", 
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"StringTake", "[", 
+          RowBox[{"date", ",", "4"}], "]"}], ",", "\"\<-day.csv\>\""}], "}"}],
+        "]"}], "]"}], "]"}], "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.7714486930657463`*^9, 3.7714489143105507`*^9}, {
+  3.7714489643904753`*^9, 3.771448965795416*^9}, {3.7714490000792313`*^9, 
+  3.771449050692917*^9}, {3.771450405980054*^9, 3.77145040638132*^9}},
+ CellLabel->
+  "In[162]:=",ExpressionUUID->"433c8a30-e4ef-485b-8070-b91f79568bf5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureYearMax", "[", "yearList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileYear", "[", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Max\>\"", "]"}], "&"}], "/@", "yearList"}]}]], "Input",
+ CellChangeTimes->{{3.7714503745050993`*^9, 3.7714503969700584`*^9}, {
+  3.7714504851527443`*^9, 3.771450493478285*^9}, {3.771450546374488*^9, 
+  3.771450546829792*^9}, {3.7714508315662932`*^9, 3.771450858256049*^9}},
+ CellLabel->
+  "In[190]:=",ExpressionUUID->"b58fe40d-dc7c-4d93-8220-f3ed0ca096d6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureYearMin", "[", "yearList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileYear", "[", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Min\>\"", "]"}], "&"}], "/@", "yearList"}]}]], "Input",
+ CellChangeTimes->{{3.771450576467515*^9, 3.7714505827206726`*^9}, {
+  3.771450883770036*^9, 3.771450913490814*^9}},
+ CellLabel->
+  "In[193]:=",ExpressionUUID->"ab31fe80-a536-47f4-9fea-86b9425857a6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureYearMean", "[", "yearList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileYear", "[", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Mean\>\"", "]"}], "&"}], "/@", "yearList"}]}]], "Input",
+ CellChangeTimes->{{3.7714505793194213`*^9, 3.771450585299388*^9}, {
+  3.7714508879117928`*^9, 3.771450914122236*^9}},
+ CellLabel->
+  "In[194]:=",ExpressionUUID->"2eba89d6-cd2b-467e-99fe-d9f80acc8c84"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureMonthMax", "[", "monthList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileMonth", "[", "#", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Max\>\"", "]"}], "&"}], "/@", "monthList"}]}]], "Input",
+ CellChangeTimes->{{3.7714503745050993`*^9, 3.7714503969700584`*^9}, {
+  3.7714504851527443`*^9, 3.771450493478285*^9}, {3.771450546374488*^9, 
+  3.771450546829792*^9}, {3.7714506096886272`*^9, 3.77145063765524*^9}, {
+  3.7714508893137255`*^9, 3.7714509162506533`*^9}, {3.77145177007353*^9, 
+  3.771451782701936*^9}},
+ CellLabel->
+  "In[203]:=",ExpressionUUID->"837505f6-5581-4d55-bb3d-553566e09f48"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureMonthMin", "[", "monthList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileMonth", "[", "#", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Min\>\"", "]"}], "&"}], "/@", "monthList"}]}]], "Input",
+ CellChangeTimes->{{3.771450576467515*^9, 3.7714505827206726`*^9}, {
+  3.771450614058528*^9, 3.7714506433520308`*^9}, {3.771450890578565*^9, 
+  3.7714509180408416`*^9}, {3.7714517767830043`*^9, 3.771451783484462*^9}},
+ CellLabel->
+  "In[204]:=",ExpressionUUID->"157a1549-5b2f-4401-9535-e6656558d03a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureMonthMean", "[", "monthList_List", "]"}], " ", ":=", 
+  " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileMonth", "[", "#", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Mean\>\"", "]"}], "&"}], "/@", "monthList"}]}]], "Input",
+ CellChangeTimes->{{3.7714505793194213`*^9, 3.771450585299388*^9}, {
+  3.7714506179981503`*^9, 3.771450647368704*^9}, {3.771450892116583*^9, 
+  3.7714509198770638`*^9}, {3.77145177810188*^9, 3.771451784225957*^9}},
+ CellLabel->
+  "In[205]:=",ExpressionUUID->"83c71537-7863-44e1-8e00-32a653b8a8ea"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureWeekMax", "[", "weekList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileWeek", "[", "#", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Max\>\"", "]"}], "&"}], "/@", "weekList"}]}]], "Input",
+ CellChangeTimes->{{3.7714503745050993`*^9, 3.7714503969700584`*^9}, {
+  3.7714504851527443`*^9, 3.771450493478285*^9}, {3.771450546374488*^9, 
+  3.771450546829792*^9}, {3.7714506096886272`*^9, 3.77145063765524*^9}, {
+  3.7714506770394497`*^9, 3.7714506826832*^9}, {3.771450893311386*^9, 
+  3.7714509219374375`*^9}, {3.771451786552504*^9, 3.7714517981122*^9}, {
+  3.7714523819702473`*^9, 3.7714523838034678`*^9}},
+ CellLabel->
+  "In[227]:=",ExpressionUUID->"e026aadf-c15e-4776-9f98-fe73a1610305"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureWeekMin", "[", "weekList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileWeek", "[", "#", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Min\>\"", "]"}], "&"}], "/@", "weekList"}]}]], "Input",
+ CellChangeTimes->{{3.771450576467515*^9, 3.7714505827206726`*^9}, {
+  3.771450614058528*^9, 3.7714506433520308`*^9}, {3.7714506864256988`*^9, 
+  3.7714506879757304`*^9}, {3.7714508959511356`*^9, 3.771450923658575*^9}, {
+  3.77145179327798*^9, 3.7714517988096557`*^9}, {3.7714523897504272`*^9, 
+  3.7714523916196694`*^9}},
+ CellLabel->
+  "In[230]:=",ExpressionUUID->"03a42346-6993-40d9-b3e4-81e59c3fb1c0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureWeekMean", "[", "weekList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileWeek", "[", "#", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Mean\>\"", "]"}], "&"}], "/@", "weekList"}]}]], "Input",
+ CellChangeTimes->{{3.7714505793194213`*^9, 3.771450585299388*^9}, {
+  3.7714506179981503`*^9, 3.771450647368704*^9}, {3.7714506911498427`*^9, 
+  3.7714506938716536`*^9}, {3.771450897093901*^9, 3.771450925837033*^9}, {
+  3.771451794791988*^9, 3.771451799489122*^9}, {3.771452393953224*^9, 
+  3.7714523959995866`*^9}},
+ CellLabel->
+  "In[229]:=",ExpressionUUID->"a91ca16e-b5ff-4579-ace6-bb45582ec1c9"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"temperatureDay", "[", "dayList_List", "]"}], " ", ":=", " ", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"temperatureFileDay", "[", "#", "]"}], "[", "#", "]"}], "[", 
+     "\"\<Temperature\>\"", "]"}], "&"}], "/@", "dayList"}]}]], "Input",
+ CellChangeTimes->{{3.771449054124194*^9, 3.7714490732699428`*^9}, {
+  3.771449190623352*^9, 3.771449193502269*^9}, {3.7714504090380864`*^9, 
+  3.771450409459363*^9}, {3.7714508997066393`*^9, 3.771450927469118*^9}, {
+  3.7714518018957095`*^9, 3.7714518088063154`*^9}},
+ CellLabel->
+  "In[209]:=",ExpressionUUID->"a8c764a2-39a7-4743-b9da-51db77206c3f"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MaxTemperatureInterval", "[", 
+   RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Max", "[", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"temperatureYearMax", "[", 
+       RowBox[{"yearSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}], ",", 
+      RowBox[{"temperatureYearMax", "[", 
+       RowBox[{"yearSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}], ",", 
+      RowBox[{"temperatureYearMax", "[", 
+       RowBox[{"yearSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}], ",", 
+      RowBox[{"temperatureYearMax", "[", 
+       RowBox[{"yearSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}]}], "]"}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.77145214685977*^9, 3.771452173612339*^9}, {
+  3.7714522278844557`*^9, 3.771452273149582*^9}, {3.771453431117778*^9, 
+  3.77145343125887*^9}},
+ CellLabel->
+  "In[242]:=",ExpressionUUID->"19108564-7b09-4705-9cb3-8cd83a8af0f5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MinTemperatureInterval", "[", 
+   RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", " ", 
+  RowBox[{"Min", "[", 
+   RowBox[{"Flatten", "[", 
+    RowBox[{"Join", "[", 
+     RowBox[{
+      RowBox[{"temperatureYearMin", "[", 
+       RowBox[{"yearSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}], ",", 
+      RowBox[{"temperatureYearMin", "[", 
+       RowBox[{"yearSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}], ",", 
+      RowBox[{"temperatureYearMin", "[", 
+       RowBox[{"yearSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}], ",", 
+      RowBox[{"temperatureYearMin", "[", 
+       RowBox[{"yearSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}]}], "]"}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7714524624758263`*^9, 3.7714524771926155`*^9}, {
+  3.771453433387288*^9, 3.771453433515373*^9}},
+ CellLabel->
+  "In[243]:=",ExpressionUUID->"e26c89e8-3fd6-41f3-abf0-aa6ac0a1bb8b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"daysInYear", " ", "@", " ", 
+    RowBox[{"Read", "[", 
+     RowBox[{
+      RowBox[{"StringToStream", "[", "#", "]"}], ",", "Number"}], "]"}]}], 
+   "&"}], "/@", 
+  RowBox[{"{", 
+   RowBox[{"\"\<2016\>\"", ",", "\"\<2017\>\""}], "}"}]}]], "Input",
+ CellChangeTimes->{{3.7714526219196*^9, 3.771452647897895*^9}, {
+  3.771453010671338*^9, 3.771453013479209*^9}},
+ CellLabel->
+  "In[236]:=",ExpressionUUID->"cf00626f-c4e2-46d8-a55c-a7d80b3a2cbd"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"366", ",", "365"}], "}"}]], "Output",
+ CellChangeTimes->{3.7714530139945526`*^9},
+ CellLabel->
+  "Out[236]=",ExpressionUUID->"92e60942-dc61-4b52-9290-a89207be4f0e"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"daysInYear", "[", "year_Integer", "]"}], " ", ":=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"Mod", "[", 
+      RowBox[{"year", ",", "4"}], "]"}], "\[Equal]", "0"}], ",", "366", ",", 
+    "365"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7714526675649843`*^9, 3.7714526683715143`*^9}, {
+  3.771452967013283*^9, 3.771453004905503*^9}, {3.7714531660033293`*^9, 
+  3.771453174955295*^9}},ExpressionUUID->"dcfc36e9-1e2b-4322-9604-\
+a5eeb6c09822"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"daysInMonth", "[", "month_Integer", "]"}], " ", ":=", " ", 
+  RowBox[{"daysInMonth", "[", 
+   RowBox[{"DateObject", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{"month", " ", "-", " ", 
+         RowBox[{"Mod", "[", 
+          RowBox[{"month", ",", "100"}], "]"}]}], ")"}], "/", "100"}], ",", 
+      " ", 
+      RowBox[{"Mod", "[", 
+       RowBox[{"month", ",", "100"}], "]"}]}], "}"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.771453150382941*^9, 3.7714532655896134`*^9}},
+ CellLabel->
+  "In[239]:=",ExpressionUUID->"44dd46a3-8844-432b-94ca-853361c17d23"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"MeanTemperatureInterval", "[", 
+   RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", " ",
+   "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"Total", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"daysInYear", " ", "@", " ", 
+          RowBox[{"Read", "[", 
+           RowBox[{
+            RowBox[{"StringToStream", "[", "#", "]"}], ",", "Number"}], 
+           "]"}]}], "&"}], "/@", 
+        RowBox[{"yearSet", "[", 
+         RowBox[{"start", ",", "end"}], "]"}]}], "*", 
+       RowBox[{"temperatureYearMean", "[", 
+        RowBox[{"yearSet", "[", 
+         RowBox[{"start", ",", "end"}], "]"}], "]"}]}], "]"}], "+", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Total", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"daysInMonth", " ", "@", " ", 
+          RowBox[{"Read", "[", 
+           RowBox[{
+            RowBox[{"StringToStream", "[", "#", "]"}], ",", "Number"}], 
+           "]"}]}], "&"}], "/@", 
+        RowBox[{"monthSet", "[", 
+         RowBox[{"start", ",", "end"}], "]"}]}], " ", "*", " ", 
+       RowBox[{"temperatureMonthMean", "[", 
+        RowBox[{"monthSet", "[", 
+         RowBox[{"start", ",", "end"}], "]"}], "]"}]}], "]"}], " ", "+", " ", 
+     "\[IndentingNewLine]", 
+     RowBox[{"Total", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"6", "*", "#"}], ")"}], "&"}], "/@", 
+       RowBox[{"temperatureWeekMean", "[", 
+        RowBox[{"weekSet", "[", 
+         RowBox[{"start", ",", "end"}], "]"}], "]"}]}], "]"}], " ", "+", " ", 
+     RowBox[{"Total", "[", 
+      RowBox[{"temperatureDay", "[", 
+       RowBox[{"dateSet", "[", 
+        RowBox[{"start", ",", "end"}], "]"}], "]"}], "]"}]}], ")"}], "/", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{"QuantityMagnitude", "[", 
+      RowBox[{"end", "-", "start"}], "]"}], "+", "1"}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.7714530430779085`*^9, 3.7714531363496017`*^9}, {
+   3.771453274001212*^9, 3.7714534283109074`*^9}, 3.771453706541231*^9, {
+   3.7714537377820225`*^9, 3.7714538092285757`*^9}, {3.7714538399029875`*^9, 
+   3.7714539257481203`*^9}},
+ CellLabel->
+  "In[267]:=",ExpressionUUID->"4221000a-2f94-4262-9619-11311b5a953d"],
+
+Cell[BoxData[
+ RowBox[{"Clear", "[", "MeanTemperatureInterval", "]"}]], "Input",
+ CellChangeTimes->{{3.7714540399980283`*^9, 3.7714540500417185`*^9}},
+ CellLabel->
+  "In[266]:=",ExpressionUUID->"52069fc6-9aae-472b-8345-b5e6f3fe44e7"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", "[", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{
+    RowBox[{"MeanTemperatureInterval", "[", 
+     RowBox[{
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "2016/02/03", Typeset`boxes$$ = 
+        RowBox[{"DateObject", "[", 
+          RowBox[{"{", 
+            RowBox[{"2016", ",", " ", "2", ",", " ", "3"}], "}"}], "]"}], 
+        Typeset`allassumptions$$ = {{
+         "type" -> "MultiClash", "word" -> "", "template" -> 
+          "Assuming ${word1} is referring to ${desc1}. Use \"${word2}\" as \
+${desc2}.", "count" -> "2", 
+          "Values" -> {{
+            "name" -> "DateObject", "word" -> "2016/02/03", "desc" -> 
+             "a date", "input" -> "*MC.2016%2F02%2F03-_*DateObject-"}, {
+            "name" -> "FracNumber", "word" -> "2016/02", "desc" -> 
+             " referring to math", "input" -> 
+             "*MC.2016%2F02%2F03-_*FracNumber-"}}}, {
+         "type" -> "DateOrder", "template" -> 
+          "Assuming ${desc1}. Use ${desc2} instead", "count" -> "2", 
+          "Values" -> {{
+            "name" -> "YearMonthDay", "desc" -> "year/month/day", "input" -> 
+             "DateOrder_**Year.Month.Day--"}, {
+            "name" -> "YearDayMonth", "desc" -> "year/day/month", "input" -> 
+             "DateOrder_**Year.Day.Month--"}}}}, Typeset`assumptions$$ = {}, 
+        Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.5513658`7.192984817775853, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{237., {8., 18.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True], ",", 
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "2018/11/15", Typeset`boxes$$ = 
+        RowBox[{"DateObject", "[", 
+          RowBox[{"{", 
+            RowBox[{"2018", ",", " ", "11", ",", " ", "15"}], "}"}], "]"}], 
+        Typeset`allassumptions$$ = {{
+         "type" -> "MultiClash", "word" -> "", "template" -> 
+          "Assuming ${word1} is referring to ${desc1}. Use \"${word2}\" as \
+${desc2}.", "count" -> "2", 
+          "Values" -> {{
+            "name" -> "DateObject", "word" -> "2018/11/15", "desc" -> 
+             "a date", "input" -> "*MC.2018%2F11%2F15-_*DateObject-"}, {
+            "name" -> "FracNumber", "word" -> "2018/11", "desc" -> 
+             " referring to math", "input" -> 
+             "*MC.2018%2F11%2F15-_*FracNumber-"}}}}, 
+        Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+        Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.4943301`7.14556204916393, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{251., {8., 18.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True]}], "]"}], ",", "\"\<DegreesFahrenheit\>\""}],
+    "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.771453422047742*^9, 3.7714534593085365`*^9}, {
+  3.771453997004209*^9, 3.771453998416157*^9}, {3.7714540288666286`*^9, 
+  3.7714540373492737`*^9}, {3.7714545895287657`*^9, 3.7714546170742893`*^9}},
+ CellLabel->
+  "In[268]:=",ExpressionUUID->"0639c0b2-6488-4b5f-b6b5-471310bc3244"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"3.84375`", ",", 
+   TemplateBox[{
+    "52.16357538337598`","\"\[Degree]F\"","degrees Fahrenheit",
+     "\"DegreesFahrenheit\""},
+    "Quantity"]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7714534604753146`*^9, 3.7714537181209326`*^9, 3.7714538159470468`*^9, {
+   3.7714538713539143`*^9, 3.7714538950617*^9}, 3.771453932898881*^9, 
+   3.771454059626091*^9, 3.7714546265106573`*^9},
+ CellLabel->
+  "Out[268]=",ExpressionUUID->"90ccf64d-753d-48c7-bdc2-993b041ae914"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", "[", 
+  RowBox[{"Mean", "[", 
+   RowBox[{"AirTemperatureData", "[", 
+    RowBox[{
+     NamespaceBox["LinguisticAssistant",
+      DynamicModuleBox[{Typeset`query$$ = "Waltham", Typeset`boxes$$ = 
+       TemplateBox[{"\"Waltham\"", 
+         RowBox[{"Entity", "[", 
+           RowBox[{"\"City\"", ",", 
+             RowBox[{"{", 
+               
+               RowBox[{
+                "\"Waltham\"", ",", "\"Massachusetts\"", ",", 
+                 "\"UnitedStates\""}], "}"}]}], "]"}], 
+         "\"Entity[\\\"City\\\", {\\\"Waltham\\\", \\\"Massachusetts\\\", \
+\\\"UnitedStates\\\"}]\"", "\"city\""}, "Entity"], 
+       Typeset`allassumptions$$ = {{
+        "type" -> "SubCategory", "word" -> "Waltham", "template" -> 
+         "Assuming ${desc1}. Use ${desc2} instead", "count" -> "6", 
+         "Values" -> {{
+           "name" -> "{Waltham, Massachusetts, UnitedStates}", "desc" -> 
+            "Waltham (Massachusetts, USA)", "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.Massachusetts.UnitedStates--"},\
+ {"name" -> "{Waltham, Vermont, UnitedStates}", "desc" -> 
+            "Waltham (Vermont, USA)", "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.Vermont.UnitedStates--"}, {
+           "name" -> "{Waltham, Maine, UnitedStates}", "desc" -> 
+            "Waltham (Maine, USA)", "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.Maine.UnitedStates--"}, {
+           "name" -> "{Waltham, NorthEastLincolnshire, UnitedKingdom}", 
+            "desc" -> "Waltham (North East Lincolnshire, United Kingdom)", 
+            "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.NorthEastLincolnshire.\
+UnitedKingdom--"}, {
+           "name" -> "{WalthamOnTheWolds, Leicestershire, UnitedKingdom}", 
+            "desc" -> 
+            "Waltham\[Hyphen]on\[Hyphen]the\[Hyphen]Wolds (Leicestershire, \
+United Kingdom)", "input" -> 
+            "*DPClash.CityE.Waltham-_**WalthamOnTheWolds.Leicestershire.\
+UnitedKingdom--"}, {
+           "name" -> "{Waltham, Minnesota, UnitedStates}", "desc" -> 
+            "Waltham (Minnesota, USA)", "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.Minnesota.UnitedStates--"}}}}, 
+       Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+       Typeset`querystate$$ = {
+       "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+        1.4109402`7.6010536008999505, "Messages" -> {}}}, 
+       DynamicBox[ToBoxes[
+         AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+          Dynamic[Typeset`query$$], 
+          Dynamic[Typeset`boxes$$], 
+          Dynamic[Typeset`allassumptions$$], 
+          Dynamic[Typeset`assumptions$$], 
+          Dynamic[Typeset`open$$], 
+          Dynamic[Typeset`querystate$$]], StandardForm],
+        ImageSizeCache->{142., {7., 17.}},
+        TrackedSymbols:>{
+         Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+          Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+       DynamicModuleValues:>{},
+       UndoTrackedVariables:>{Typeset`open$$}],
+      BaseStyle->{"Deploy"},
+      DeleteWithContents->True,
+      Editable->False,
+      SelectWithContents->True], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"DateObject", "[", 
+        RowBox[{"{", 
+         RowBox[{"2016", ",", "2", ",", "3"}], "}"}], "]"}], ",", 
+       RowBox[{"DateObject", "[", 
+        RowBox[{"{", 
+         RowBox[{"2018", ",", "11", ",", "15"}], "}"}], "]"}]}], "}"}]}], 
+    "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.7714540865647945`*^9, 3.7714541275867834`*^9}, {
+  3.7714541664443784`*^9, 3.7714541698186235`*^9}},
+ CellLabel->
+  "In[265]:=",ExpressionUUID->"e76f1a82-311b-4e74-9564-3ec6eb4ec398"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"50.875`", ",", 
+   TemplateBox[{
+    "52.116419158704964`","\"\[Degree]F\"","degrees Fahrenheit",
+     "\"DegreesFahrenheit\""},
+    "Quantity"]}], "}"}]], "Output",
+ CellChangeTimes->{3.771454164310955*^9, 3.771454223610423*^9},
+ CellLabel->
+  "Out[265]=",ExpressionUUID->"ac71c7af-19e8-423a-a112-33837213d5f3"]
+}, Open  ]],
+
+Cell["\<\
+26.6946/653 = 0.0409. Diff = 0.0472. The difference is most likely the \
+different in mechanics. Is there something else? 
+And WOW it took 1 extra second to add the \[OpenCurlyDoubleQuote]Degrees \
+Fahrenheit\[CloseCurlyDoubleQuote]!!!!!!\
+\>", "Text",
+ CellChangeTimes->{{3.771454469134593*^9, 3.771454492363052*^9}, {
+  3.7714545257805204`*^9, 3.77145453756336*^9}, {3.7714545738885307`*^9, 
+  3.771454579559136*^9}, {3.7714546406478386`*^9, 
+  3.77145465852874*^9}},ExpressionUUID->"877f36ed-0c5c-4fe8-974f-\
+039046d3e8d8"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", "[", 
+  RowBox[{"Quantity", "[", 
+   RowBox[{
+    RowBox[{"MeanTemperatureInterval", "[", 
+     RowBox[{
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "2018/11/13", Typeset`boxes$$ = 
+        RowBox[{"DateObject", "[", 
+          RowBox[{"{", 
+            RowBox[{"2018", ",", " ", "11", ",", " ", "13"}], "}"}], "]"}], 
+        Typeset`allassumptions$$ = {{
+         "type" -> "MultiClash", "word" -> "", "template" -> 
+          "Assuming ${word1} is referring to ${desc1}. Use \"${word2}\" as \
+${desc2}.", "count" -> "2", 
+          "Values" -> {{
+            "name" -> "DateObject", "word" -> "2018/11/13", "desc" -> 
+             "a date", "input" -> "*MC.2018%2F11%2F13-_*DateObject-"}, {
+            "name" -> "FracNumber", "word" -> "2018/11", "desc" -> 
+             " referring to math", "input" -> 
+             "*MC.2018%2F11%2F13-_*FracNumber-"}}}}, 
+        Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+        Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.7074714`7.301253881405038, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{251., {8., 18.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True], ",", 
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "2018/11/15", Typeset`boxes$$ = 
+        RowBox[{"DateObject", "[", 
+          RowBox[{"{", 
+            RowBox[{"2018", ",", " ", "11", ",", " ", "15"}], "}"}], "]"}], 
+        Typeset`allassumptions$$ = {{
+         "type" -> "MultiClash", "word" -> "", "template" -> 
+          "Assuming ${word1} is referring to ${desc1}. Use \"${word2}\" as \
+${desc2}.", "count" -> "2", 
+          "Values" -> {{
+            "name" -> "DateObject", "word" -> "2018/11/15", "desc" -> 
+             "a date", "input" -> "*MC.2018%2F11%2F15-_*DateObject-"}, {
+            "name" -> "FracNumber", "word" -> "2018/11", "desc" -> 
+             " referring to math", "input" -> 
+             "*MC.2018%2F11%2F15-_*FracNumber-"}}}}, 
+        Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+        Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.4943301`7.14556204916393, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{251., {8., 18.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True]}], "]"}], ",", "\"\<DegreesFahrenheit\>\""}],
+    "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.771454679366601*^9, 3.7714546960149527`*^9}},
+ CellLabel->
+  "In[269]:=",ExpressionUUID->"db022e2d-bdd5-4f3d-b7b3-a14bff669435"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.8125`", ",", 
+   TemplateBox[{
+    "35.526619202823994`","\"\[Degree]F\"","degrees Fahrenheit",
+     "\"DegreesFahrenheit\""},
+    "Quantity"]}], "}"}]], "Output",
+ CellChangeTimes->{3.771454711550745*^9},
+ CellLabel->
+  "Out[269]=",ExpressionUUID->"f7e0add6-50a4-4b33-8cda-8a4ee8b453cf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Timing", "[", 
+  RowBox[{"Mean", "[", 
+   RowBox[{"AirTemperatureData", "[", 
+    RowBox[{
+     NamespaceBox["LinguisticAssistant",
+      DynamicModuleBox[{Typeset`query$$ = "Waltham", Typeset`boxes$$ = 
+       TemplateBox[{"\"Waltham\"", 
+         RowBox[{"Entity", "[", 
+           RowBox[{"\"City\"", ",", 
+             RowBox[{"{", 
+               
+               RowBox[{
+                "\"Waltham\"", ",", "\"Massachusetts\"", ",", 
+                 "\"UnitedStates\""}], "}"}]}], "]"}], 
+         "\"Entity[\\\"City\\\", {\\\"Waltham\\\", \\\"Massachusetts\\\", \
+\\\"UnitedStates\\\"}]\"", "\"city\""}, "Entity"], 
+       Typeset`allassumptions$$ = {{
+        "type" -> "SubCategory", "word" -> "Waltham", "template" -> 
+         "Assuming ${desc1}. Use ${desc2} instead", "count" -> "6", 
+         "Values" -> {{
+           "name" -> "{Waltham, Massachusetts, UnitedStates}", "desc" -> 
+            "Waltham (Massachusetts, USA)", "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.Massachusetts.UnitedStates--"},\
+ {"name" -> "{Waltham, Vermont, UnitedStates}", "desc" -> 
+            "Waltham (Vermont, USA)", "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.Vermont.UnitedStates--"}, {
+           "name" -> "{Waltham, Maine, UnitedStates}", "desc" -> 
+            "Waltham (Maine, USA)", "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.Maine.UnitedStates--"}, {
+           "name" -> "{Waltham, NorthEastLincolnshire, UnitedKingdom}", 
+            "desc" -> "Waltham (North East Lincolnshire, United Kingdom)", 
+            "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.NorthEastLincolnshire.\
+UnitedKingdom--"}, {
+           "name" -> "{WalthamOnTheWolds, Leicestershire, UnitedKingdom}", 
+            "desc" -> 
+            "Waltham\[Hyphen]on\[Hyphen]the\[Hyphen]Wolds (Leicestershire, \
+United Kingdom)", "input" -> 
+            "*DPClash.CityE.Waltham-_**WalthamOnTheWolds.Leicestershire.\
+UnitedKingdom--"}, {
+           "name" -> "{Waltham, Minnesota, UnitedStates}", "desc" -> 
+            "Waltham (Minnesota, USA)", "input" -> 
+            "*DPClash.CityE.Waltham-_**Waltham.Minnesota.UnitedStates--"}}}}, 
+       Typeset`assumptions$$ = {}, Typeset`open$$ = {1, 2}, 
+       Typeset`querystate$$ = {
+       "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+        1.4109402`7.6010536008999505, "Messages" -> {}}}, 
+       DynamicBox[ToBoxes[
+         AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+          Dynamic[Typeset`query$$], 
+          Dynamic[Typeset`boxes$$], 
+          Dynamic[Typeset`allassumptions$$], 
+          Dynamic[Typeset`assumptions$$], 
+          Dynamic[Typeset`open$$], 
+          Dynamic[Typeset`querystate$$]], StandardForm],
+        ImageSizeCache->{142., {7., 17.}},
+        TrackedSymbols:>{
+         Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+          Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+       DynamicModuleValues:>{},
+       UndoTrackedVariables:>{Typeset`open$$}],
+      BaseStyle->{"Deploy"},
+      DeleteWithContents->True,
+      Editable->False,
+      SelectWithContents->True], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"DateObject", "[", 
+        RowBox[{"{", 
+         RowBox[{"2018", ",", "11", ",", "13"}], "}"}], "]"}], ",", 
+       RowBox[{"DateObject", "[", 
+        RowBox[{"{", 
+         RowBox[{"2018", ",", "11", ",", "16"}], "}"}], "]"}]}], "}"}]}], 
+    "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{{3.771454722338639*^9, 3.771454740171745*^9}},
+ CellLabel->
+  "In[272]:=",ExpressionUUID->"47db7145-ef9c-4330-88ab-851e082a7e77"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"0.5625`", ",", 
+   TemplateBox[{
+    "37.17448159571641`","\"\[Degree]F\"","degrees Fahrenheit",
+     "\"DegreesFahrenheit\""},
+    "Quantity"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.7714547286258225`*^9, 3.771454741714772*^9}},
+ CellLabel->
+  "Out[272]=",ExpressionUUID->"ffdd7248-2300-43eb-baa5-b1d341730897"]
+}, Open  ]],
+
+Cell["\<\
+Yeah sort of...The time series seem to abandon the last date. Maybe spare \
+parts moving around. \
+\>", "Text",
+ CellChangeTimes->{{3.7714547491947517`*^9, 
+  3.771454773786619*^9}},ExpressionUUID->"4485c754-e4c6-443e-bd1f-\
+0e9e767a28e9"]
+},
+WindowSize->{1600, 817},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"12.0 for Microsoft Windows (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 1518, 36, 162, "Input",ExpressionUUID->"3ee5d4b1-cec4-4795-8bb4-ab5bfb6e90e9"],
+Cell[2082, 58, 680, 18, 28, "Input",ExpressionUUID->"5d32903d-111e-42a6-b756-8f4d7cdafc04"],
+Cell[2765, 78, 656, 17, 28, "Input",ExpressionUUID->"427f382c-7954-4c44-847d-174134d5fce6"],
+Cell[3424, 97, 643, 16, 28, "Input",ExpressionUUID->"1cb85d70-def3-4255-8d4e-46ad397182b6"],
+Cell[4070, 115, 824, 19, 28, "Input",ExpressionUUID->"3bd54ae6-e2b4-4ecc-9bbb-9fa9378d188c"],
+Cell[4897, 136, 426, 10, 28, "Input",ExpressionUUID->"63d9009f-67fd-4c6a-8b1d-59e8935b6b23"],
+Cell[5326, 148, 674, 16, 28, "Input",ExpressionUUID->"2e8bee21-356a-4139-bcc5-83ca9ab7dbbb"],
+Cell[6003, 166, 670, 16, 28, "Input",ExpressionUUID->"1465c306-a9a2-482f-af1d-5a3d3e430ac3"],
+Cell[6676, 184, 763, 17, 28, "Input",ExpressionUUID->"433c8a30-e4ef-485b-8070-b91f79568bf5"],
+Cell[7442, 203, 590, 13, 28, "Input",ExpressionUUID->"b58fe40d-dc7c-4d93-8220-f3ed0ca096d6"],
+Cell[8035, 218, 489, 12, 28, "Input",ExpressionUUID->"ab31fe80-a536-47f4-9fea-86b9425857a6"],
+Cell[8527, 232, 493, 12, 28, "Input",ExpressionUUID->"2eba89d6-cd2b-467e-99fe-d9f80acc8c84"],
+Cell[9023, 246, 699, 15, 28, "Input",ExpressionUUID->"837505f6-5581-4d55-bb3d-553566e09f48"],
+Cell[9725, 263, 599, 13, 28, "Input",ExpressionUUID->"157a1549-5b2f-4401-9535-e6656558d03a"],
+Cell[10327, 278, 601, 14, 28, "Input",ExpressionUUID->"83c71537-7863-44e1-8e00-32a653b8a8ea"],
+Cell[10931, 294, 791, 16, 28, "Input",ExpressionUUID->"e026aadf-c15e-4776-9f98-fe73a1610305"],
+Cell[11725, 312, 700, 15, 28, "Input",ExpressionUUID->"03a42346-6993-40d9-b3e4-81e59c3fb1c0"],
+Cell[12428, 329, 697, 15, 28, "Input",ExpressionUUID->"a91ca16e-b5ff-4579-ace6-bb45582ec1c9"],
+Cell[13128, 346, 647, 14, 28, "Input",ExpressionUUID->"a8c764a2-39a7-4743-b9da-51db77206c3f"],
+Cell[13778, 362, 1048, 25, 48, "Input",ExpressionUUID->"19108564-7b09-4705-9cb3-8cd83a8af0f5"],
+Cell[14829, 389, 1003, 24, 48, "Input",ExpressionUUID->"e26c89e8-3fd6-41f3-abf0-aa6ac0a1bb8b"],
+Cell[CellGroupData[{
+Cell[15857, 417, 489, 13, 28, "Input",ExpressionUUID->"cf00626f-c4e2-46d8-a55c-a7d80b3a2cbd"],
+Cell[16349, 432, 204, 5, 32, "Output",ExpressionUUID->"92e60942-dc61-4b52-9290-a89207be4f0e"]
+}, Open  ]],
+Cell[16568, 440, 502, 12, 28, "Input",ExpressionUUID->"dcfc36e9-1e2b-4322-9604-a5eeb6c09822"],
+Cell[17073, 454, 642, 17, 28, "Input",ExpressionUUID->"44dd46a3-8844-432b-94ca-853361c17d23"],
+Cell[17718, 473, 2301, 60, 105, "Input",ExpressionUUID->"4221000a-2f94-4262-9619-11311b5a953d"],
+Cell[20022, 535, 233, 4, 28, "Input",ExpressionUUID->"52069fc6-9aae-472b-8345-b5e6f3fe44e7"],
+Cell[CellGroupData[{
+Cell[20280, 543, 4493, 91, 41, "Input",ExpressionUUID->"0639c0b2-6488-4b5f-b6b5-471310bc3244"],
+Cell[24776, 636, 505, 12, 42, "Output",ExpressionUUID->"90ccf64d-753d-48c7-bdc2-993b041ae914"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[25318, 653, 3706, 78, 40, "Input",ExpressionUUID->"e76f1a82-311b-4e74-9564-3ec6eb4ec398"],
+Cell[29027, 733, 352, 9, 42, "Output",ExpressionUUID->"ac71c7af-19e8-423a-a112-33837213d5f3"]
+}, Open  ]],
+Cell[29394, 745, 536, 10, 56, "Text",ExpressionUUID->"877f36ed-0c5c-4fe8-974f-039046d3e8d8"],
+Cell[CellGroupData[{
+Cell[29955, 759, 3956, 83, 41, "Input",ExpressionUUID->"db022e2d-bdd5-4f3d-b7b3-a14bff669435"],
+Cell[33914, 844, 330, 9, 42, "Output",ExpressionUUID->"f7e0add6-50a4-4b33-8cda-8a4ee8b453cf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[34281, 858, 3651, 77, 40, "Input",ExpressionUUID->"47db7145-ef9c-4330-88ab-851e082a7e77"],
+Cell[37935, 937, 355, 9, 42, "Output",ExpressionUUID->"ffdd7248-2300-43eb-baa5-b1d341730897"]
+}, Open  ]],
+Cell[38305, 949, 249, 6, 34, "Text",ExpressionUUID->"4485c754-e4c6-443e-bd1f-0e9e767a28e9"]
+}
+]
+*)
+
