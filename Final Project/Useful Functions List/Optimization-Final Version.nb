@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[     42109,        964]
-NotebookOptionsPosition[     38632,        915]
-NotebookOutlinePosition[     39006,        931]
-CellTagsIndexPosition[     38963,        928]
+NotebookDataLength[    126972,       2625]
+NotebookOptionsPosition[    123267,       2574]
+NotebookOutlinePosition[    123641,       2590]
+CellTagsIndexPosition[    123598,       2587]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -34,7 +34,7 @@ Cell[BoxData[
   3.770897272202005*^9, 3.770897325308172*^9}, {3.7708979071226454`*^9, 
   3.7708979075036163`*^9}, {3.770898428306585*^9, 3.770898429041437*^9}, {
   3.7714465437060843`*^9, 3.7714465453131547`*^9}},
- CellLabel->"In[67]:=",ExpressionUUID->"5162f9f8-c6e9-4f12-86b2-e8901e38eec0"],
+ CellLabel->"In[31]:=",ExpressionUUID->"5162f9f8-c6e9-4f12-86b2-e8901e38eec0"],
 
 Cell[BoxData[
  RowBox[{
@@ -43,8 +43,9 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"DateList", "[", "date", "]"}], ",", "2"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.7710026044526277`*^9, 3.771002614340102*^9}, {
-  3.771087259438278*^9, 3.7710872617708244`*^9}},
- CellLabel->"In[68]:=",ExpressionUUID->"4eaae841-6115-44d7-80e6-502baf04dbf7"],
+  3.771087259438278*^9, 3.7710872617708244`*^9}, {3.7716206161468396`*^9, 
+  3.77162061816018*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"4eaae841-6115-44d7-80e6-502baf04dbf7"],
 
 Cell[BoxData[
  RowBox[{
@@ -53,7 +54,15 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"DateList", "[", "date", "]"}], ",", "3"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.7710026097388673`*^9, 3.771002621703045*^9}},
- CellLabel->"In[69]:=",ExpressionUUID->"e9a29e57-0daa-4c08-9db2-83532d9342c0"],
+ CellLabel->"In[33]:=",ExpressionUUID->"e9a29e57-0daa-4c08-9db2-83532d9342c0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findHour", "[", "date_DateObject", "]"}], " ", ":=", " ", 
+  RowBox[{"Part", "[", 
+   RowBox[{
+    RowBox[{"DateList", "[", "date", "]"}], ",", "4"}], "]"}]}]], "Input",
+ CellLabel->"In[67]:=",ExpressionUUID->"92c3bd69-d856-4249-a841-22760d0bc197"],
 
 Cell[CellGroupData[{
 
@@ -114,6 +123,109 @@ Cell[BoxData[
 
 Cell[BoxData[
  RowBox[{
+  RowBox[{"startDate", "[", "start_DateObject", "]"}], " ", ":=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"findHour", "[", "start", "]"}], " ", "\[Equal]", " ", "0"}], 
+    ",", " ", "start", ",", " ", 
+    RowBox[{"start", " ", "+", " ", 
+     RowBox[{"1", 
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "day", Typeset`boxes$$ = 
+        TemplateBox[{
+          InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", "days", 
+          "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+        Typeset`allassumptions$$ = {{
+         "type" -> "Clash", "word" -> "day", "template" -> 
+          "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", 
+          "count" -> "3", 
+          "Values" -> {{
+            "name" -> "Unit", "desc" -> "a unit", "input" -> 
+             "*C.day-_*Unit-"}, {
+            "name" -> "Word", "desc" -> "a word", "input" -> 
+             "*C.day-_*Word-"}, {
+            "name" -> "Surname", "desc" -> "a surname", "input" -> 
+             "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+        Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.5483638`7.190613770796604, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{145., {13., 24.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True]}]}]}], " ", "]"}]}]], "Input",
+ CellChangeTimes->{{3.7716236566897964`*^9, 3.7716236741624255`*^9}, {
+  3.7716237701262865`*^9, 3.771623786963497*^9}, {3.7716238408753777`*^9, 
+  3.771623842266303*^9}, {3.7716239232813125`*^9, 3.771623928641881*^9}},
+ CellLabel->
+  "In[140]:=",ExpressionUUID->"255a0414-8b54-44fd-893a-e153ee07a5b4"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"endDate", "[", "end_DateObject", "]"}], " ", ":=", " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"findHour", "[", "end", "]"}], " ", "\[Equal]", " ", "23"}], ",",
+     " ", "end", ",", " ", 
+    RowBox[{"end", " ", "-", " ", 
+     RowBox[{"1", 
+      NamespaceBox["LinguisticAssistant",
+       DynamicModuleBox[{Typeset`query$$ = "days", Typeset`boxes$$ = 
+        TemplateBox[{
+          InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", "days", 
+          "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+        Typeset`allassumptions$$ = {{
+         "type" -> "Clash", "word" -> "days", "template" -> 
+          "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", 
+          "count" -> "2", 
+          "Values" -> {{
+            "name" -> "Unit", "desc" -> "a unit", "input" -> 
+             "*C.days-_*Unit-"}, {
+            "name" -> "Word", "desc" -> "a word", "input" -> 
+             "*C.days-_*Word-"}}}}, Typeset`assumptions$$ = {}, 
+        Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+        "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+         0.5673731`7.205413734898524, "Messages" -> {}}}, 
+        DynamicBox[ToBoxes[
+          AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+           Dynamic[Typeset`query$$], 
+           Dynamic[Typeset`boxes$$], 
+           Dynamic[Typeset`allassumptions$$], 
+           Dynamic[Typeset`assumptions$$], 
+           Dynamic[Typeset`open$$], 
+           Dynamic[Typeset`querystate$$]], StandardForm],
+         ImageSizeCache->{145., {13., 24.}},
+         TrackedSymbols:>{
+          Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+           Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+        DynamicModuleValues:>{},
+        UndoTrackedVariables:>{Typeset`open$$}],
+       BaseStyle->{"Deploy"},
+       DeleteWithContents->True,
+       Editable->False,
+       SelectWithContents->True]}]}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.7716238441535606`*^9, 3.7716238691231766`*^9}, {
+  3.771623930618193*^9, 3.771623935557482*^9}},
+ CellLabel->
+  "In[139]:=",ExpressionUUID->"c49695f1-fea5-4a80-bed2-1f778a69de2c"],
+
+Cell[BoxData[
+ RowBox[{
   RowBox[{"ListFullYears", "[", 
    RowBox[{"start_DateObject", ",", " ", "end_DateObject"}], "]"}], " ", ":=",
    " ", 
@@ -127,99 +239,146 @@ Cell[BoxData[
  CellChangeTimes->{{3.7708968453041353`*^9, 3.7708968661303763`*^9}, {
   3.7708969042799187`*^9, 3.77089693953603*^9}, {3.7708973503228035`*^9, 
   3.770897371338358*^9}, {3.7714520180130205`*^9, 3.7714520206787953`*^9}},
- CellLabel->
-  "In[214]:=",ExpressionUUID->"6b2a411f-1efa-43ac-a58b-733c5300e113"],
+ CellLabel->"In[34]:=",ExpressionUUID->"6b2a411f-1efa-43ac-a58b-733c5300e113"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"findMonthsBefore", "[", "end_DateObject", "]"}], " ", ":=", " ", 
+  "\[IndentingNewLine]", 
   RowBox[{"If", "[", 
    RowBox[{
     RowBox[{
-     RowBox[{"findDate", "[", "end", "]"}], " ", "\[Equal]", " ", 
-     RowBox[{"daysInMonth", "[", "end", "]"}]}], ",", 
-    RowBox[{"Table", "[", 
      RowBox[{
-      RowBox[{"StringJoin", "[", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"IntegerString", "[", 
-          RowBox[{
-           RowBox[{"findYear", "[", "end", "]"}], ",", "10", ",", "4"}], 
-          "]"}], ",", 
-         RowBox[{"IntegerString", "[", 
-          RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", " ", 
-      RowBox[{"{", 
-       RowBox[{"n", ",", "1", ",", 
-        RowBox[{"findMonth", "[", "end", "]"}]}], "}"}]}], "]"}], ",", 
-    RowBox[{"Table", "[", 
+      RowBox[{"findMonth", "[", "end", "]"}], " ", "\[Equal]", " ", "12"}], 
+     " ", "&&", " ", 
      RowBox[{
-      RowBox[{"StringJoin", "[", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"IntegerString", "[", 
+      RowBox[{"findDate", "[", "end", "]"}], " ", "\[Equal]", " ", "31"}], 
+     " ", "&&", " ", 
+     RowBox[{
+      RowBox[{"findHour", "[", "end", "]"}], " ", "\[Equal]", " ", "23"}]}], 
+    ",", " ", 
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"findDate", "[", 
+        RowBox[{"endDate", "[", "end", "]"}], "]"}], " ", "\[Equal]", " ", 
+       RowBox[{"daysInMonth", "[", 
+        RowBox[{"endDate", "[", "end", "]"}], "]"}]}], ",", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"{", 
           RowBox[{
-           RowBox[{"findYear", "[", "end", "]"}], ",", "10", ",", "4"}], 
-          "]"}], ",", 
-         RowBox[{"IntegerString", "[", 
-          RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", " ", 
-      RowBox[{"{", 
-       RowBox[{"n", ",", "1", ",", 
-        RowBox[{
-         RowBox[{"findMonth", "[", "end", "]"}], "-", "1"}]}], "}"}]}], 
-     "]"}]}], "]"}]}]], "Input",
+           RowBox[{"IntegerString", "[", 
+            RowBox[{
+             RowBox[{"findYear", "[", 
+              RowBox[{"endDate", "[", "end", "]"}], "]"}], ",", "10", ",", 
+             "4"}], "]"}], ",", 
+           RowBox[{"IntegerString", "[", 
+            RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", "1", ",", 
+          RowBox[{"findMonth", "[", 
+           RowBox[{"endDate", "[", "end", "]"}], "]"}]}], "}"}]}], "]"}], ",", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{"IntegerString", "[", 
+            RowBox[{
+             RowBox[{"findYear", "[", 
+              RowBox[{"endDate", "[", "end", "]"}], "]"}], ",", "10", ",", 
+             "4"}], "]"}], ",", 
+           RowBox[{"IntegerString", "[", 
+            RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", "1", ",", 
+          RowBox[{
+           RowBox[{"findMonth", "[", 
+            RowBox[{"endDate", "[", "end", "]"}], "]"}], "-", "1"}]}], 
+         "}"}]}], "]"}]}], "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.771186060767874*^9, 3.7711861409337564`*^9}, {
-  3.771186510017242*^9, 3.7711865316968317`*^9}, {3.771186712441865*^9, 
-  3.7711867194406643`*^9}, {3.771424648189659*^9, 3.7714248438573694`*^9}, {
-  3.7714248740633345`*^9, 3.771425065089137*^9}, {3.7714284966318493`*^9, 
-  3.771428499748929*^9}},
- CellLabel->"In[71]:=",ExpressionUUID->"85dd4b16-f4fb-4305-8fa0-b891596f4699"],
+   3.771186510017242*^9, 3.7711865316968317`*^9}, {3.771186712441865*^9, 
+   3.7711867194406643`*^9}, {3.771424648189659*^9, 3.7714248438573694`*^9}, {
+   3.7714248740633345`*^9, 3.771425065089137*^9}, {3.7714284966318493`*^9, 
+   3.771428499748929*^9}, {3.77162391368192*^9, 3.7716239207616363`*^9}, {
+   3.771624048823865*^9, 3.7716240570653505`*^9}, 3.7716267283410482`*^9, {
+   3.7716268445714073`*^9, 3.7716268852334642`*^9}},
+ CellLabel->
+  "In[108]:=",ExpressionUUID->"85dd4b16-f4fb-4305-8fa0-b891596f4699"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"findMonthsAfter", "[", "start_DateObject", "]"}], " ", ":=", " ", 
+  "\[IndentingNewLine]", 
   RowBox[{"If", "[", 
    RowBox[{
     RowBox[{
-     RowBox[{"findDate", "[", "start", "]"}], " ", "\[Equal]", " ", "1"}], 
+     RowBox[{
+      RowBox[{"findMonth", "[", "start", "]"}], " ", "\[Equal]", " ", "1"}], 
+     " ", "&&", " ", 
+     RowBox[{
+      RowBox[{"findDate", "[", "start", "]"}], " ", "\[Equal]", " ", "1"}], 
+     " ", "&&", " ", 
+     RowBox[{
+      RowBox[{"findHour", "[", "start", "]"}], " ", "\[Equal]", " ", "0"}]}], 
     ",", " ", 
-    RowBox[{"Table", "[", 
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"If", "[", 
      RowBox[{
-      RowBox[{"StringJoin", "[", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"IntegerString", "[", 
+      RowBox[{
+       RowBox[{"findDate", "[", 
+        RowBox[{"startDate", "[", "start", "]"}], "]"}], " ", "\[Equal]", " ",
+        "1"}], ",", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"{", 
           RowBox[{
-           RowBox[{"findYear", "[", "start", "]"}], ",", "10", ",", "4"}], 
-          "]"}], ",", 
-         RowBox[{"IntegerString", "[", 
-          RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", " ", 
-      RowBox[{"{", 
-       RowBox[{"n", ",", 
-        RowBox[{"findMonth", "[", "start", "]"}], ",", "12"}], "}"}]}], "]"}],
-     ",", " ", 
-    RowBox[{"Table", "[", 
-     RowBox[{
-      RowBox[{"StringJoin", "[", 
-       RowBox[{"{", 
-        RowBox[{
-         RowBox[{"IntegerString", "[", 
+           RowBox[{"IntegerString", "[", 
+            RowBox[{
+             RowBox[{"findYear", "[", 
+              RowBox[{"startDate", "[", "start", "]"}], "]"}], ",", "10", ",",
+              "4"}], "]"}], ",", 
+           RowBox[{"IntegerString", "[", 
+            RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", 
+          RowBox[{"findMonth", "[", 
+           RowBox[{"startDate", "[", "start", "]"}], "]"}], ",", "12"}], 
+         "}"}]}], "]"}], ",", " ", 
+      RowBox[{"Table", "[", 
+       RowBox[{
+        RowBox[{"StringJoin", "[", 
+         RowBox[{"{", 
           RowBox[{
-           RowBox[{"findYear", "[", "start", "]"}], ",", "10", ",", "4"}], 
-          "]"}], ",", 
-         RowBox[{"IntegerString", "[", 
-          RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", " ", 
-      RowBox[{"{", 
-       RowBox[{"n", ",", 
-        RowBox[{
-         RowBox[{"findMonth", "[", "start", "]"}], "+", "1"}], ",", "12"}], 
-       "}"}]}], "]"}]}], "]"}]}]], "Input",
+           RowBox[{"IntegerString", "[", 
+            RowBox[{
+             RowBox[{"findYear", "[", 
+              RowBox[{"startDate", "[", "start", "]"}], "]"}], ",", "10", ",",
+              "4"}], "]"}], ",", 
+           RowBox[{"IntegerString", "[", 
+            RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", 
+        " ", 
+        RowBox[{"{", 
+         RowBox[{"n", ",", 
+          RowBox[{
+           RowBox[{"findMonth", "[", 
+            RowBox[{"startDate", "[", "start", "]"}], "]"}], "+", "1"}], ",", 
+          "12"}], "}"}]}], "]"}]}], "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.771185879727334*^9, 3.771185987131278*^9}, {
   3.77118602524175*^9, 3.771186053510418*^9}, {3.7711860846255617`*^9, 
   3.7711860872819448`*^9}, {3.7711861519585457`*^9, 3.7711862061203876`*^9}, {
   3.771425090892067*^9, 3.771425106053714*^9}, {3.7714285036525283`*^9, 
-  3.7714285074100227`*^9}},
- CellLabel->"In[72]:=",ExpressionUUID->"28456081-52f6-407c-bfd8-e2ab56966398"],
+  3.7714285074100227`*^9}, {3.7716240681967554`*^9, 3.7716240817817974`*^9}, {
+  3.7716269589903126`*^9, 3.7716270028234863`*^9}},
+ CellLabel->
+  "In[111]:=",ExpressionUUID->"28456081-52f6-407c-bfd8-e2ab56966398"],
 
 Cell[BoxData[
  RowBox[{
@@ -247,7 +406,7 @@ Cell[BoxData[
       RowBox[{"findMonth", "[", "date", "]"}]}], "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.7710199133263907`*^9, 3.7710199923170967`*^9}, {
   3.7710208773586683`*^9, 3.7710209057605224`*^9}},
- CellLabel->"In[73]:=",ExpressionUUID->"2858af80-daa3-4b90-b28c-b0d35978f5c3"],
+ CellLabel->"In[37]:=",ExpressionUUID->"2858af80-daa3-4b90-b28c-b0d35978f5c3"],
 
 Cell[BoxData[
  RowBox[{
@@ -270,7 +429,7 @@ Cell[BoxData[
   3.771002691512846*^9, 3.771002693324448*^9}, {3.771020043599863*^9, 
   3.771020046037282*^9}, {3.771020319510603*^9, 3.771020322049249*^9}, {
   3.7712339261477833`*^9, 3.7712339264589987`*^9}},
- CellLabel->"In[74]:=",ExpressionUUID->"b4f31191-1c33-4960-adf6-4772bc5d805b"],
+ CellLabel->"In[38]:=",ExpressionUUID->"b4f31191-1c33-4960-adf6-4772bc5d805b"],
 
 Cell[BoxData[
  RowBox[{
@@ -291,7 +450,7 @@ Cell[BoxData[
    3.7710243916395254`*^9}, {3.7712337673761873`*^9, 3.7712338117862988`*^9}, 
    3.771233873340094*^9, {3.7712339682170916`*^9, 3.771233971776845*^9}, {
    3.7712340101663375`*^9, 3.771234014313096*^9}},
- CellLabel->"In[75]:=",ExpressionUUID->"ffe17eb7-a571-4fc0-9209-d34212ce8ced"],
+ CellLabel->"In[39]:=",ExpressionUUID->"ffe17eb7-a571-4fc0-9209-d34212ce8ced"],
 
 Cell[BoxData[
  RowBox[{
@@ -308,99 +467,862 @@ Cell[BoxData[
  CellChangeTimes->{{3.7713582303041115`*^9, 3.771358263291465*^9}, {
   3.7713583857993174`*^9, 3.7713583947794285`*^9}, {3.771358454352132*^9, 
   3.7713584568978167`*^9}},
- CellLabel->"In[76]:=",ExpressionUUID->"9f978dab-c7ac-4328-b2bb-938b5100900b"],
+ CellLabel->"In[40]:=",ExpressionUUID->"9f978dab-c7ac-4328-b2bb-938b5100900b"],
 
 Cell[BoxData[
  RowBox[{"SetAttributes", "[", 
   RowBox[{"convertDateToString", ",", "Listable"}], "]"}]], "Input",
  CellChangeTimes->{{3.7714132003672705`*^9, 3.771413236500318*^9}},
- CellLabel->"In[77]:=",ExpressionUUID->"658e360a-7016-45d3-805b-0bfb7f377561"],
+ CellLabel->
+  "In[129]:=",ExpressionUUID->"658e360a-7016-45d3-805b-0bfb7f377561"],
 
 Cell[BoxData[
  RowBox[{"SetAttributes", "[", 
   RowBox[{"ToString", ",", "Listable"}], "]"}]], "Input",
  CellChangeTimes->{{3.771428464386691*^9, 3.7714284748036213`*^9}},
- CellLabel->"In[26]:=",ExpressionUUID->"90b7c5de-da3d-4cdc-8e05-65b45c65a53f"],
+ CellLabel->"In[67]:=",ExpressionUUID->"90b7c5de-da3d-4cdc-8e05-65b45c65a53f"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"listWeekDatesBegin", "[", "dateStart_DateObject", "]"}], " ", ":=",
    " ", 
-  RowBox[{"ToString", "/@", 
-   RowBox[{"If", "[", 
+  RowBox[{"If", "[", 
+   RowBox[{
     RowBox[{
-     RowBox[{
-      RowBox[{"findDate", "[", "dateStart", "]"}], "\[Equal]", " ", "1"}], 
-     ",", 
-     RowBox[{"{", "}"}], ",", 
-     RowBox[{"Join", "[", 
-      RowBox[{
-       RowBox[{"Select", "[", 
+     RowBox[{"findHour", "[", "dateStart", "]"}], "\[Equal]", " ", "0"}], ",", 
+    RowBox[{"(", 
+     RowBox[{"ToString", "/@", 
+      RowBox[{"If", "[", 
+       RowBox[{
         RowBox[{
-         RowBox[{"Table", "[", 
-          RowBox[{"n", ",", 
-           RowBox[{"{", 
-            RowBox[{"n", ",", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"findYear", "[", "dateStart", "]"}], "*", "10000"}], 
-              "+", 
-              RowBox[{
-               RowBox[{"findMonth", "[", "dateStart", "]"}], "*", "100"}], 
-              "+", 
-              RowBox[{"findDate", "[", "dateStart", "]"}]}], ",", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"findYear", "[", "dateStart", "]"}], "*", "10000"}], 
-              "+", 
-              RowBox[{
-               RowBox[{"findMonth", "[", "dateStart", "]"}], "*", "100"}], 
-              "+", 
-              RowBox[{"daysInMonth", "[", "dateStart", "]"}]}]}], "}"}]}], 
-          "]"}], ",", 
+         RowBox[{"findDate", "[", "dateStart", "]"}], "\[Equal]", " ", "1"}], 
+        ",", 
+        RowBox[{"{", "}"}], ",", 
+        RowBox[{"Join", "[", 
          RowBox[{
-          RowBox[{
-           RowBox[{"#", "-", 
-            RowBox[{"(", 
-             RowBox[{
-              RowBox[{
-               RowBox[{"findYear", "[", "dateStart", "]"}], "*", "10000"}], 
-              "+", 
-              RowBox[{
-               RowBox[{"findMonth", "[", "dateStart", "]"}], "*", "100"}], 
-              "+", 
-              RowBox[{"findDate", "[", "dateStart", "]"}]}], ")"}]}], "<", 
-           "  ", 
-           RowBox[{"Mod", "[", 
+          RowBox[{"Select", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{"n", ",", 
+              RowBox[{"{", 
+               RowBox[{"n", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", "dateStart", "]"}], "*", "10000"}],
+                  "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", "dateStart", "]"}], "*", "100"}], 
+                 "+", 
+                 RowBox[{"findDate", "[", "dateStart", "]"}]}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", "dateStart", "]"}], "*", "10000"}],
+                  "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", "dateStart", "]"}], "*", "100"}], 
+                 "+", 
+                 RowBox[{"daysInMonth", "[", "dateStart", "]"}]}]}], "}"}]}], 
+             "]"}], ",", 
             RowBox[{
              RowBox[{
-              RowBox[{"daysInMonth", "[", "dateStart", "]"}], "-", 
-              RowBox[{"findDate", "[", "dateStart", "]"}], "+", "1"}], ",", 
-             "6"}], "]"}]}], "&"}]}], "]"}], ",", 
-       RowBox[{"Reverse", "[", 
-        RowBox[{"Table", "[", 
+              RowBox[{"#", "-", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", "dateStart", "]"}], "*", "10000"}],
+                  "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", "dateStart", "]"}], "*", "100"}], 
+                 "+", 
+                 RowBox[{"findDate", "[", "dateStart", "]"}]}], ")"}]}], "<", 
+              "  ", 
+              RowBox[{"Mod", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"daysInMonth", "[", "dateStart", "]"}], "-", 
+                 RowBox[{"findDate", "[", "dateStart", "]"}], "+", "1"}], ",",
+                 "6"}], "]"}]}], "&"}]}], "]"}], ",", 
+          RowBox[{"Reverse", "[", 
+           RowBox[{"Table", "[", 
+            RowBox[{
+             RowBox[{"StringJoin", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"IntegerString", "[", 
+                 RowBox[{
+                  RowBox[{"findYear", "[", "dateStart", "]"}], ",", "10", ",",
+                   "4"}], "]"}], ",", 
+                RowBox[{"IntegerString", "[", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", "dateStart", "]"}], ",", "10", 
+                  ",", "2"}], "]"}], ",", 
+                RowBox[{"IntegerString", "[", 
+                 RowBox[{"n", ",", "10", ",", "2"}], "]"}], ",", 
+                "\"\<W\>\""}], "}"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"n", ",", 
+               RowBox[{
+                RowBox[{"daysInMonth", "[", "dateStart", "]"}], "-", "5"}], 
+               ",", 
+               RowBox[{"findDate", "[", "dateStart", "]"}], ",", 
+               RowBox[{"-", "6"}]}], "}"}]}], "]"}], "]"}]}], "]"}]}], 
+       "]"}]}], ")"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"(", 
+     RowBox[{"ToString", "/@", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"findDate", "[", 
+          RowBox[{"dateStart", "+", " ", 
+           RowBox[{"1", 
+            NamespaceBox["LinguisticAssistant",
+             
+             DynamicModuleBox[{Typeset`query$$ = "day", Typeset`boxes$$ = 
+              TemplateBox[{
+                InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", "days",
+                 "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+              Typeset`allassumptions$$ = {{
+               "type" -> "Clash", "word" -> "day", "template" -> 
+                "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", 
+                "count" -> "3", 
+                "Values" -> {{
+                  "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                   "*C.day-_*Unit-"}, {
+                  "name" -> "Word", "desc" -> "a word", "input" -> 
+                   "*C.day-_*Word-"}, {
+                  "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                   "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+              Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+              "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+               1.8212041`7.71190361284208, "Messages" -> {}}}, 
+              DynamicBox[ToBoxes[
+                AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+                 Dynamic[Typeset`query$$], 
+                 Dynamic[Typeset`boxes$$], 
+                 Dynamic[Typeset`allassumptions$$], 
+                 Dynamic[Typeset`assumptions$$], 
+                 Dynamic[Typeset`open$$], 
+                 Dynamic[Typeset`querystate$$]], StandardForm],
+               ImageSizeCache->{145., {13., 24.}},
+               
+               TrackedSymbols:>{
+                Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+                 Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+              DynamicModuleValues:>{},
+              UndoTrackedVariables:>{Typeset`open$$}],
+             BaseStyle->{"Deploy"},
+             DeleteWithContents->True,
+             Editable->False,
+             SelectWithContents->True]}]}], "]"}], "\[Equal]", " ", "1"}], 
+        ",", 
+        RowBox[{"{", "}"}], ",", 
+        RowBox[{"Join", "[", 
          RowBox[{
-          RowBox[{"StringJoin", "[", 
-           RowBox[{"{", 
+          RowBox[{"Select", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{"n", ",", 
+              RowBox[{"{", 
+               RowBox[{"n", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", 
+                   RowBox[{"dateStart", "+", " ", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "10000"}], "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", 
+                   RowBox[{"dateStart", "+", " ", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "100"}], "+", 
+                 RowBox[{"findDate", "[", 
+                  RowBox[{"dateStart", "+", " ", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}]}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", 
+                   RowBox[{"dateStart", "+", " ", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "10000"}], "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", 
+                   RowBox[{"dateStart", "+", " ", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "100"}], "+", 
+                 RowBox[{"daysInMonth", "[", 
+                  RowBox[{"dateStart", "+", " ", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}]}]}], "}"}]}], "]"}], 
+            ",", 
             RowBox[{
-             RowBox[{"IntegerString", "[", 
-              RowBox[{
-               RowBox[{"findYear", "[", "dateStart", "]"}], ",", "10", ",", 
-               "4"}], "]"}], ",", 
-             RowBox[{"IntegerString", "[", 
-              RowBox[{
-               RowBox[{"findMonth", "[", "dateStart", "]"}], ",", "10", ",", 
-               "2"}], "]"}], ",", 
-             RowBox[{"IntegerString", "[", 
-              RowBox[{"n", ",", "10", ",", "2"}], "]"}], ",", "\"\<W\>\""}], 
-            "}"}], "]"}], ",", 
-          RowBox[{"{", 
-           RowBox[{"n", ",", 
+             RowBox[{
+              RowBox[{"#", "-", 
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", 
+                   RowBox[{"dateStart", "+", " ", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "10000"}], "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", 
+                   RowBox[{"dateStart", "+", " ", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "100"}], "+", 
+                 RowBox[{"findDate", "[", 
+                  RowBox[{"dateStart", "+", " ", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}]}], ")"}]}], "<", 
+              "  ", 
+              RowBox[{"Mod", "[", 
+               RowBox[{
+                RowBox[{
+                 RowBox[{"daysInMonth", "[", 
+                  RowBox[{"dateStart", "+", " ", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "-", 
+                 RowBox[{"findDate", "[", 
+                  RowBox[{"dateStart", "+", " ", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "+", "1"}], ",", 
+                "6"}], "]"}]}], "&"}]}], "]"}], ",", 
+          RowBox[{"Reverse", "[", 
+           RowBox[{"Table", "[", 
             RowBox[{
-             RowBox[{"daysInMonth", "[", "dateStart", "]"}], "-", "5"}], ",", 
-            RowBox[{"findDate", "[", "dateStart", "]"}], ",", 
-            RowBox[{"-", "6"}]}], "}"}]}], "]"}], "]"}]}], "]"}]}], 
-    "]"}]}]}]], "Input",
+             RowBox[{"StringJoin", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"IntegerString", "[", 
+                 RowBox[{
+                  RowBox[{"findYear", "[", 
+                   RowBox[{"dateStart", "+", " ", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], ",", "10", ",", 
+                  "4"}], "]"}], ",", 
+                RowBox[{"IntegerString", "[", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", 
+                   RowBox[{"dateStart", "+", " ", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], ",", "10", ",", 
+                  "2"}], "]"}], ",", 
+                RowBox[{"IntegerString", "[", 
+                 RowBox[{"n", ",", "10", ",", "2"}], "]"}], ",", 
+                "\"\<W\>\""}], "}"}], "]"}], ",", 
+             RowBox[{"{", 
+              RowBox[{"n", ",", 
+               RowBox[{
+                RowBox[{"daysInMonth", "[", 
+                 RowBox[{"dateStart", "+", " ", 
+                  RowBox[{"1", 
+                   NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "-", "5"}], ",", 
+               RowBox[{"findDate", "[", 
+                RowBox[{"dateStart", "+", " ", 
+                 RowBox[{"1", 
+                  NamespaceBox["LinguisticAssistant",
+                   
+                   DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.8212041`7.71190361284208, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                   BaseStyle->{"Deploy"},
+                   DeleteWithContents->True,
+                   Editable->False,
+                   SelectWithContents->True]}]}], "]"}], ",", 
+               RowBox[{"-", "6"}]}], "}"}]}], "]"}], "]"}]}], "]"}]}], 
+       "]"}]}], ")"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.771258331767539*^9, 3.771258517076875*^9}, {
   3.7712585591535225`*^9, 3.771258905811407*^9}, {3.771259121774144*^9, 
   3.7712591248211727`*^9}, {3.771259204814319*^9, 3.7712592237168913`*^9}, {
@@ -408,71 +1330,754 @@ Cell[BoxData[
   3.7714279541832814`*^9}, {3.7714284352458954`*^9, 3.7714284374823885`*^9}, {
   3.7714285251468267`*^9, 3.7714285287692437`*^9}, {3.771428862532494*^9, 
   3.771428865206274*^9}, {3.771430070208943*^9, 3.771430073849373*^9}, {
-  3.771430123467394*^9, 3.7714301348137674`*^9}},
- CellLabel->"In[78]:=",ExpressionUUID->"4c3d5cb3-bdbc-4f3e-8727-5f015b6c5b4b"],
+  3.771430123467394*^9, 3.7714301348137674`*^9}, {3.7716217007576056`*^9, 
+  3.7716218231270385`*^9}, {3.771623282783041*^9, 3.771623347676236*^9}, {
+  3.7716246401597185`*^9, 3.771624658807128*^9}},
+ CellLabel->"In[69]:=",ExpressionUUID->"4c3d5cb3-bdbc-4f3e-8727-5f015b6c5b4b"],
 
 Cell[BoxData[
  RowBox[{
   RowBox[{"listWeekDatesEnd", "[", "dateEnd_DateObject", "]"}], " ", ":=", 
-  " ", 
-  RowBox[{"ToString", "/@", 
-   RowBox[{"Join", "[", 
+  " ", "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
     RowBox[{
-     RowBox[{"Table", "[", 
-      RowBox[{
-       RowBox[{"StringJoin", "[", 
-        RowBox[{"{", 
-         RowBox[{
-          RowBox[{"IntegerString", "[", 
-           RowBox[{
-            RowBox[{"findYear", "[", "dateEnd", "]"}], ",", "10", ",", "4"}], 
-           "]"}], ",", 
-          RowBox[{"IntegerString", "[", 
-           RowBox[{
-            RowBox[{"findMonth", "[", "dateEnd", "]"}], ",", "10", ",", "2"}],
-            "]"}], ",", 
-          RowBox[{"IntegerString", "[", 
-           RowBox[{"n", ",", "10", ",", "2"}], "]"}], ",", "\"\<W\>\""}], 
-         "}"}], "]"}], ",", 
-       RowBox[{"{", 
-        RowBox[{"n", ",", "1", ",", 
-         RowBox[{
-          RowBox[{"findDate", "[", "dateEnd", "]"}], "-", "5"}], ",", "6"}], 
-        "}"}]}], "]"}], ",", 
-     RowBox[{"Select", "[", 
-      RowBox[{
-       RowBox[{"Table", "[", 
-        RowBox[{"n", ",", 
-         RowBox[{"{", 
-          RowBox[{"n", ",", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"findYear", "[", "dateEnd", "]"}], "*", "10000"}], "+", 
-            RowBox[{
-             RowBox[{"findMonth", "[", "dateEnd", "]"}], "*", "100"}], "+", 
-            "1"}], ",", 
-           RowBox[{
-            RowBox[{
-             RowBox[{"findYear", "[", "dateEnd", "]"}], "*", "10000"}], "+", 
-            RowBox[{
-             RowBox[{"findMonth", "[", "dateEnd", "]"}], "*", "100"}], "+", 
-            RowBox[{"findDate", "[", "dateEnd", "]"}]}]}], "}"}]}], "]"}], 
-       ",", 
+     RowBox[{"findHour", "[", "dateEnd", "]"}], " ", "\[Equal]", " ", "23"}], 
+    ",", 
+    RowBox[{"(", 
+     RowBox[{"ToString", "/@", " ", 
+      RowBox[{"If", "[", 
        RowBox[{
         RowBox[{
+         RowBox[{"findDate", "[", "dateEnd", "]"}], " ", "\[Equal]", " ", 
+         RowBox[{"daysInMonth", "[", "dateEnd", "]"}]}], ",", 
+        RowBox[{"{", "}"}], ",", 
+        RowBox[{"Join", "[", 
          RowBox[{
-          RowBox[{"(", 
+          RowBox[{"Table", "[", 
            RowBox[{
+            RowBox[{"StringJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"IntegerString", "[", 
+                RowBox[{
+                 RowBox[{"findYear", "[", "dateEnd", "]"}], ",", "10", ",", 
+                 "4"}], "]"}], ",", 
+               RowBox[{"IntegerString", "[", 
+                RowBox[{
+                 RowBox[{"findMonth", "[", "dateEnd", "]"}], ",", "10", ",", 
+                 "2"}], "]"}], ",", 
+               RowBox[{"IntegerString", "[", 
+                RowBox[{"n", ",", "10", ",", "2"}], "]"}], ",", "\"\<W\>\""}],
+               "}"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"n", ",", "1", ",", 
+              RowBox[{
+               RowBox[{"findDate", "[", "dateEnd", "]"}], "-", "5"}], ",", 
+              "6"}], "}"}]}], "]"}], ",", 
+          RowBox[{"Select", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{"n", ",", 
+              RowBox[{"{", 
+               RowBox[{"n", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", "dateEnd", "]"}], "*", "10000"}], 
+                 "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", "dateEnd", "]"}], "*", "100"}], 
+                 "+", "1"}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", "dateEnd", "]"}], "*", "10000"}], 
+                 "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", "dateEnd", "]"}], "*", "100"}], 
+                 "+", 
+                 RowBox[{"findDate", "[", "dateEnd", "]"}]}]}], "}"}]}], 
+             "]"}], ",", 
             RowBox[{
-             RowBox[{"findYear", "[", "dateEnd", "]"}], "*", "10000"}], "+", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", "dateEnd", "]"}], "*", "10000"}], 
+                 "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", "dateEnd", "]"}], "*", "100"}], 
+                 "+", 
+                 RowBox[{"findDate", "[", "dateEnd", "]"}]}], ")"}], "-", 
+               "#"}], "<", " ", 
+              RowBox[{"Mod", "[", 
+               RowBox[{
+                RowBox[{"findDate", "[", "dateEnd", "]"}], ",", "6"}], 
+               "]"}]}], "&"}]}], "]"}]}], "]"}]}], "]"}]}], ")"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"(", 
+     RowBox[{"ToString", "/@", " ", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"findDate", "[", 
+          RowBox[{"dateEnd", "-", 
+           RowBox[{"1", 
+            NamespaceBox["LinguisticAssistant",
+             
+             DynamicModuleBox[{Typeset`query$$ = "day", Typeset`boxes$$ = 
+              TemplateBox[{
+                InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", "days",
+                 "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+              Typeset`allassumptions$$ = {{
+               "type" -> "Clash", "word" -> "day", "template" -> 
+                "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", 
+                "count" -> "3", 
+                "Values" -> {{
+                  "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                   "*C.day-_*Unit-"}, {
+                  "name" -> "Word", "desc" -> "a word", "input" -> 
+                   "*C.day-_*Word-"}, {
+                  "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                   "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+              Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+              "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+               1.4249461`7.605343430531522, "Messages" -> {}}}, 
+              DynamicBox[ToBoxes[
+                AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+                 Dynamic[Typeset`query$$], 
+                 Dynamic[Typeset`boxes$$], 
+                 Dynamic[Typeset`allassumptions$$], 
+                 Dynamic[Typeset`assumptions$$], 
+                 Dynamic[Typeset`open$$], 
+                 Dynamic[Typeset`querystate$$]], StandardForm],
+               ImageSizeCache->{145., {13., 24.}},
+               
+               TrackedSymbols:>{
+                Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+                 Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+              DynamicModuleValues:>{},
+              UndoTrackedVariables:>{Typeset`open$$}],
+             BaseStyle->{"Deploy"},
+             DeleteWithContents->True,
+             Editable->False,
+             SelectWithContents->True]}]}], "]"}], " ", "\[Equal]", " ", 
+         RowBox[{"daysInMonth", "[", 
+          RowBox[{"dateEnd", "-", 
+           RowBox[{"1", 
+            NamespaceBox["LinguisticAssistant",
+             
+             DynamicModuleBox[{Typeset`query$$ = "day", Typeset`boxes$$ = 
+              TemplateBox[{
+                InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", "days",
+                 "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+              Typeset`allassumptions$$ = {{
+               "type" -> "Clash", "word" -> "day", "template" -> 
+                "Assuming \"${word}\" is ${desc1}. Use as ${desc2} instead", 
+                "count" -> "3", 
+                "Values" -> {{
+                  "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                   "*C.day-_*Unit-"}, {
+                  "name" -> "Word", "desc" -> "a word", "input" -> 
+                   "*C.day-_*Word-"}, {
+                  "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                   "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+              Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+              "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+               1.4249461`7.605343430531522, "Messages" -> {}}}, 
+              DynamicBox[ToBoxes[
+                AlphaIntegration`LinguisticAssistantBoxes["", 4, Automatic, 
+                 Dynamic[Typeset`query$$], 
+                 Dynamic[Typeset`boxes$$], 
+                 Dynamic[Typeset`allassumptions$$], 
+                 Dynamic[Typeset`assumptions$$], 
+                 Dynamic[Typeset`open$$], 
+                 Dynamic[Typeset`querystate$$]], StandardForm],
+               ImageSizeCache->{145., {13., 24.}},
+               
+               TrackedSymbols:>{
+                Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
+                 Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
+              DynamicModuleValues:>{},
+              UndoTrackedVariables:>{Typeset`open$$}],
+             BaseStyle->{"Deploy"},
+             DeleteWithContents->True,
+             Editable->False,
+             SelectWithContents->True]}]}], "]"}]}], ",", 
+        RowBox[{"{", "}"}], ",", 
+        RowBox[{"Join", "[", 
+         RowBox[{
+          RowBox[{"Table", "[", 
+           RowBox[{
+            RowBox[{"StringJoin", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"IntegerString", "[", 
+                RowBox[{
+                 RowBox[{"findYear", "[", 
+                  RowBox[{"dateEnd", "-", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], ",", "10", ",", 
+                 "4"}], "]"}], ",", 
+               RowBox[{"IntegerString", "[", 
+                RowBox[{
+                 RowBox[{"findMonth", "[", 
+                  RowBox[{"dateEnd", "-", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], ",", "10", ",", 
+                 "2"}], "]"}], ",", 
+               RowBox[{"IntegerString", "[", 
+                RowBox[{"n", ",", "10", ",", "2"}], "]"}], ",", "\"\<W\>\""}],
+               "}"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"n", ",", "1", ",", 
+              RowBox[{
+               RowBox[{"findDate", "[", 
+                RowBox[{"dateEnd", "-", 
+                 RowBox[{"1", 
+                  NamespaceBox["LinguisticAssistant",
+                   
+                   DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                   BaseStyle->{"Deploy"},
+                   DeleteWithContents->True,
+                   Editable->False,
+                   SelectWithContents->True]}]}], "]"}], "-", "5"}], ",", 
+              "6"}], "}"}]}], "]"}], ",", 
+          RowBox[{"Select", "[", 
+           RowBox[{
+            RowBox[{"Table", "[", 
+             RowBox[{"n", ",", 
+              RowBox[{"{", 
+               RowBox[{"n", ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", 
+                   RowBox[{"dateEnd", "-", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "10000"}], "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", 
+                   RowBox[{"dateEnd", "-", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "100"}], "+", 
+                 "1"}], ",", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", 
+                   RowBox[{"dateEnd", "-", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "10000"}], "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", 
+                   RowBox[{"dateEnd", "-", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "100"}], "+", 
+                 RowBox[{"findDate", "[", 
+                  RowBox[{"dateEnd", "-", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}]}]}], "}"}]}], "]"}], 
+            ",", 
             RowBox[{
-             RowBox[{"findMonth", "[", "dateEnd", "]"}], "*", "100"}], "+", 
-            RowBox[{"findDate", "[", "dateEnd", "]"}]}], ")"}], "-", "#"}], 
-         "<", " ", 
-         RowBox[{"Mod", "[", 
-          RowBox[{
-           RowBox[{"findDate", "[", "dateEnd", "]"}], ",", "6"}], "]"}]}], 
-        "&"}]}], "]"}]}], "]"}]}]}]], "Input",
+             RowBox[{
+              RowBox[{
+               RowBox[{"(", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"findYear", "[", 
+                   RowBox[{"dateEnd", "-", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "10000"}], "+", 
+                 RowBox[{
+                  RowBox[{"findMonth", "[", 
+                   RowBox[{"dateEnd", "-", 
+                    RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], "*", "100"}], "+", 
+                 RowBox[{"findDate", "[", 
+                  RowBox[{"dateEnd", "-", 
+                   RowBox[{"1", 
+                    NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}]}], ")"}], "-", "#"}],
+               "<", " ", 
+              RowBox[{"Mod", "[", 
+               RowBox[{
+                RowBox[{"findDate", "[", 
+                 RowBox[{"dateEnd", "-", 
+                  RowBox[{"1", 
+                   NamespaceBox["LinguisticAssistant",
+                    
+                    DynamicModuleBox[{Typeset`query$$ = "day", 
+                    Typeset`boxes$$ = TemplateBox[{
+                    InterpretationBox["\[InvisibleSpace]", 1], "\"days\"", 
+                    "days", "\"Days\""}, "Quantity", SyntaxForm -> Mod], 
+                    Typeset`allassumptions$$ = {{
+                    "type" -> "Clash", "word" -> "day", "template" -> 
+                    "Assuming \"${word}\" is ${desc1}. Use as ${desc2} \
+instead", "count" -> "3", 
+                    "Values" -> {{
+                    "name" -> "Unit", "desc" -> "a unit", "input" -> 
+                    "*C.day-_*Unit-"}, {
+                    "name" -> "Word", "desc" -> "a word", "input" -> 
+                    "*C.day-_*Word-"}, {
+                    "name" -> "Surname", "desc" -> "a surname", "input" -> 
+                    "*C.day-_*Surname-"}}}}, Typeset`assumptions$$ = {}, 
+                    Typeset`open$$ = {1, 2}, Typeset`querystate$$ = {
+                    "Online" -> True, "Allowed" -> True, "mparse.jsp" -> 
+                    1.4249461`7.605343430531522, "Messages" -> {}}}, 
+                    DynamicBox[ToBoxes[
+                    AlphaIntegration`LinguisticAssistantBoxes[
+                    "", 4, Automatic, 
+                    Dynamic[Typeset`query$$], 
+                    Dynamic[Typeset`boxes$$], 
+                    Dynamic[Typeset`allassumptions$$], 
+                    Dynamic[Typeset`assumptions$$], 
+                    Dynamic[Typeset`open$$], 
+                    Dynamic[Typeset`querystate$$]], StandardForm],
+                    ImageSizeCache->{145., {13., 24.}},
+                    
+                    TrackedSymbols:>{
+                    Typeset`query$$, Typeset`boxes$$, 
+                    Typeset`allassumptions$$, Typeset`assumptions$$, 
+                    Typeset`open$$, Typeset`querystate$$}],
+                    DynamicModuleValues:>{},
+                    UndoTrackedVariables:>{Typeset`open$$}],
+                    BaseStyle->{"Deploy"},
+                    DeleteWithContents->True,
+                    Editable->False,
+                    SelectWithContents->True]}]}], "]"}], ",", "6"}], "]"}]}],
+              "&"}]}], "]"}]}], "]"}]}], "]"}]}], ")"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.771355483701149*^9, 3.7713555173129606`*^9}, {
   3.7713555517538457`*^9, 3.7713555548226886`*^9}, {3.771355587429807*^9, 
   3.7713558029243956`*^9}, {3.7713558365752916`*^9, 3.7713558595192204`*^9}, {
@@ -481,8 +2086,11 @@ Cell[BoxData[
   3.7714175134561625`*^9, 3.771417525096902*^9}, {3.771427971082528*^9, 
   3.77142797450681*^9}, {3.771428441164834*^9, 3.771428443112136*^9}, {
   3.771428531005726*^9, 3.771428536142149*^9}, {3.7714288681292186`*^9, 
-  3.771428870114543*^9}},
- CellLabel->"In[79]:=",ExpressionUUID->"f76c306d-f0b4-4da5-8d18-c4563420609d"],
+  3.771428870114543*^9}, {3.771620745928213*^9, 3.7716207864521823`*^9}, {
+  3.771621980760953*^9, 3.771622017914683*^9}, {3.7716222439292545`*^9, 
+  3.771622277978915*^9}, {3.771623484494352*^9, 3.771623556345169*^9}, {
+  3.7716244967803645`*^9, 3.771624519206292*^9}},
+ CellLabel->"In[55]:=",ExpressionUUID->"f76c306d-f0b4-4da5-8d18-c4563420609d"],
 
 Cell[BoxData[
  RowBox[{
@@ -497,32 +2105,46 @@ Cell[BoxData[
        RowBox[{"m", ",", 
         RowBox[{"{", 
          RowBox[{"m", ",", 
-          RowBox[{"findYear", "[", "start", "]"}], ",", 
-          RowBox[{"findYear", "[", "end", "]"}]}], "}"}]}], "]"}], "]"}], ",", 
+          RowBox[{"findYear", "[", " ", 
+           RowBox[{"startDate", "[", "start", "]"}], "]"}], ",", 
+          RowBox[{"findYear", "[", 
+           RowBox[{"endDate", "[", "end", "]"}], "]"}]}], "}"}]}], "]"}], 
+      "]"}], ",", 
      RowBox[{
       RowBox[{
        RowBox[{
         RowBox[{
          RowBox[{
-          RowBox[{"findYear", "[", "start", "]"}], "*", "10000"}], "+", 
+          RowBox[{"findYear", "[", " ", 
+           RowBox[{"startDate", "[", "start", "]"}], "]"}], "*", "10000"}], 
+         "+", 
          RowBox[{
-          RowBox[{"findMonth", "[", "start", "]"}], "*", "100"}], "+", 
-         RowBox[{"findDate", "[", "start", "]"}]}], "\[LessEqual]", " ", 
+          RowBox[{"findMonth", "[", " ", 
+           RowBox[{"startDate", "[", "start", "]"}], "]"}], "*", "100"}], "+", 
+         RowBox[{"findDate", "[", " ", 
+          RowBox[{"startDate", "[", "start", "]"}], "]"}]}], "\[LessEqual]", 
+        " ", 
         RowBox[{
          RowBox[{"#", "*", "10000"}], "+", "101"}]}], " ", "&&", " ", 
        RowBox[{
         RowBox[{
          RowBox[{"#", "*", "10000"}], "+", "1200", "+", 
-         RowBox[{"daysInMonth", "[", "end", "]"}]}], "\[LessEqual]", " ", 
+         RowBox[{"daysInMonth", "[", 
+          RowBox[{"endDate", "[", "end", "]"}], "]"}]}], "\[LessEqual]", " ", 
         RowBox[{
          RowBox[{
-          RowBox[{"findYear", "[", "end", "]"}], "*", "10000"}], "+", 
+          RowBox[{"findYear", "[", 
+           RowBox[{"endDate", "[", "end", "]"}], "]"}], "*", "10000"}], "+", 
          RowBox[{
-          RowBox[{"findMonth", "[", "end", "]"}], "*", "100"}], "+", 
-         RowBox[{"findDate", "[", "end", "]"}]}]}]}], "&"}]}], 
+          RowBox[{"findMonth", "[", 
+           RowBox[{"endDate", "[", "end", "]"}], "]"}], "*", "100"}], "+", 
+         RowBox[{"findDate", "[", 
+          RowBox[{"endDate", "[", "end", "]"}], "]"}]}]}]}], "&"}]}], 
     "]"}]}]}]], "Input",
- CellChangeTimes->{{3.7714305641713915`*^9, 3.7714306291676474`*^9}},
- CellLabel->"In[80]:=",ExpressionUUID->"0f57cdb7-8810-4e46-963b-e60994cb5fd3"],
+ CellChangeTimes->{{3.7714305641713915`*^9, 3.7714306291676474`*^9}, {
+  3.7716260936416435`*^9, 3.77162610917198*^9}, {3.771626190090835*^9, 
+  3.771626202084818*^9}},
+ CellLabel->"In[89]:=",ExpressionUUID->"0f57cdb7-8810-4e46-963b-e60994cb5fd3"],
 
 Cell[BoxData[
  RowBox[{
@@ -538,7 +2160,8 @@ Cell[BoxData[
          RowBox[{"100", "*", "m"}], "+", "n"}], ",", 
         RowBox[{"{", 
          RowBox[{"m", ",", 
-          RowBox[{"findYear", "[", "start", "]"}], ",", 
+          RowBox[{"findYear", "[", 
+           RowBox[{"startDate", "[", "start", "]"}], "]"}], ",", 
           RowBox[{"findYear", "[", "end", "]"}]}], "}"}], ",", 
         RowBox[{"{", 
          RowBox[{"n", ",", "1", ",", "12"}], "}"}]}], "]"}], "]"}], ",", 
@@ -547,22 +2170,31 @@ Cell[BoxData[
        RowBox[{
         RowBox[{
          RowBox[{
-          RowBox[{"findYear", "[", "start", "]"}], "*", "10000"}], "+", 
+          RowBox[{"findYear", "[", 
+           RowBox[{"startDate", "[", "start", "]"}], "]"}], "*", "10000"}], 
+         "+", 
          RowBox[{
-          RowBox[{"findMonth", "[", "start", "]"}], "*", "100"}], "+", 
-         RowBox[{"findDate", "[", "start", "]"}]}], "\[LessEqual]", " ", 
+          RowBox[{"findMonth", "[", 
+           RowBox[{"startDate", "[", "start", "]"}], "]"}], "*", "100"}], "+", 
+         RowBox[{"findDate", "[", 
+          RowBox[{"startDate", "[", "start", "]"}], "]"}]}], "\[LessEqual]", 
+        " ", 
         RowBox[{
          RowBox[{"#", "*", "100"}], "+", "1"}]}], " ", "&&", " ", 
        RowBox[{
         RowBox[{
          RowBox[{"#", "*", "100"}], "+", 
-         RowBox[{"daysInMonth", "[", "end", "]"}]}], "\[LessEqual]", " ", 
+         RowBox[{"daysInMonth", "[", 
+          RowBox[{"endDate", "[", "end", "]"}], "]"}]}], "\[LessEqual]", " ", 
         RowBox[{
          RowBox[{
-          RowBox[{"findYear", "[", "end", "]"}], "*", "10000"}], "+", 
+          RowBox[{"findYear", "[", 
+           RowBox[{"endDate", "[", "end", "]"}], "]"}], "*", "10000"}], "+", 
          RowBox[{
-          RowBox[{"findMonth", "[", "end", "]"}], "*", "100"}], "+", 
-         RowBox[{"findDate", "[", "end", "]"}]}]}]}], "&"}]}], 
+          RowBox[{"findMonth", "[", 
+           RowBox[{"endDate", "[", "end", "]"}], "]"}], "*", "100"}], "+", 
+         RowBox[{"findDate", "[", 
+          RowBox[{"endDate", "[", "end", "]"}], "]"}]}]}]}], "&"}]}], 
     "]"}]}]}]], "Input",
  CellChangeTimes->{{3.7714153700397186`*^9, 3.7714154151424646`*^9}, {
   3.7714160848563566`*^9, 3.7714161248639903`*^9}, {3.771416205740545*^9, 
@@ -572,8 +2204,9 @@ Cell[BoxData[
   3.7714277559233336`*^9, 3.771427757608457*^9}, {3.771427846204423*^9, 
   3.771427849206416*^9}, {3.7714284577602777`*^9, 3.7714284590521407`*^9}, {
   3.771428545378297*^9, 3.771428548673497*^9}, {3.771428672232047*^9, 
-  3.7714286733077607`*^9}, {3.7714288238477507`*^9, 3.771428826647606*^9}},
- CellLabel->"In[81]:=",ExpressionUUID->"d123db6c-1491-4e8e-9c00-184514db8fe9"],
+  3.7714286733077607`*^9}, {3.7714288238477507`*^9, 3.771428826647606*^9}, {
+  3.771626311919916*^9, 3.7716263266216927`*^9}},
+ CellLabel->"In[93]:=",ExpressionUUID->"d123db6c-1491-4e8e-9c00-184514db8fe9"],
 
 Cell[TextData[StyleBox["Final Statement",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -620,7 +2253,7 @@ Cell[BoxData[
    3.7714166695074835`*^9, {3.7714168007188168`*^9, 3.771416920067246*^9}, {
    3.771416963967455*^9, 3.7714169661078873`*^9}, 3.771430498171835*^9, {
    3.7714306655298448`*^9, 3.7714308142565765`*^9}},
- CellLabel->"In[82]:=",ExpressionUUID->"bc9cc00d-3e79-45ac-bcff-bfb5c92def27"],
+ CellLabel->"In[73]:=",ExpressionUUID->"bc9cc00d-3e79-45ac-bcff-bfb5c92def27"],
 
 Cell[TextData[StyleBox["Optimize If There Is A Complete Year",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -650,8 +2283,7 @@ Cell[BoxData[
    3.771357422817058*^9}, {3.7714170950386944`*^9, 3.771417097225149*^9}, 
    3.771417563225947*^9, {3.7714270564907913`*^9, 3.771427059472783*^9}, 
    3.7714306728527145`*^9},
- CellLabel->
-  "In[215]:=",ExpressionUUID->"55376e96-844a-4f04-a359-37b93358b7a4"],
+ CellLabel->"In[74]:=",ExpressionUUID->"55376e96-844a-4f04-a359-37b93358b7a4"],
 
 Cell[TextData[StyleBox["Optimize With Full Months",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -677,7 +2309,7 @@ Cell[BoxData[
   3.771427022374089*^9}, {3.7714277983875947`*^9, 3.7714278050190086`*^9}, {
   3.7714280175654573`*^9, 3.771428028140504*^9}, {3.771428123030654*^9, 
   3.7714281263508635`*^9}, {3.7714288995401235`*^9, 3.7714289008469954`*^9}},
- CellLabel->"In[84]:=",ExpressionUUID->"d685b862-c14b-432c-8779-b83fe43433a1"],
+ CellLabel->"In[75]:=",ExpressionUUID->"d685b862-c14b-432c-8779-b83fe43433a1"],
 
 Cell[TextData[StyleBox["Optimize Without Full Months",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -698,8 +2330,10 @@ Cell[BoxData[
         RowBox[{"convertDateToString", "[", "n", "]"}], ",", "\"\<W\>\""}], 
        "]"}], ",", " ", 
       RowBox[{"{", 
-       RowBox[{"n", ",", " ", "start", ",", " ", 
-        RowBox[{"end", " ", "-", " ", 
+       RowBox[{"n", ",", " ", 
+        RowBox[{"startDate", "[", "start", "]"}], ",", " ", 
+        RowBox[{
+         RowBox[{"endDate", "[", "end", "]"}], " ", "-", " ", 
          RowBox[{"5", " ", 
           NamespaceBox["LinguisticAssistant",
            
@@ -776,13 +2410,15 @@ Cell[BoxData[
           DeleteWithContents->True,
           Editable->False,
           SelectWithContents->True]}]}], "}"}]}], "]"}], ",", " ", 
-    RowBox[{"convertDateToString", "[", 
+    RowBox[{"convertDateToString", "/@", "\[IndentingNewLine]", 
      RowBox[{"Select", "[", 
       RowBox[{
        RowBox[{"Table", "[", 
         RowBox[{"n", ",", 
          RowBox[{"{", 
-          RowBox[{"n", ",", "start", ",", "end", ",", 
+          RowBox[{"n", ",", 
+           RowBox[{"startDate", "[", "start", "]"}], ",", 
+           RowBox[{"endDate", "[", "end", "]"}], ",", 
            RowBox[{"1", 
             NamespaceBox["LinguisticAssistant",
              
@@ -824,20 +2460,57 @@ Cell[BoxData[
        RowBox[{
         RowBox[{
          RowBox[{"QuantityMagnitude", "[", 
-          RowBox[{"end", "-", "#"}], "]"}], " ", "\[LessEqual]", " ", 
+          RowBox[{
+           RowBox[{"DateObject", "[", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"findYear", "[", 
+               RowBox[{"endDate", "[", "end", "]"}], "]"}], ",", 
+              RowBox[{"findMonth", "[", 
+               RowBox[{"endDate", "[", "end", "]"}], "]"}], ",", 
+              RowBox[{"findDate", "[", 
+               RowBox[{"endDate", "[", "end", "]"}], "]"}]}], "}"}], "]"}], 
+           "-", "#"}], "]"}], " ", "<=", " ", 
          RowBox[{"Mod", "[", 
           RowBox[{
            RowBox[{"QuantityMagnitude", "[", 
-            RowBox[{"end", "-", "start"}], "]"}], ",", "6"}], "]"}]}], 
-        "&"}]}], "]"}], "]"}]}], "]"}]}]], "Input",
+            RowBox[{
+             RowBox[{"DateObject", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"findYear", "[", 
+                 RowBox[{"endDate", "[", "end", "]"}], "]"}], ",", 
+                RowBox[{"findMonth", "[", 
+                 RowBox[{"endDate", "[", "end", "]"}], "]"}], ",", 
+                RowBox[{"findDate", "[", 
+                 RowBox[{"endDate", "[", "end", "]"}], "]"}]}], "}"}], "]"}], 
+             "-", 
+             RowBox[{"DateObject", "[", 
+              RowBox[{"{", 
+               RowBox[{
+                RowBox[{"findYear", "[", 
+                 RowBox[{"startDate", "[", "start", "]"}], "]"}], ",", 
+                RowBox[{"findMonth", "[", 
+                 RowBox[{"startDate", "[", "start", "]"}], "]"}], ",", 
+                RowBox[{"findDate", "[", 
+                 RowBox[{"startDate", "[", "start", "]"}], "]"}]}], "}"}], 
+              "]"}]}], "]"}], ",", "6"}], "]"}]}], "&"}]}], "]"}]}]}], 
+   "]"}]}]], "Input",
  CellChangeTimes->{{3.771357476214981*^9, 3.771357491968423*^9}, {
-  3.771357743500961*^9, 3.77135777406863*^9}, {3.7713578543656454`*^9, 
-  3.771357946424321*^9}, {3.771358023212772*^9, 3.771358228404826*^9}, {
-  3.7713582682052245`*^9, 3.771358369097636*^9}, {3.7713584124409432`*^9, 
-  3.771358418084566*^9}, {3.7713584920845394`*^9, 3.771358663150919*^9}, {
-  3.7713588091800904`*^9, 3.7713588525022645`*^9}, {3.771413131082312*^9, 
-  3.771413152854802*^9}, {3.7714132786933904`*^9, 3.7714132935843086`*^9}},
- CellLabel->"In[85]:=",ExpressionUUID->"dc50f5a9-b94c-464a-9113-9ee6d1e9490d"],
+   3.771357743500961*^9, 3.77135777406863*^9}, {3.7713578543656454`*^9, 
+   3.771357946424321*^9}, {3.771358023212772*^9, 3.771358228404826*^9}, {
+   3.7713582682052245`*^9, 3.771358369097636*^9}, {3.7713584124409432`*^9, 
+   3.771358418084566*^9}, {3.7713584920845394`*^9, 3.771358663150919*^9}, {
+   3.7713588091800904`*^9, 3.7713588525022645`*^9}, {3.771413131082312*^9, 
+   3.771413152854802*^9}, {3.7714132786933904`*^9, 3.7714132935843086`*^9}, {
+   3.771625305944123*^9, 3.771625321774666*^9}, {3.7716253699937563`*^9, 
+   3.771625399190181*^9}, {3.77162774860991*^9, 3.7716277491942997`*^9}, {
+   3.7716279244867086`*^9, 3.7716279973041787`*^9}, {3.771628027901534*^9, 
+   3.771628046719063*^9}, {3.771628077215362*^9, 3.7716280881556416`*^9}, {
+   3.7716281426559143`*^9, 3.771628147526148*^9}, {3.771628330429879*^9, 
+   3.7716283328034625`*^9}, 3.77162972436804*^9},
+ CellLabel->
+  "In[151]:=",ExpressionUUID->"dc50f5a9-b94c-464a-9113-9ee6d1e9490d"],
 
 Cell[TextData[StyleBox["If More Than Two Months: Optimize With Full Months",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -852,7 +2525,7 @@ Cell[BoxData[
   RowBox[{"CombinationWithMonth", "[", 
    RowBox[{"start", ",", "end"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.7714270783403397`*^9, 3.7714271098693233`*^9}},
- CellLabel->"In[86]:=",ExpressionUUID->"d724cf6d-0260-4aed-bdbc-0e2f00008364"],
+ CellLabel->"In[77]:=",ExpressionUUID->"d724cf6d-0260-4aed-bdbc-0e2f00008364"],
 
 Cell[TextData[StyleBox["If one months: Compare with full Months",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -881,21 +2554,7 @@ Cell[BoxData[
    3.7714133863030076`*^9, 3.771413389100878*^9}, 3.7714302489669847`*^9, {
    3.7714304769887314`*^9, 3.7714304771828613`*^9}, {3.771430788808647*^9, 
    3.7714307931905622`*^9}},
- CellLabel->"In[87]:=",ExpressionUUID->"e98abb02-1f13-427e-b050-e84d0016ce89"],
-
-Cell[BoxData[
- RowBox[{"CombinationOneMth", "[", 
-  RowBox[{
-   RowBox[{"DateObject", "[", 
-    RowBox[{"{", 
-     RowBox[{"2018", ",", "5", ",", "28"}], "}"}], "]"}], ",", 
-   RowBox[{"DateObject", "[", 
-    RowBox[{"{", 
-     RowBox[{"2018", ",", "7", ",", "4"}], "}"}], "]"}]}], "]"}]], "Input",
- CellChangeTimes->{{3.771430250983323*^9, 3.7714302813105087`*^9}, {
-  3.7714303993870983`*^9, 3.7714304114551177`*^9}, {3.7714466143781166`*^9, 
-  3.77144661839179*^9}},
- CellLabel->"In[92]:=",ExpressionUUID->"cf366824-d6d1-4607-9d7c-6302b5bd786b"],
+ CellLabel->"In[78]:=",ExpressionUUID->"e98abb02-1f13-427e-b050-e84d0016ce89"],
 
 Cell[TextData[StyleBox["If no months: Without Full Month",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -911,7 +2570,7 @@ Cell[BoxData[
    RowBox[{"start", ",", "end"}], "]"}]}]], "Input",
  CellChangeTimes->{{3.7714135602968054`*^9, 3.7714136003914957`*^9}, {
    3.7714272008043804`*^9, 3.771427201022526*^9}, 3.7714306823630486`*^9},
- CellLabel->"In[89]:=",ExpressionUUID->"6ae1215e-ba39-4d33-9fe2-0f068a61e308"]
+ CellLabel->"In[79]:=",ExpressionUUID->"6ae1215e-ba39-4d33-9fe2-0f068a61e308"]
 },
 WindowSize->{1600, 817},
 WindowMargins->{{-8, Automatic}, {Automatic, -8}},
@@ -932,40 +2591,42 @@ CellTagsIndex->{}
 Notebook[{
 Cell[561, 20, 202, 4, 52, "Text",ExpressionUUID->"907e2ebb-8a8e-45b8-9c4e-a44bbc277794"],
 Cell[766, 26, 554, 10, 43, "Input",ExpressionUUID->"5162f9f8-c6e9-4f12-86b2-e8901e38eec0"],
-Cell[1323, 38, 403, 8, 43, "Input",ExpressionUUID->"4eaae841-6115-44d7-80e6-502baf04dbf7"],
-Cell[1729, 48, 351, 7, 43, "Input",ExpressionUUID->"e9a29e57-0daa-4c08-9db2-83532d9342c0"],
+Cell[1323, 38, 453, 9, 43, "Input",ExpressionUUID->"4eaae841-6115-44d7-80e6-502baf04dbf7"],
+Cell[1779, 49, 351, 7, 43, "Input",ExpressionUUID->"e9a29e57-0daa-4c08-9db2-83532d9342c0"],
+Cell[2133, 58, 283, 6, 43, "Input",ExpressionUUID->"92c3bd69-d856-4249-a841-22760d0bc197"],
 Cell[CellGroupData[{
-Cell[2105, 59, 2132, 45, 58, "Input",ExpressionUUID->"7231cdc2-1a58-4291-8020-3ac552b620c1"],
-Cell[4240, 106, 242, 5, 49, "Output",ExpressionUUID->"18bee936-c3c1-441e-9c20-ad6408ba991e"]
+Cell[2441, 68, 2132, 45, 58, "Input",ExpressionUUID->"7231cdc2-1a58-4291-8020-3ac552b620c1"],
+Cell[4576, 115, 242, 5, 49, "Output",ExpressionUUID->"18bee936-c3c1-441e-9c20-ad6408ba991e"]
 }, Open  ]],
-Cell[4497, 114, 699, 16, 43, "Input",ExpressionUUID->"6b2a411f-1efa-43ac-a58b-733c5300e113"],
-Cell[5199, 132, 1753, 43, 131, "Input",ExpressionUUID->"85dd4b16-f4fb-4305-8fa0-b891596f4699"],
-Cell[6955, 177, 1744, 44, 131, "Input",ExpressionUUID->"28456081-52f6-407c-bfd8-e2ab56966398"],
-Cell[8702, 223, 1105, 26, 102, "Input",ExpressionUUID->"2858af80-daa3-4b90-b28c-b0d35978f5c3"],
-Cell[9810, 251, 1005, 21, 43, "Input",ExpressionUUID->"b4f31191-1c33-4960-adf6-4772bc5d805b"],
-Cell[10818, 274, 927, 19, 43, "Input",ExpressionUUID->"ffe17eb7-a571-4fc0-9209-d34212ce8ced"],
-Cell[11748, 295, 698, 15, 43, "Input",ExpressionUUID->"9f978dab-c7ac-4328-b2bb-938b5100900b"],
-Cell[12449, 312, 261, 4, 43, "Input",ExpressionUUID->"658e360a-7016-45d3-805b-0bfb7f377561"],
-Cell[12713, 318, 250, 4, 43, "Input",ExpressionUUID->"90b7c5de-da3d-4cdc-8e05-65b45c65a53f"],
-Cell[12966, 324, 3559, 87, 247, "Input",ExpressionUUID->"4c3d5cb3-bdbc-4f3e-8727-5f015b6c5b4b"],
-Cell[16528, 413, 2910, 71, 247, "Input",ExpressionUUID->"f76c306d-f0b4-4da5-8d18-c4563420609d"],
-Cell[19441, 486, 1516, 38, 131, "Input",ExpressionUUID->"0f57cdb7-8810-4e46-963b-e60994cb5fd3"],
-Cell[20960, 526, 2214, 49, 131, "Input",ExpressionUUID->"d123db6c-1491-4e8e-9c00-184514db8fe9"],
-Cell[23177, 577, 210, 4, 52, "Text",ExpressionUUID->"e610a9f1-3d18-4d25-9de5-1e33e31f5dad"],
-Cell[23390, 583, 1786, 39, 247, "Input",ExpressionUUID->"bc9cc00d-3e79-45ac-bcff-bfb5c92def27"],
-Cell[25179, 624, 231, 4, 52, "Text",ExpressionUUID->"ff1935b5-ef34-41ca-91a8-da8d2ff997dc"],
-Cell[25413, 630, 1229, 23, 73, "Input",ExpressionUUID->"55376e96-844a-4f04-a359-37b93358b7a4"],
-Cell[26645, 655, 220, 4, 52, "Text",ExpressionUUID->"25739b8d-e108-46c2-b254-52684950a11e"],
-Cell[26868, 661, 1032, 18, 73, "Input",ExpressionUUID->"d685b862-c14b-432c-8779-b83fe43433a1"],
-Cell[27903, 681, 225, 4, 52, "Text",ExpressionUUID->"15c6624c-7301-415a-9ccf-42cbcac463c9"],
-Cell[28131, 687, 7359, 152, 178, "Input",ExpressionUUID->"dc50f5a9-b94c-464a-9113-9ee6d1e9490d"],
-Cell[35493, 841, 245, 4, 52, "Text",ExpressionUUID->"e1309b97-cdb4-4ce9-ac83-d0f39ccb70fa"],
-Cell[35741, 847, 389, 7, 43, "Input",ExpressionUUID->"d724cf6d-0260-4aed-bdbc-0e2f00008364"],
-Cell[36133, 856, 234, 4, 52, "Text",ExpressionUUID->"3f543e0e-35d7-44f3-9bb2-0ac211e9a14a"],
-Cell[36370, 862, 1016, 21, 73, "Input",ExpressionUUID->"e98abb02-1f13-427e-b050-e84d0016ce89"],
-Cell[37389, 885, 548, 12, 43, "Input",ExpressionUUID->"cf366824-d6d1-4607-9d7c-6302b5bd786b"],
-Cell[37940, 899, 229, 4, 52, "Text",ExpressionUUID->"01e4702b-da31-4756-b877-79f42e050da9"],
-Cell[38172, 905, 456, 8, 43, "Input",ExpressionUUID->"6ae1215e-ba39-4d33-9fe2-0f068a61e308"]
+Cell[4833, 123, 2413, 51, 59, "Input",ExpressionUUID->"255a0414-8b54-44fd-893a-e153ee07a5b4"],
+Cell[7249, 176, 2197, 48, 59, "Input",ExpressionUUID->"c49695f1-fea5-4a80-bed2-1f778a69de2c"],
+Cell[9449, 226, 695, 15, 43, "Input",ExpressionUUID->"6b2a411f-1efa-43ac-a58b-733c5300e113"],
+Cell[10147, 243, 2756, 68, 160, "Input",ExpressionUUID->"85dd4b16-f4fb-4305-8fa0-b891596f4699"],
+Cell[12906, 313, 2647, 67, 218, "Input",ExpressionUUID->"28456081-52f6-407c-bfd8-e2ab56966398"],
+Cell[15556, 382, 1105, 26, 102, "Input",ExpressionUUID->"2858af80-daa3-4b90-b28c-b0d35978f5c3"],
+Cell[16664, 410, 1005, 21, 43, "Input",ExpressionUUID->"b4f31191-1c33-4960-adf6-4772bc5d805b"],
+Cell[17672, 433, 927, 19, 43, "Input",ExpressionUUID->"ffe17eb7-a571-4fc0-9209-d34212ce8ced"],
+Cell[18602, 454, 698, 15, 43, "Input",ExpressionUUID->"9f978dab-c7ac-4328-b2bb-938b5100900b"],
+Cell[19303, 471, 265, 5, 43, "Input",ExpressionUUID->"658e360a-7016-45d3-805b-0bfb7f377561"],
+Cell[19571, 478, 250, 4, 43, "Input",ExpressionUUID->"90b7c5de-da3d-4cdc-8e05-65b45c65a53f"],
+Cell[19824, 484, 43594, 851, 797, "Input",ExpressionUUID->"4c3d5cb3-bdbc-4f3e-8727-5f015b6c5b4b"],
+Cell[63421, 1337, 38323, 755, 633, "Input",ExpressionUUID->"f76c306d-f0b4-4da5-8d18-c4563420609d"],
+Cell[101747, 2094, 2053, 52, 160, "Input",ExpressionUUID->"0f57cdb7-8810-4e46-963b-e60994cb5fd3"],
+Cell[103803, 2148, 2633, 60, 131, "Input",ExpressionUUID->"d123db6c-1491-4e8e-9c00-184514db8fe9"],
+Cell[106439, 2210, 210, 4, 52, "Text",ExpressionUUID->"e610a9f1-3d18-4d25-9de5-1e33e31f5dad"],
+Cell[106652, 2216, 1786, 39, 247, "Input",ExpressionUUID->"bc9cc00d-3e79-45ac-bcff-bfb5c92def27"],
+Cell[108441, 2257, 231, 4, 52, "Text",ExpressionUUID->"ff1935b5-ef34-41ca-91a8-da8d2ff997dc"],
+Cell[108675, 2263, 1225, 22, 73, "Input",ExpressionUUID->"55376e96-844a-4f04-a359-37b93358b7a4"],
+Cell[109903, 2287, 220, 4, 52, "Text",ExpressionUUID->"25739b8d-e108-46c2-b254-52684950a11e"],
+Cell[110126, 2293, 1032, 18, 73, "Input",ExpressionUUID->"d685b862-c14b-432c-8779-b83fe43433a1"],
+Cell[111161, 2313, 225, 4, 52, "Text",ExpressionUUID->"15c6624c-7301-415a-9ccf-42cbcac463c9"],
+Cell[111389, 2319, 9287, 193, 265, "Input",ExpressionUUID->"dc50f5a9-b94c-464a-9113-9ee6d1e9490d"],
+Cell[120679, 2514, 245, 4, 52, "Text",ExpressionUUID->"e1309b97-cdb4-4ce9-ac83-d0f39ccb70fa"],
+Cell[120927, 2520, 389, 7, 43, "Input",ExpressionUUID->"d724cf6d-0260-4aed-bdbc-0e2f00008364"],
+Cell[121319, 2529, 234, 4, 52, "Text",ExpressionUUID->"3f543e0e-35d7-44f3-9bb2-0ac211e9a14a"],
+Cell[121556, 2535, 1016, 21, 73, "Input",ExpressionUUID->"e98abb02-1f13-427e-b050-e84d0016ce89"],
+Cell[122575, 2558, 229, 4, 52, "Text",ExpressionUUID->"01e4702b-da31-4756-b877-79f42e050da9"],
+Cell[122807, 2564, 456, 8, 43, "Input",ExpressionUUID->"6ae1215e-ba39-4d33-9fe2-0f068a61e308"]
 }
 ]
 *)
