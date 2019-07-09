@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       161,          7]
-NotebookDataLength[    126972,       2625]
-NotebookOptionsPosition[    123267,       2574]
-NotebookOutlinePosition[    123641,       2590]
-CellTagsIndexPosition[    123598,       2587]
+NotebookDataLength[    130275,       2709]
+NotebookOptionsPosition[    126370,       2656]
+NotebookOutlinePosition[    126744,       2672]
+CellTagsIndexPosition[    126701,       2669]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -2208,6 +2208,80 @@ Cell[BoxData[
   3.771626311919916*^9, 3.7716263266216927`*^9}},
  CellLabel->"In[93]:=",ExpressionUUID->"d123db6c-1491-4e8e-9c00-184514db8fe9"],
 
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findHourlySetsAfter", "[", "start_DateObject", "]"}], " ", ":=", 
+  " ", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"findHour", "[", "start", "]"}], " ", "\[Equal]", " ", "0"}], 
+    ",", " ", 
+    RowBox[{"{", "}"}], ",", " ", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"IntegerString", "[", 
+          RowBox[{
+           RowBox[{"findYear", "[", "start", "]"}], ",", "10", ",", "4"}], 
+          "]"}], ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{
+           RowBox[{"findMonth", "[", "start", "]"}], ",", "10", ",", "2"}], 
+          "]"}], ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{
+           RowBox[{"findDate", "[", "start", "]"}], ",", "10", ",", "2"}], 
+          "]"}], ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", 
+        RowBox[{"findHour", "[", "start", "]"}], ",", "23"}], "}"}]}], 
+     "]"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.771630532894617*^9, 3.771630736433812*^9}},
+ CellLabel->
+  "In[152]:=",ExpressionUUID->"dd383bb4-8b2c-431a-8382-26cebc2887d6"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"findHourlySetsBefore", "[", "end_DateObject", "]"}], " ", ":=", 
+  " ", "\[IndentingNewLine]", 
+  RowBox[{"If", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"findHour", "[", "end", "]"}], " ", "\[Equal]", " ", "23"}], ",",
+     " ", 
+    RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"StringJoin", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"IntegerString", "[", 
+          RowBox[{
+           RowBox[{"findYear", "[", "end", "]"}], ",", "10", ",", "4"}], 
+          "]"}], ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{
+           RowBox[{"findMonth", "[", "end", "]"}], ",", "10", ",", "2"}], 
+          "]"}], ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{
+           RowBox[{"findDate", "[", "end", "]"}], ",", "10", ",", "2"}], 
+          "]"}], ",", 
+         RowBox[{"IntegerString", "[", 
+          RowBox[{"n", ",", "10", ",", "2"}], "]"}]}], "}"}], "]"}], ",", 
+      RowBox[{"{", 
+       RowBox[{"n", ",", "0", ",", 
+        RowBox[{"findHour", "[", "end", "]"}]}], "}"}]}], "]"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.7716307763406525`*^9, 3.7716308348445873`*^9}},
+ CellLabel->
+  "In[156]:=",ExpressionUUID->"c5a32057-6727-404c-ba55-7f481d7db8ec"],
+
 Cell[TextData[StyleBox["Final Statement",
  FontColor->RGBColor[1, 0, 0]]], "Text",
  CellChangeTimes->{{3.771423644253044*^9, 
@@ -2268,12 +2342,14 @@ Cell[BoxData[
    " ", 
   RowBox[{"Join", "[", 
    RowBox[{
+    RowBox[{"findHourlySetsAfter", "[", "start", "]"}], ",", 
     RowBox[{"listWeekDatesBegin", "[", "start", "]"}], ",", 
     RowBox[{"findMonthsAfter", "[", "start", "]"}], ",", 
     RowBox[{"ListFullYears", "[", 
      RowBox[{"start", ",", "end"}], "]"}], ",", 
     RowBox[{"findMonthsBefore", "[", "end", "]"}], ",", 
-    RowBox[{"listWeekDatesEnd", "[", "end", "]"}]}], "]"}]}]], "Input",
+    RowBox[{"listWeekDatesEnd", "[", "end", "]"}], ",", 
+    RowBox[{"findHourlySetsBefore", "[", "end", "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.771196068771106*^9, 3.7711961130232987`*^9}, {
    3.7711961693107166`*^9, 3.771196213178105*^9}, {3.7711962682369375`*^9, 
    3.771196272269326*^9}, {3.7711964441304817`*^9, 3.771196445536807*^9}, {
@@ -2282,8 +2358,10 @@ Cell[BoxData[
    3.7713573809824123`*^9, 3.771357382536276*^9}, {3.7713574213353243`*^9, 
    3.771357422817058*^9}, {3.7714170950386944`*^9, 3.771417097225149*^9}, 
    3.771417563225947*^9, {3.7714270564907913`*^9, 3.771427059472783*^9}, 
-   3.7714306728527145`*^9},
- CellLabel->"In[74]:=",ExpressionUUID->"55376e96-844a-4f04-a359-37b93358b7a4"],
+   3.7714306728527145`*^9, {3.7716308414849997`*^9, 3.771630855413276*^9}, {
+   3.771630886550992*^9, 
+   3.7716308933845434`*^9}},ExpressionUUID->"55376e96-844a-4f04-a359-\
+37b93358b7a4"],
 
 Cell[TextData[StyleBox["Optimize With Full Months",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -2298,18 +2376,22 @@ Cell[BoxData[
    "\[IndentingNewLine]", 
   RowBox[{"Join", "[", 
    RowBox[{
+    RowBox[{"findHourlySetsAfter", "[", "start", "]"}], ",", 
     RowBox[{"listWeekDatesBegin", "[", "start", "]"}], ",", 
     RowBox[{"findCompleteMonthsBetween", "[", 
      RowBox[{"start", ",", "end"}], "]"}], ",", 
-    RowBox[{"listWeekDatesEnd", "[", "end", "]"}]}], "]"}]}]], "Input",
+    RowBox[{"listWeekDatesEnd", "[", "end", "]"}], ",", 
+    RowBox[{"findHourlySetsBefore", "[", "end", "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.771196634846534*^9, 3.771196650654158*^9}, {
-  3.7712592563246007`*^9, 3.771259274306559*^9}, {3.7713571956074905`*^9, 
-  3.7713571971525145`*^9}, {3.7713572937038355`*^9, 3.7713573431297264`*^9}, {
-  3.771357453257861*^9, 3.77135746597641*^9}, {3.771427011132608*^9, 
-  3.771427022374089*^9}, {3.7714277983875947`*^9, 3.7714278050190086`*^9}, {
-  3.7714280175654573`*^9, 3.771428028140504*^9}, {3.771428123030654*^9, 
-  3.7714281263508635`*^9}, {3.7714288995401235`*^9, 3.7714289008469954`*^9}},
- CellLabel->"In[75]:=",ExpressionUUID->"d685b862-c14b-432c-8779-b83fe43433a1"],
+   3.7712592563246007`*^9, 3.771259274306559*^9}, {3.7713571956074905`*^9, 
+   3.7713571971525145`*^9}, {3.7713572937038355`*^9, 
+   3.7713573431297264`*^9}, {3.771357453257861*^9, 3.77135746597641*^9}, {
+   3.771427011132608*^9, 3.771427022374089*^9}, {3.7714277983875947`*^9, 
+   3.7714278050190086`*^9}, {3.7714280175654573`*^9, 3.771428028140504*^9}, {
+   3.771428123030654*^9, 3.7714281263508635`*^9}, {3.7714288995401235`*^9, 
+   3.7714289008469954`*^9}, 3.7716308602825093`*^9, 
+   3.7716308995626516`*^9},ExpressionUUID->"d685b862-c14b-432c-8779-\
+b83fe43433a1"],
 
 Cell[TextData[StyleBox["Optimize Without Full Months",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -2323,6 +2405,7 @@ Cell[BoxData[
    RowBox[{"start_DateObject", ",", "end_DateObject"}], "]"}], " ", ":=", 
   RowBox[{"Join", "[", 
    RowBox[{
+    RowBox[{"findHourlySetsAfter", "[", "start", "]"}], ",", 
     RowBox[{"Table", "[", " ", 
      RowBox[{
       RowBox[{"StringJoin", "[", 
@@ -2362,7 +2445,6 @@ Cell[BoxData[
                Dynamic[Typeset`open$$], 
                Dynamic[Typeset`querystate$$]], StandardForm],
              ImageSizeCache->{145., {13., 24.}},
-             
              TrackedSymbols:>{
               Typeset`query$$, Typeset`boxes$$, Typeset`allassumptions$$, 
                Typeset`assumptions$$, Typeset`open$$, Typeset`querystate$$}],
@@ -2494,8 +2576,8 @@ Cell[BoxData[
                  RowBox[{"startDate", "[", "start", "]"}], "]"}], ",", 
                 RowBox[{"findDate", "[", 
                  RowBox[{"startDate", "[", "start", "]"}], "]"}]}], "}"}], 
-              "]"}]}], "]"}], ",", "6"}], "]"}]}], "&"}]}], "]"}]}]}], 
-   "]"}]}]], "Input",
+              "]"}]}], "]"}], ",", "6"}], "]"}]}], "&"}]}], "]"}]}], ",", 
+    RowBox[{"findHourlySetsBefore", "[", "end", "]"}]}], "]"}]}]], "Input",
  CellChangeTimes->{{3.771357476214981*^9, 3.771357491968423*^9}, {
    3.771357743500961*^9, 3.77135777406863*^9}, {3.7713578543656454`*^9, 
    3.771357946424321*^9}, {3.771358023212772*^9, 3.771358228404826*^9}, {
@@ -2508,9 +2590,9 @@ Cell[BoxData[
    3.7716279244867086`*^9, 3.7716279973041787`*^9}, {3.771628027901534*^9, 
    3.771628046719063*^9}, {3.771628077215362*^9, 3.7716280881556416`*^9}, {
    3.7716281426559143`*^9, 3.771628147526148*^9}, {3.771628330429879*^9, 
-   3.7716283328034625`*^9}, 3.77162972436804*^9},
- CellLabel->
-  "In[151]:=",ExpressionUUID->"dc50f5a9-b94c-464a-9113-9ee6d1e9490d"],
+   3.7716283328034625`*^9}, 3.77162972436804*^9, {3.771630876408245*^9, 
+   3.771630902996937*^9}},ExpressionUUID->"dc50f5a9-b94c-464a-9113-\
+9ee6d1e9490d"],
 
 Cell[TextData[StyleBox["If More Than Two Months: Optimize With Full Months",
  FontColor->RGBColor[1, 0, 0]]], "Text",
@@ -2613,20 +2695,22 @@ Cell[19824, 484, 43594, 851, 797, "Input",ExpressionUUID->"4c3d5cb3-bdbc-4f3e-87
 Cell[63421, 1337, 38323, 755, 633, "Input",ExpressionUUID->"f76c306d-f0b4-4da5-8d18-c4563420609d"],
 Cell[101747, 2094, 2053, 52, 160, "Input",ExpressionUUID->"0f57cdb7-8810-4e46-963b-e60994cb5fd3"],
 Cell[103803, 2148, 2633, 60, 131, "Input",ExpressionUUID->"d123db6c-1491-4e8e-9c00-184514db8fe9"],
-Cell[106439, 2210, 210, 4, 52, "Text",ExpressionUUID->"e610a9f1-3d18-4d25-9de5-1e33e31f5dad"],
-Cell[106652, 2216, 1786, 39, 247, "Input",ExpressionUUID->"bc9cc00d-3e79-45ac-bcff-bfb5c92def27"],
-Cell[108441, 2257, 231, 4, 52, "Text",ExpressionUUID->"ff1935b5-ef34-41ca-91a8-da8d2ff997dc"],
-Cell[108675, 2263, 1225, 22, 73, "Input",ExpressionUUID->"55376e96-844a-4f04-a359-37b93358b7a4"],
-Cell[109903, 2287, 220, 4, 52, "Text",ExpressionUUID->"25739b8d-e108-46c2-b254-52684950a11e"],
-Cell[110126, 2293, 1032, 18, 73, "Input",ExpressionUUID->"d685b862-c14b-432c-8779-b83fe43433a1"],
-Cell[111161, 2313, 225, 4, 52, "Text",ExpressionUUID->"15c6624c-7301-415a-9ccf-42cbcac463c9"],
-Cell[111389, 2319, 9287, 193, 265, "Input",ExpressionUUID->"dc50f5a9-b94c-464a-9113-9ee6d1e9490d"],
-Cell[120679, 2514, 245, 4, 52, "Text",ExpressionUUID->"e1309b97-cdb4-4ce9-ac83-d0f39ccb70fa"],
-Cell[120927, 2520, 389, 7, 43, "Input",ExpressionUUID->"d724cf6d-0260-4aed-bdbc-0e2f00008364"],
-Cell[121319, 2529, 234, 4, 52, "Text",ExpressionUUID->"3f543e0e-35d7-44f3-9bb2-0ac211e9a14a"],
-Cell[121556, 2535, 1016, 21, 73, "Input",ExpressionUUID->"e98abb02-1f13-427e-b050-e84d0016ce89"],
-Cell[122575, 2558, 229, 4, 52, "Text",ExpressionUUID->"01e4702b-da31-4756-b877-79f42e050da9"],
-Cell[122807, 2564, 456, 8, 43, "Input",ExpressionUUID->"6ae1215e-ba39-4d33-9fe2-0f068a61e308"]
+Cell[106439, 2210, 1284, 35, 131, "Input",ExpressionUUID->"dd383bb4-8b2c-431a-8382-26cebc2887d6"],
+Cell[107726, 2247, 1316, 35, 131, "Input",ExpressionUUID->"c5a32057-6727-404c-ba55-7f481d7db8ec"],
+Cell[109045, 2284, 210, 4, 52, "Text",ExpressionUUID->"e610a9f1-3d18-4d25-9de5-1e33e31f5dad"],
+Cell[109258, 2290, 1786, 39, 247, "Input",ExpressionUUID->"bc9cc00d-3e79-45ac-bcff-bfb5c92def27"],
+Cell[111047, 2331, 231, 4, 52, "Text",ExpressionUUID->"ff1935b5-ef34-41ca-91a8-da8d2ff997dc"],
+Cell[111281, 2337, 1430, 26, 102, "Input",ExpressionUUID->"55376e96-844a-4f04-a359-37b93358b7a4"],
+Cell[112714, 2365, 220, 4, 52, "Text",ExpressionUUID->"25739b8d-e108-46c2-b254-52684950a11e"],
+Cell[112937, 2371, 1195, 22, 102, "Input",ExpressionUUID->"d685b862-c14b-432c-8779-b83fe43433a1"],
+Cell[114135, 2395, 225, 4, 52, "Text",ExpressionUUID->"15c6624c-7301-415a-9ccf-42cbcac463c9"],
+Cell[114363, 2401, 9416, 193, 319, "Input",ExpressionUUID->"dc50f5a9-b94c-464a-9113-9ee6d1e9490d"],
+Cell[123782, 2596, 245, 4, 52, "Text",ExpressionUUID->"e1309b97-cdb4-4ce9-ac83-d0f39ccb70fa"],
+Cell[124030, 2602, 389, 7, 43, "Input",ExpressionUUID->"d724cf6d-0260-4aed-bdbc-0e2f00008364"],
+Cell[124422, 2611, 234, 4, 52, "Text",ExpressionUUID->"3f543e0e-35d7-44f3-9bb2-0ac211e9a14a"],
+Cell[124659, 2617, 1016, 21, 73, "Input",ExpressionUUID->"e98abb02-1f13-427e-b050-e84d0016ce89"],
+Cell[125678, 2640, 229, 4, 52, "Text",ExpressionUUID->"01e4702b-da31-4756-b877-79f42e050da9"],
+Cell[125910, 2646, 456, 8, 43, "Input",ExpressionUUID->"6ae1215e-ba39-4d33-9fe2-0f068a61e308"]
 }
 ]
 *)
